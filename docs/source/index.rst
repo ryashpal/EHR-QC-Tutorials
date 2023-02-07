@@ -1,13 +1,14 @@
-Welcome to Lumache's documentation!
+EHRQC
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+EHR-QC is a complete end-to-end pipeline to standardise and preprocess Electronic Health Records (EHR) for downstream integrative machine learning applications. This utility has two distinct modules;
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+1. Standardisation
+2. Pre-processing
+
+Both the modules can be run as a single end-to-end pipeline or individual components can be run in a standalone manner.
+
+This utility is primarily focussed to provide a domain specific toolset for performing commmon standardisation and pre-processing tasks while handling the healthcare data. A command line interface is designed to provide an abstraction over the internal implementation details while at the same time being easy to use for anyone with basic Linux skills.
 
 .. note::
 
