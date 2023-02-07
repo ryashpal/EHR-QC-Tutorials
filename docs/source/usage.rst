@@ -1,3 +1,37 @@
+Installation
+============
+
+Clone the repository from GitHub.
+---------------------------------
+
+.. code-block:: console
+
+   $ git clone git@github.com:ryashpal/EHRQC.git
+
+
+Create a python virtual environment
+-----------------------------------
+
+.. code-block:: console
+
+   $ python -m venv .venv
+
+
+Activate the python virtual environment
+---------------------------------------
+
+.. code-block:: console
+
+   $ source .venv/bin/activate
+
+Install the required dependencies
+---------------------------------
+
+.. code-block:: console
+
+   $ pip install -r requirements.txt
+
+
 Usage
 =====
 
