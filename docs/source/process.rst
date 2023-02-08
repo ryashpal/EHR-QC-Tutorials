@@ -191,7 +191,5 @@ This utility expects the file to contain the information under the following col
 
 Example Output: 
 
-`Demographics Plots`_
-
-.. _Demographics Plots: (https://ryashpal.github.io/EHRQC/demographics.html)
+`Demographics Plots <https://ryashpal.github.io/EHRQC/demographics.html>`_ .
 
