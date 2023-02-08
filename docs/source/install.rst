@@ -10,6 +10,7 @@ Login
 Upon login to a system and opening a terminal, the following prompt should appear, where the ``user`` is the user name and the ``hostname`` is the hostname of the system.
 
 .. code-block:: console
+
    user@hostname:~$
 
 
