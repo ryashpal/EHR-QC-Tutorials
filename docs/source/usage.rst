@@ -1,68 +1,85 @@
 Installation
 ============
 
-Clone the repository from GitHub.
----------------------------------
+Follow the below steps to install EHR-QC in your computer.
+
+
+Login to a system and open a terminal
+---------------------------------------------
+
+Upon login, the following prompt should appear, where the ``user`` is the user name and the ``hostname`` is the hostname of the system.
+
+.. code-block:: console
+   user@hostname:~$
+
+
+Change directory to a suitable location
+---------------------------------------
+
+From the home directory, change to a suitable directory on your computer where the utility needs to be installed. For example, in this tutorial we have changed to ``workspace`` directory.
 
 .. code-block:: console
 
-   $ git clone git@github.com:ryashpal/EHRQC.git
+   user@hostname:~$ cd workspace
+
+
+Clone the repository from GitHub.
+---------------------------------
+
+In the destination folder, clone the current version of EHR-QC repository from the GitHub.
+
+.. code-block:: console
+
+   user@hostname:~/workspace$ git clone git@github.com:ryashpal/EHRQC.git
+
+
+Open EHR-QC directory
+---------------------
+
+Open the EHR-QC directory.
+
+.. code-block:: console
+
+   user@hostname:~/workspace$ cd EHRQC
 
 
 Create a python virtual environment
 -----------------------------------
 
+Inside the EHR-QC directory, create a new virtual enviroment to install all the dependencies required for the utility.
+
 .. code-block:: console
 
-   $ python -m venv .venv
+   user@hostname:~/workspace/EHRQC$ python -m venv .venv
 
 
 Activate the python virtual environment
 ---------------------------------------
 
+After creating the virtual enviroment, activate the virtual enviroment to start using it for subsequent commands. The prompt will change with ``(.venv)`` appearing in front of it as shown below;
+
 .. code-block:: console
 
-   $ source .venv/bin/activate
+   user@hostname:~/workspace/EHRQC$ source .venv/bin/activate
+   (.venv) user@hostname:~/workspace/EHRQC$
+
 
 Install the required dependencies
 ---------------------------------
 
-.. code-block:: console
-
-   $ pip install -r requirements.txt
-
-
-Usage
-=====
-
-.. _installation:
-
-Installation
-------------
-
-To use Lumache, first install it using pip:
+Install all the required dependencies listed in the requirements.txt file in the newly created python virtual environment.
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   (.venv) user@hostname:~/workspace/EHRQC$ pip install -r requirements.txt
 
-Creating recipes
-----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Verify the installation
+-----------------------
 
-.. autofunction:: lumache.get_random_ingredients
+Verify the installation by running the following command. The expected output should contain ``EHRQC <version number>``.
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+.. code-block:: console
 
-.. autoexception:: lumache.InvalidKindError
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
-
+   (.venv) user@hostname:~/workspace/EHRQC$ python -m EHRQC -v
+   EHRQC 1.0
