@@ -20,4 +20,4 @@ Contents
 .. toctree::
 
    install
-   api
+   config
