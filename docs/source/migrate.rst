@@ -108,8 +108,8 @@ To unload the final tables from the lookup and etl shema to the destination sche
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -u
 
 
-Migrate
--------
+Migrate Pipeline
+----------------
 
 To run the entire pipeline in an end-to-end fashion.
 

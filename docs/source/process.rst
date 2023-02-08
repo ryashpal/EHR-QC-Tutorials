@@ -168,7 +168,7 @@ Explore Demographics Plots
 
 To generate QC plots from the demograhic data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
-.. code-block:: json
+.. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/mimic_demographics.csv temp/mimic_demographics_explore.html -c {<"optional mapping information">}
 
@@ -188,7 +188,7 @@ This function expects the file to contain the information under the following co
 | ethnicity            | Ethnicity of the person   |
 +----------------------+---------------------------+
 
-`Example Demographics Plots <https://ryashpal.github.io/EHRQC/demographics.html>`_ .
+`Example Demographics Plots <https://ryashpal.github.io/EHRQC/demographics.html>`_
 
 
 Explore Vitals Plots
@@ -196,7 +196,7 @@ Explore Vitals Plots
 
 To generate QC plots from the vitals data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
-.. code-block:: json
+.. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/mimic_vitals.csv temp/mimic_vitals_explore.html -c {<"optional mapping information">}
 
@@ -226,7 +226,7 @@ This function expects the file to contain the information under the following co
 | gcsmotor             | Glasgow Coma Scale - Motor Response  |
 +----------------------+--------------------------------------+
 
-`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals.html>`_ .
+`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals.html>`_
 
 
 Explore Lab measurements Plots
@@ -234,7 +234,7 @@ Explore Lab measurements Plots
 
 To generate QC plots from the lab measurements data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
-.. code-block:: json
+.. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore temp/mimic_lab_measurements.csv temp/mimic_lab_measurements_explore.html -c {<"optional mapping information">}
 
@@ -285,7 +285,7 @@ This function expects the file to contain the information under the following co
 | white_blood_cells    | White Blood Cells                          |
 +----------------------+--------------------------------------------+
 
-`Example Vitals Plots <https://ryashpal.github.io/EHRQC/lab_measurements.html>`_ .
+`Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements.html>`_
 
 
 Vitals Outlier Plots
@@ -293,7 +293,7 @@ Vitals Outlier Plots
 
 To generate QC plots from the vitals data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
-.. code-block:: json
+.. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
 
@@ -323,7 +323,7 @@ This function expects the file to contain the information under the following co
 | gcsmotor             | Glasgow Coma Scale - Motor Response  |
 +----------------------+--------------------------------------+
 
-`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_ .
+`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_
 
 
 Lab measurements Outlier Plots
@@ -331,7 +331,7 @@ Lab measurements Outlier Plots
 
 To generate QC plots from the lab measurements data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
-.. code-block:: json
+.. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_outliers temp/mimic_lab_measurements_imputed.csv temp/mimic_lab_measurements_outliers.html
 
@@ -381,5 +381,266 @@ This function expects the file to contain the information under the following co
 | white_blood_cells    | White Blood Cells                          |
 +----------------------+--------------------------------------------+
 
-`Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements_outliers.html>`_ .
+`Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements_outliers.html>`_
 
+
+Impute
+------
+
+
+Help menu
+~~~~~~~~~
+
+To display the help menu;
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute -h
+
+Output
+
+.. code-block:: console
+
+    usage: Impute.py [-h] [-sp SAVE_PATH] [-a ALGORITHM] action source_path
+
+    EHRQC
+
+    positional arguments:
+    action                Action to perform [compare, impute]
+    source_path           Source data path
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    -sp SAVE_PATH, --save_path SAVE_PATH
+                            Path of the file to store the outputs (required only for action=impute)
+    -a ALGORITHM, --algorithm ALGORITHM
+                            Missing data imputation algorithm [mean, median, knn, miss_forest, expectation_maximization, multiple_imputation]
+
+
+Compare imputation
+~~~~~~~~~~~~~~~~~~
+
+To create a random missingness in the data and compare 6 different missing data algorithms [mean, median, knn, miss forest, expectation maximisation, multiple imputation] and report their reconstriction r-squared scores.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute 'compare' temp/mimic_vitals.csv
+
+
+Imputation
+~~~~~~~~~~
+
+To impute missing values in the data obtained from the `source_path` using the specified algorithm and save it in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute impute '/path/to/data.csv' -sp='/path/to/data_imputed.csv' -a=<algorithm name>
+
+This function support the following algorithms
+
+- mean
+- median
+- knn
+- miss forest
+- expectation maximisation
+- multiple imputation
+
+
+Pre-processing Pipeline
+-----------------------
+
+
+Help menu
+~~~~~~~~~
+
+To display the help menu;
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline -h
+
+or
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline --help
+
+Output
+
+.. code-block:: console
+
+    usage: Pipeline.py [-h] [-d] [-i] save_path source_db data_type schema_name
+
+    EHRQC
+
+    positional arguments:
+    save_path             Path of the folder to store the outputs
+    source_db             Source name [mimic, omop]
+    data_type             Data type name [demographics, vitals, lab_measurements]
+    schema_name           Source schema name
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    -d, --draw_graphs     Draw graphs to visualise EHR data quality
+    -i, --impute_missing  Impute missing values by automatically selecting the best imputation strategy for this data
+
+
+Extract OMOP Demographics
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_demographics_raw_data.csv` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop demographics omop_cdm
+
+
+Extract OMOP Vitals
+~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_vitals_raw_data.csv` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm
+
+
+Extract OMOP Lab measurements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_lab_measurements_raw_data.csv` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm
+
+
+Extract MIMIC Demographics
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_demographics_raw_data.csv` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic demographics mimiciv
+
+
+Extract MIMIC Vitals
+~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_vitals_raw_data.csv` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv
+
+
+Extract MIMIC Lab measurements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_lab_measurements_raw_data.csv`, and a  in the `save_path`.
+### To extract Lab Measurements data from MIMIC schema
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv
+
+
+MIMIC Demographics Explore Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_demographics_raw_data.csv`, and a html file containing the generated graphs with the name `mimic_demographics_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic demographics mimiciv -d
+
+
+OMOP Demographics Explore Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_demographics_raw_data.csv`, and a html file containing the generated graphs with the name `omop_demographics_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop demographics omop_cdm -d
+
+
+MIMIC Vitals Explore Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_vitals_raw_data.csv`, and a html file containing the generated graphs with the name `mimic_vitals_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv -d
+
+
+OMOP Vitals Explore Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_vitals_raw_data.csv`, and a html file containing the generated graphs with the name `omop_vitals_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm -d
+
+
+MIMIC Lab measurements Explore Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_lab_measurements_raw_data.csv`, and a html file containing the generated graphs with the name `mimic_lab_measurements_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv -d
+
+
+OMOP Lab measurements Explore Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_lab_measurements_raw_data.csv`, and a html file containing the generated graphs with the name `omop_lab_measurements_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm -d
+
+
+Impute MIMIC Vitals
+~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_vitals_raw_data.csv`, a csv file containing the imputed data with the name `mimic_vitals_imputed_data.csv`, and a html file containing the generated graphs with the name `mimic_vitals_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv -d -i
+
+
+Impute OMOP Vitals
+~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_vitals_raw_data.csv`, a csv file containing the imputed data with the name `omop_vitals_imputed_data.csv`, and a html file containing the generated graphs with the name `omop_vitals_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm -d -i
+
+
+Impute MIMIC Lab measurements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `mimic_lab_measurements_raw_data.csv`, a csv file containing the imputed data with the name `mimic_lab_measurements_imputed_data.csv`, and a html file containing the generated graphs with the name `mimic_lab_measurements_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv -d -i
+
+
+Impute OMOP Lab measurements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a csv file containing the raw data with the name `omop_lab_measurements_raw_data.csv`, a csv file containing the imputed data with the name `omop_lab_measurements_imputed_data.csv`, and a html file containing the generated graphs with the name `omop_lab_measurements_plots.html` in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm -d -i
