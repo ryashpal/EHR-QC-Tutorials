@@ -243,7 +243,7 @@ This function expects the file to contain the information under the following co
 
 +----------------------+--------------------------------------------+
 | Expected Column Name | Column Details                             |
-+======================+=============================================+
++======================+============================================+
 | glucose              | Glucose                                    |
 +----------------------+--------------------------------------------+
 | hemoglobin           | Hemoglobin                                 |
@@ -339,7 +339,7 @@ This function expects the file to contain the information under the following co
 
 +----------------------+--------------------------------------------+
 | Expected Column Name | Column Details                             |
-+======================+=============================================+
++======================+============================================+
 | glucose              | Glucose                                    |
 +----------------------+--------------------------------------------+
 | hemoglobin           | Hemoglobin                                 |
