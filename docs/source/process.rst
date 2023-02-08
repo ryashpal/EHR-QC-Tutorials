@@ -112,6 +112,7 @@ Help menu
 ~~~~~~~~~
 
 To display the help menu of the Plot functionality.
+
 .. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot -h
@@ -163,7 +164,7 @@ Similarly, more than one columns can be mapped in this manner;
 
 
 Explore Demographics Plots
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To generate QC plots from the demograhic data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
@@ -187,3 +188,10 @@ This utility expects the file to contain the information under the following col
 +----------------------+---------------------------+
 | ethnicity            | Ethnicity of the person   |
 +----------------------+---------------------------+
+
+Example Output: 
+
+`Demographics Plots`_
+
+.. _Demographics Plots: (https://ryashpal.github.io/EHRQC/demographics.html)
+
