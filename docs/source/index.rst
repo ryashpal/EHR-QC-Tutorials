@@ -21,3 +21,6 @@ Contents
 
    install
    config
+   migrate
+   process
+   mapping
