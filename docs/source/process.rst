@@ -172,8 +172,7 @@ To generate QC plots from the demograhic data obtained from the `source_path` an
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/mimic_demographics.csv temp/mimic_demographics_explore.html -c {<"optional mapping information">}
 
-
-This utility expects the file to contain the information under the following columns;
+This function expects the file to contain the information under the following columns;
 
 +----------------------+---------------------------+
 | Expected Column Name | Column Details            |
@@ -189,7 +188,198 @@ This utility expects the file to contain the information under the following col
 | ethnicity            | Ethnicity of the person   |
 +----------------------+---------------------------+
 
-Example Output: 
+`Example Demographics Plots <https://ryashpal.github.io/EHRQC/demographics.html>`_ .
 
-`Demographics Plots <https://ryashpal.github.io/EHRQC/demographics.html>`_ .
+
+Explore Vitals Plots
+~~~~~~~~~~~~~~~~~~~~
+
+To generate QC plots from the vitals data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
+
+.. code-block:: json
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/mimic_vitals.csv temp/mimic_vitals_explore.html -c {<"optional mapping information">}
+
+This function expects the file to contain the information under the following columns;
+
++----------------------+--------------------------------------+
+| Expected Column Name | Column Details                       |
++======================+======================================+
+| heartrate            | Heart Rate                           |
++----------------------+--------------------------------------+
+| sysbp                | Systolic Blood Pressure              |
++----------------------+--------------------------------------+
+| diabp                | Diastolic Blood Pressure             |
++----------------------+--------------------------------------+
+| meanbp               | Mean Blood Pressure                  |
++----------------------+--------------------------------------+
+| resprate             | Respiratory Rate                     |
++----------------------+--------------------------------------+
+| tempc                | Temperature                          |
++----------------------+--------------------------------------+
+| spo2                 | Oxygen Saturation                    |
++----------------------+--------------------------------------+
+| gcseye               | Glasgow Coma Scale - Eye Response    |
++----------------------+--------------------------------------+
+| gcsverbal            | Glasgow Coma Scale - Verbal Response |
++----------------------+--------------------------------------+
+| gcsmotor             | Glasgow Coma Scale - Motor Response  |
++----------------------+--------------------------------------+
+
+`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals.html>`_ .
+
+
+Explore Lab measurements Plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To generate QC plots from the lab measurements data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
+
+.. code-block:: json
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore temp/mimic_lab_measurements.csv temp/mimic_lab_measurements_explore.html -c {<"optional mapping information">}
+
+
+This function expects the file to contain the information under the following columns;
+
++----------------------+--------------------------------------------+
+| Expected Column Name | Column Details                             |
++======================+=============================================+
+| glucose              | Glucose                                    |
++----------------------+--------------------------------------------+
+| hemoglobin           | Hemoglobin                                 |
++----------------------+--------------------------------------------+
+| anion_gap            | Anion Gap                                  |
++----------------------+--------------------------------------------+
+| bicarbonate          | Bicarbonate                                |
++----------------------+--------------------------------------------+
+| calcium_total        | Calcium Total                              |
++----------------------+--------------------------------------------+
+| chloride             | Chloride                                   |
++----------------------+--------------------------------------------+
+| creatinine           | Creatinine                                 |
++----------------------+--------------------------------------------+
+| magnesium            | Magnesium                                  |
++----------------------+--------------------------------------------+
+| phosphate            | Phosphate                                  |
++----------------------+--------------------------------------------+
+| potassium            | Potassium                                  |
++----------------------+--------------------------------------------+
+| sodium               | Sodium                                     |
++----------------------+--------------------------------------------+
+| urea_nitrogen        | Urea Nitrogen                              |
++----------------------+--------------------------------------------+
+| hematocrit           | Hematocrit                                 |
++----------------------+--------------------------------------------+
+| mch                  | Mean Cell Hemoglobin                       |
++----------------------+--------------------------------------------+
+| mchc                 | Mean Corpuscular Hemoglobin Concentration  |
++----------------------+--------------------------------------------+
+| mcv                  | Mean Corpuscular Volume                    |
++----------------------+--------------------------------------------+
+| platelet_count       | Platelet Count                             |
++----------------------+--------------------------------------------+
+| rdw                  | Red cell Distribution Width                |
++----------------------+--------------------------------------------+
+| red_blood_cells      | Red Blood Cells                            |
++----------------------+--------------------------------------------+
+| white_blood_cells    | White Blood Cells                          |
++----------------------+--------------------------------------------+
+
+`Example Vitals Plots <https://ryashpal.github.io/EHRQC/lab_measurements.html>`_ .
+
+
+Vitals Outlier Plots
+~~~~~~~~~~~~~~~~~~~~
+
+To generate QC plots from the vitals data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
+
+.. code-block:: json
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+
+This function expects the file to contain the information under the following columns;
+
++----------------------+--------------------------------------+
+| Expected Column Name | Column Details                       |
++======================+======================================+
+| heartrate            | Heart Rate                           |
++----------------------+--------------------------------------+
+| sysbp                | Systolic Blood Pressure              |
++----------------------+--------------------------------------+
+| diabp                | Diastolic Blood Pressure             |
++----------------------+--------------------------------------+
+| meanbp               | Mean Blood Pressure                  |
++----------------------+--------------------------------------+
+| resprate             | Respiratory Rate                     |
++----------------------+--------------------------------------+
+| tempc                | Temperature                          |
++----------------------+--------------------------------------+
+| spo2                 | Oxygen Saturation                    |
++----------------------+--------------------------------------+
+| gcseye               | Glasgow Coma Scale - Eye Response    |
++----------------------+--------------------------------------+
+| gcsverbal            | Glasgow Coma Scale - Verbal Response |
++----------------------+--------------------------------------+
+| gcsmotor             | Glasgow Coma Scale - Motor Response  |
++----------------------+--------------------------------------+
+
+`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_ .
+
+
+Lab measurements Outlier Plots
+~~~~~~~~~~~~~~~~~~~~
+
+To generate QC plots from the lab measurements data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
+
+.. code-block:: json
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_outliers temp/mimic_lab_measurements_imputed.csv temp/mimic_lab_measurements_outliers.html
+
+This function expects the file to contain the information under the following columns;
+
++----------------------+--------------------------------------------+
+| Expected Column Name | Column Details                             |
++======================+=============================================+
+| glucose              | Glucose                                    |
++----------------------+--------------------------------------------+
+| hemoglobin           | Hemoglobin                                 |
++----------------------+--------------------------------------------+
+| anion_gap            | Anion Gap                                  |
++----------------------+--------------------------------------------+
+| bicarbonate          | Bicarbonate                                |
++----------------------+--------------------------------------------+
+| calcium_total        | Calcium Total                              |
++----------------------+--------------------------------------------+
+| chloride             | Chloride                                   |
++----------------------+--------------------------------------------+
+| creatinine           | Creatinine                                 |
++----------------------+--------------------------------------------+
+| magnesium            | Magnesium                                  |
++----------------------+--------------------------------------------+
+| phosphate            | Phosphate                                  |
++----------------------+--------------------------------------------+
+| potassium            | Potassium                                  |
++----------------------+--------------------------------------------+
+| sodium               | Sodium                                     |
++----------------------+--------------------------------------------+
+| urea_nitrogen        | Urea Nitrogen                              |
++----------------------+--------------------------------------------+
+| hematocrit           | Hematocrit                                 |
++----------------------+--------------------------------------------+
+| mch                  | Mean Cell Hemoglobin                       |
++----------------------+--------------------------------------------+
+| mchc                 | Mean Corpuscular Hemoglobin Concentration  |
++----------------------+--------------------------------------------+
+| mcv                  | Mean Corpuscular Volume                    |
++----------------------+--------------------------------------------+
+| platelet_count       | Platelet Count                             |
++----------------------+--------------------------------------------+
+| rdw                  | Red cell Distribution Width                |
++----------------------+--------------------------------------------+
+| red_blood_cells      | Red Blood Cells                            |
++----------------------+--------------------------------------------+
+| white_blood_cells    | White Blood Cells                          |
++----------------------+--------------------------------------------+
+
+`Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements_outliers.html>`_ .
 
