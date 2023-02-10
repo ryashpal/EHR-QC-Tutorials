@@ -117,7 +117,7 @@ For example, the mapping information for entity `Patients` will be as shown belo
 
 A mapping is required, if an entity has non expected column name. All the different entities and their expected column names are given below.
 
-**Entity: ``admissions``**
+**Entity:** ``admissions``
 
 +----------------------+
 | Expected Column Name |
