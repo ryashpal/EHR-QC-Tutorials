@@ -66,17 +66,17 @@ Example:
 
 .. code-block:: json
 
-vocabulary = {
-    'concept': '/path/to/CONCEPT.csv',
-    'vocabulary': '/path/to/VOCABULARY.csv',
-    'domain': '/path/to/DOMAIN.csv',
-    'concept_class': '/path/to/CONCEPT_CLASS.csv',
-    'concept_relationship': '/path/to/CONCEPT_RELATIONSHIP.csv',
-    'relationship': '/path/to/RELATIONSHIP.csv',
-    'concept_synonym': '/path/to/CONCEPT_SYNONYM.csv',
-    'concept_ancestor': '/path/to/CONCEPT_ANCESTOR.csv',
-    'tmp_custom_mapping': '/path/to/tmp_custom_mapping.csv',
-}
+    vocabulary = {
+        'concept': '/path/to/CONCEPT.csv',
+        'vocabulary': '/path/to/VOCABULARY.csv',
+        'domain': '/path/to/DOMAIN.csv',
+        'concept_class': '/path/to/CONCEPT_CLASS.csv',
+        'concept_relationship': '/path/to/CONCEPT_RELATIONSHIP.csv',
+        'relationship': '/path/to/RELATIONSHIP.csv',
+        'concept_synonym': '/path/to/CONCEPT_SYNONYM.csv',
+        'concept_ancestor': '/path/to/CONCEPT_ANCESTOR.csv',
+        'tmp_custom_mapping': '/path/to/tmp_custom_mapping.csv',
+    }
 
 
 CSV file column mapping
@@ -114,6 +114,44 @@ For example, the mapping information for entity `Patients` will be as shown belo
             'dod': "<DOD column name in the csv file>"
         },
     }
+
+A mapping is required, if an entity has non expected column name. All the different entities and their expected column names are given below.
+
+**Entity: ``admissions``**
+
++----------------------+
+| Expected Column Name |
++======================+
+| subject_id           |
++----------------------+
+| hadm_id              |
++----------------------+
+| admittime            |
++----------------------+
+| dischtime            |
++----------------------+
+| deathtime            |
++----------------------+
+| admission_type       |
++----------------------+
+| admission_location   |
++----------------------+
+| discharge_location   |
++----------------------+
+| insurance            |
++----------------------+
+| language             |
++----------------------+
+| marital_status       |
++----------------------+
+| ethnicity            |
++----------------------+
+| edregtime            |
++----------------------+
+| edouttime            |
++----------------------+
+| hospital_expire_flag |
++----------------------+
 
 
 Pre-processing
