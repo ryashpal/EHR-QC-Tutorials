@@ -20,10 +20,13 @@ This utility is primarily focussed to provide a domain specific toolset for perf
 .. topic:: Acknowledgements
 
    .. image:: monash.png
+      :width: 20 %
 
    .. image:: alfred.png
+      :width: 20 %
 
    .. image:: superbugai.png
+      :width: 20 %
 
 Contents
 --------
