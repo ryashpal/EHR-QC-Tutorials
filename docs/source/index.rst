@@ -21,6 +21,10 @@ This utility is primarily focussed to provide a domain specific toolset for perf
 
    .. image:: monash.png
 
+   .. image:: alfred.png
+
+   .. image:: superbugai.png
+
 Contents
 --------
 
