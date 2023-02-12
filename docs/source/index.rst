@@ -17,9 +17,9 @@ This utility is primarily focussed to provide a domain specific toolset for perf
    This project is under active development.
 
 
-.. important::
+.. topic:: Acknowledgements
 
-   .. image:: ehr-qc.JPG
+   .. image:: monash.png
 
 Contents
 --------
