@@ -82,7 +82,7 @@ Example:
 CSV file column mapping
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The paths of the CSV files containing the EHR data to be imported and the column mappings if the column names in the CSV file are not the expected column names for the pipeline. This configuration will be used for importing the external EHR files either in a standalone manner it as part of the OMOP-CDM migration pipeline.
+The paths of the CSV files containing the EHR data to be imported and the column mappings if the column names in the CSV file are not the expected column names for the pipeline. If the file for an entity does not exists, then the file name attribute in the config file can be empty of None. This configuration will be used for importing the external EHR files either in a standalone manner or as part of the OMOP-CDM migration pipeline.
 
 In general, it takes the form;
 
