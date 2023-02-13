@@ -212,13 +212,21 @@ Next, an outlier plot is generated using EHR-QC outlier graphs utility on the ex
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
 
-Later, outliers are removed using EHR-QC correction utlity from the extracted data.
+Further, outliers are removed using conventional rule based method from the extracted data.
+
+The outlier plot is drawn on the corrected data.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+
+Furthermore, outliers are removed using EHR-QC correction utlity from the extracted data.
 
 .. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Correct correct temp/omop_vitals.csv -sp=temp/omop_vitals_corrected.csv
 
-Finally, the outlier plot is drawn again on the corrected data and compared with the earlier plot.
+Finally, the outlier plot is drawn again on the corrected data and compared with the earlier plots.
 
 .. code-block:: console
 
