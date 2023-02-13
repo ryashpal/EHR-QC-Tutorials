@@ -134,11 +134,11 @@ Finally, the distribution data plot is drawn again on the corrected data and com
 
 Here, Figure 2c shows the violin plot with multi-modal distribution indicating the possible presence of non-uniform scale for values while Figure 2D shows the same plot with uniform data after correction.
 
-Figure 2C: Exploration plot with multiple modalities
+Figure 2C: Exploration plot for ``Temperature Celcius`` with multiple modalities
 
 .. image:: images/plots/exploration_plot_3.png
 
-Figure 2D: Exploration plot with corrected data
+Figure 2D: Exploration plot for ``Temperature Celcius`` with corrected data
 
 .. image:: images/plots/exploration_plot_4.png
 
