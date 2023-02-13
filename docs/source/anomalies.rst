@@ -1,5 +1,5 @@
-Anomaly Detection and Correction
-================================
+Anomalies
+=========
 
 
 Help menu
