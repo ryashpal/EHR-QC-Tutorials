@@ -38,4 +38,4 @@ Contents
    migrate
    process
    mapping
-   plots
+   anomalies
