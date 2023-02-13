@@ -53,7 +53,7 @@ Example:
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -dm -do
 
 
-Detect Anomalies
+Correct Anomalies
 ----------------
 
 To correct missing data and outliers in the data from the ``source_path`` and save it as a csv file at the ``save_path`` with the file prefix ``save_prefix``. To correct missing data, optional argument ``-cm`` needs to be provided. For correcting outliers, optional argument ``-co`` needs to be provided.
