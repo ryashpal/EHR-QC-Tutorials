@@ -1,6 +1,37 @@
 Concept Mapping
 ===============
 
+The EHR-QC provides option to perform custim mapping in two different ways;
+
+1. In a standalone manner
+
+When invoked in a standalone manner, the results will include mappings from basic algorithms namely ``Fuzzy``, ``Reverse Index``, and ``Medcat``. The results are stored in a csv file for the user to review the concept mappings from different algorithms and feed it to the migration pipeline manually. The mappings are grouped together to assign different confidence levels like ``Low``. ``Medium``, and ``High`` based on the number of algorithms in support of the concept as shown in the table below;
+
++---------+-----------+-------------------+---------------+------------+------------+
+|Case     | Fuzzy     | Semantic (Medcat) | Reverse Index | Output     | Confidence |
++=========+===========+===================+===============+============+============+
+|Case 1   | Con 1     | Con 1             | Con 1         | Con 1      | High       |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 2A  | Con 1     | Con 1             | Con 2         | Con 1      | Medium     |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 2B  | Con 1     | Con 1             | Con 2         | Con 2      | Low        |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 3A  | Con 2     | Con 1             | Con 1         | Con 1      | Medium     |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 3B  | Con 2     | Con 1             | Con 1         | Con 2      | Low        |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 4A  | Con 1     | Con 2             | Con 1         | Con 1      | Medium     |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 4B  | Con 1     | Con 2             | Con 1         | Con 2      | Low        |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 5A  | Con 1     | Con 2             | Con 3         | Con 1      | Low        |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 5B  | Con 1     | Con 2             | Con 3         | Con 2      | Low        |
++---------+-----------+-------------------+---------------+------------+------------+
+|Case 5C  | Con 1     | Con 2             | Con 3         | Con 3      | Low        |
++---------+-----------+-------------------+---------------+------------+------------+
+
+The concept mapper utility as part of the EHR-QC provides functions to perform the concept mapping in a standalone manner.
 
 Help menu
 ---------
@@ -53,3 +84,8 @@ To create mappings for the concepts present in the ``concepts_path`` under the c
 .. code-block:: console
 
     .venv/bin/python -m ehrqc.standardise.migrate_omop.ConceptMapper '<Domain Name>' '<Vocabulary Name>' '<Concept Class Name>' '/path/to/concepts.csv' '<Concept Column Name>' '/path/to/output.csv' --model_pack_path='/path/to/model_pack.zip
+
+
+2. Autonmatically as part of the OMOP-CDM migration pipeline
+
+To automatically invoke the concept mapping as part of the OMOP-CDM migration pipeline, please refer to the `Custom Mapping <https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#custom-mapping>`_ section in the `Configuration Page<https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#>`_.
