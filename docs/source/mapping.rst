@@ -90,4 +90,4 @@ To create mappings for the concepts present in the ``concepts_path`` under the c
 2. Autonmatically as part of the OMOP-CDM migration pipeline
 ------------------------------------------------------------
 
-To automatically invoke the concept mapping as part of the OMOP-CDM migration pipeline, please refer to the `Custom Mapping <https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#custom-mapping>`_ section in the `Configuration Page<https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#>`_.
+To automatically invoke the concept mapping as part of the OMOP-CDM migration pipeline, please refer to the `Custom Mapping <https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#custom-mapping>`_ section in the `Configuration Page <https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#>`_.
