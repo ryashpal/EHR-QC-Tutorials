@@ -600,6 +600,63 @@ A mapping is required, if an entity has non expected column name. All the differ
 +-----------------------------+
 
 
+Custom Mapping
+~~~~~~~~~~~~~~
+
+To perform mapping of the concepts automatically as part of the pipeline, the following configurations are to be provided;
+
+customMapping = {
+    '<``Attribute Type 1``>': {
+        'source_attributes': {
+            'field_name': '<``Field Name``>',
+            'table_name': '``Table Name``',
+            'vocabulary_id': '``Vocabulary ID``',
+            'where_condition': '``Where Condition``',
+        },
+        'standard_attributes': {
+            'domain_id': '``Domain ID``',
+            'vocabulary_id': '``Vocabulary ID``',
+            'concept_class_id': '``Concept Class ID``',
+            'key_phrase': '``Key Phrase``',
+        },
+    },
+    '<``Attribute Type 1``>': {
+        'source_attributes': {
+        .
+        .
+        .
+    '<``Attribute Type N``>': {
+        'source_attributes': {
+        .
+        .
+        .
+}
+
+Here, there can be any number of attributes (``Attribute Type 1``, ``Attribute Type 2`` ..., ``Attribute Type N``) for which custom mapping can be provided in this way. Each attribute should have two groups of configurations i.e. ``Source Attributes`` which includes ``Field Name``, ``Table Name``, ``Vocabulary ID``, and ``Where Condition`` and ``Standard Attributes`` including ``Domain ID``, ``Vocabulary ID``, ``Concept Class ID``, and ``Key Phrase``.
+
+Please refer the table below for more details on the custom mapping configuration fields.
+
++----------------------+--------------------------------------------------------------------+
+| Configuration Field  | Field Details                                                      |
++======================+====================================================================+
+| field_name           | Field name of the concept column in the EHR source                 |
++----------------------+--------------------------------------------------------------------+
+| table_name           | Table name of the concept column in the EHR source                 |
++----------------------+--------------------------------------------------------------------+
+| vocabulary_id        | Identifier for the concept type                                    |
++----------------------+--------------------------------------------------------------------+
+| where_condition      | Where condition to filter the concept from the source if necessary |
++----------------------+--------------------------------------------------------------------+
+| domain_id            | Domain ID of the standard vocabulary to be mapped                  |
++----------------------+--------------------------------------------------------------------+
+| vocabulary_id        | Vocabulary ID of the standard vocabulary to be mapped              |
++----------------------+--------------------------------------------------------------------+
+| concept_class_id     | Concept Class ID of the standard vocabulary to be mapped           |
++----------------------+--------------------------------------------------------------------+
+| key_phrase           | Key Phrase of the standard vocabulary to be mapped if required     |
++----------------------+--------------------------------------------------------------------+
+
+
 Pre-processing
 --------------
 
