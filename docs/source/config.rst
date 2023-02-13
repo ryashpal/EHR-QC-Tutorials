@@ -4,8 +4,8 @@ Configuration
 The pipeline might need some of the configurations below, depending on the functionality being used.
 
 
-OMOP-CDM migration
-------------------
+1. OMOP-CDM migration
+---------------------
 
 The following configurations mighe be required for OMOP-CDM migration process.
 
@@ -659,8 +659,8 @@ Please refer the table below for more details on the custom mapping configuratio
 +----------------------+--------------------------------------------------------------------+
 
 
-Pre-processing
---------------
+2. Pre-processing
+-----------------
 
 
 Database
