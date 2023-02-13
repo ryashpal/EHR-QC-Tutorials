@@ -38,4 +38,5 @@ Contents
    migrate
    process
    mapping
+   plots
    use_case
