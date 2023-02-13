@@ -605,32 +605,34 @@ Custom Mapping
 
 To perform mapping of the concepts automatically as part of the pipeline, the following configurations are to be provided;
 
-customMapping = {
-    '<``Attribute Type 1``>': {
-        'source_attributes': {
-            'field_name': '<``Field Name``>',
-            'table_name': '``Table Name``',
-            'vocabulary_id': '``Vocabulary ID``',
-            'where_condition': '``Where Condition``',
+.. code-block:: json
+
+    customMapping = {
+        '<``Attribute Type 1``>': {
+            'source_attributes': {
+                'field_name': '<``Field Name``>',
+                'table_name': '``Table Name``',
+                'vocabulary_id': '``Vocabulary ID``',
+                'where_condition': '``Where Condition``',
+            },
+            'standard_attributes': {
+                'domain_id': '``Domain ID``',
+                'vocabulary_id': '``Vocabulary ID``',
+                'concept_class_id': '``Concept Class ID``',
+                'key_phrase': '``Key Phrase``',
+            },
         },
-        'standard_attributes': {
-            'domain_id': '``Domain ID``',
-            'vocabulary_id': '``Vocabulary ID``',
-            'concept_class_id': '``Concept Class ID``',
-            'key_phrase': '``Key Phrase``',
-        },
-    },
-    '<``Attribute Type 1``>': {
-        'source_attributes': {
-        .
-        .
-        .
-    '<``Attribute Type N``>': {
-        'source_attributes': {
-        .
-        .
-        .
-}
+        '<``Attribute Type 1``>': {
+            'source_attributes': {
+            .
+            .
+            .
+        '<``Attribute Type N``>': {
+            'source_attributes': {
+            .
+            .
+            .
+    }
 
 Here, there can be any number of attributes (``Attribute Type 1``, ``Attribute Type 2`` ..., ``Attribute Type N``) for which custom mapping can be provided in this way. Each attribute should have two groups of configurations i.e. ``Source Attributes`` which includes ``Field Name``, ``Table Name``, ``Vocabulary ID``, and ``Where Condition`` and ``Standard Attributes`` including ``Domain ID``, ``Vocabulary ID``, ``Concept Class ID``, and ``Key Phrase``.
 
