@@ -4,6 +4,7 @@ Concept Mapping
 The EHR-QC provides option to perform custim mapping in two different ways;
 
 1. In a standalone manner
+-------------------------
 
 When invoked in a standalone manner, the results will include mappings from basic algorithms namely ``Fuzzy``, ``Reverse Index``, and ``Medcat``. The results are stored in a csv file for the user to review the concept mappings from different algorithms and feed it to the migration pipeline manually. The mappings are grouped together to assign different confidence levels like ``Low``. ``Medium``, and ``High`` based on the number of algorithms in support of the concept as shown in the table below;
 
@@ -34,7 +35,7 @@ When invoked in a standalone manner, the results will include mappings from basi
 The concept mapper utility as part of the EHR-QC provides functions to perform the concept mapping in a standalone manner.
 
 Help menu
----------
+~~~~~~~~~
 
 To display the help menu of the OMOP-CDM migration utility.
 
@@ -77,7 +78,7 @@ Output
                             Path for the Medcat model_pack_path zip file
 
 Generate mappings
------------------
+~~~~~~~~~~~~~~~~~
 
 To create mappings for the concepts present in the ``concepts_path`` under the column ``concept_name_row`` and save it as a csv file.
 
@@ -87,5 +88,6 @@ To create mappings for the concepts present in the ``concepts_path`` under the c
 
 
 2. Autonmatically as part of the OMOP-CDM migration pipeline
+------------------------------------------------------------
 
 To automatically invoke the concept mapping as part of the OMOP-CDM migration pipeline, please refer to the `Custom Mapping <https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#custom-mapping>`_ section in the `Configuration Page<https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html#>`_.
