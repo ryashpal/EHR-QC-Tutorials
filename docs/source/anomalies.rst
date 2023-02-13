@@ -11,8 +11,7 @@ The missing data plot generated from EHR-QC is intended to visualise the missing
 2. The extent of missingness in the data
 3. Patterns of the missingness in the data (random, systematic, blocks etc...)
 
-Use Case
-++++++++
+**Use Case**
 
 In this use case, firstly, the ``vitals`` values are extracted from the EHR.
 
@@ -61,8 +60,7 @@ Continuous Attributes
 ~~~~~~~~~~~~~~~~~~~~~
 
 
-Use Case 1
-++++++++++
+**Use Case 1**
 
 If an attribute is continuous in nature, violin plots showing the density distribution of values are generated. With that, the uses should be able to identify;
 
@@ -109,8 +107,7 @@ Figure 2B: Exploration plot for ``Heart Rate`` with normal values
 .. image:: images/plots/exploration_plot_2.png
 
 
-Use Case 2
-++++++++++
+**Use Case 2**
 
 In the second use case, the ``vitals`` values are extracted from the EHR.
 
@@ -156,8 +153,7 @@ If an attribute is descrete in nature, bar plots showing the frequency counts ar
 2. The presence of erroneous/unwanted values
 3. Other errors related to non-standardisation or non-uniformity of the data
 
-Use Case
-++++++++
+**Use Case**
 
 In this use case, the ``demographics`` values are extracted from the EHR.
 
@@ -201,8 +197,7 @@ The outlier plots generated from EHR-QC are intended to visualise relationship b
 1. Visualise the presence of outliers
 2. Estimate the effectiveness of outlier removal technique
 
-Use Case
-++++++++
+**Use Case**
 
 In this use case, the ``vitals`` values are extracted from the EHR.
 
