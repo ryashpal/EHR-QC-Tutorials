@@ -39,4 +39,3 @@ Contents
    process
    mapping
    plots
-   use_case
