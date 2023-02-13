@@ -23,7 +23,7 @@ Exploration Plots
 
 The exploration plots generated from EHR-QC are intended to visualise the distribution of the data supplied. The generated plots depend on the type of attribute.
 
-* Continuous Attributes
+Continuous Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 If an attribute is continuous in nature, violin plots showing the density distribution of values are generated. With that, the uses should be able to identify;
@@ -45,8 +45,13 @@ Example 3: Exploration plot with good data
 
 .. image:: images/plots/exploration_plot_3.png
 
-* Discrete Attributes
+Discrete Attributes
 ~~~~~~~~~~~~~~~~~~~~~
+
+If an attribute is descrete in nature, bar plots showing the frequency counts are generated. With that, the uses should be able to identify;
+
+
+
 
 Outlier Plots
 -------------
