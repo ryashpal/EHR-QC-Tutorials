@@ -10,7 +10,7 @@ Both the modules can be run as a single end-to-end pipeline or individual compon
 
 This utility is primarily focussed to provide a domain specific toolset for performing commmon standardisation and pre-processing tasks while handling the healthcare data. A command line interface is designed to provide an abstraction over the internal implementation details while at the same time being easy to use for anyone with basic Linux skills.
 
-.. image:: ehr-qc.JPG
+.. image:: images/ehr-qc.JPG
 
 .. note::
 
@@ -19,13 +19,13 @@ This utility is primarily focussed to provide a domain specific toolset for perf
 
 .. topic:: Acknowledgements
 
-   .. image:: monash.png
+   .. image:: images/monash.png
       :width: 20 %
 
-   .. image:: alfred.png
+   .. image:: images/alfred.png
       :width: 20 %
 
-   .. image:: superbugai.png
+   .. image:: images/superbugai.png
       :width: 20 %
 
 Contents

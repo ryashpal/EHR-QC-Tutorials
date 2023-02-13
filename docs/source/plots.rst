@@ -50,9 +50,30 @@ Discrete Attributes
 
 If an attribute is descrete in nature, bar plots showing the frequency counts are generated. With that, the uses should be able to identify;
 
+1. The category wise distribution of values
+2. The presence of erroneous/unwanted values
+3. Other errors related to non-standardisation or non-uniformity of the data
 
+Example: Exploration plot with descrete values
 
+.. image:: images/plots/exploration_plot_4.png
 
 Outlier Plots
 -------------
 
+The outlier plots generated from EHR-QC are intended to visualise relationship between attributes taking two at a time along with their outlier score providing an estimation of the presence of outliers in the data supplied. With this plot, the users should be able to;
+
+1. Visualise the presence of outliers
+2. Estimate the effectiveness of outlier removal technique
+
+Example: Outlier plot with outliers
+
+.. image:: images/plots/outlier_plot_1.png
+
+Example: Outlier plot by removing outliers identified using traditional techniques
+
+.. image:: images/plots/outlier_plot_2.png
+
+Example: Outlier plot by removing outliers identified using EHR-QC
+
+.. image:: images/plots/outlier_plot_3.png
