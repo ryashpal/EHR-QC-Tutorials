@@ -12,11 +12,11 @@ Missing data plots generated from EHR-QC is intended to visualise the missingnes
 
 Example 1: Missing data plot with missing values
 
-.. image:: monash.png
+.. image:: missing_plot_1.png
 
 Example 2: Missing data plot without missing values
 
-.. image:: monash.png
+.. image:: missing_plot_2.png
 
 Exploration Plots
 -----------------
