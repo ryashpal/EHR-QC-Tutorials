@@ -155,11 +155,39 @@ If an attribute is descrete in nature, bar plots showing the frequency counts ar
 2. The presence of erroneous/unwanted values
 3. Other errors related to non-standardisation or non-uniformity of the data
 
-Example: Exploration plot with descrete values
+Use Case
+@@@@@@@@@@
+
+In this use case, the ``demographics`` values are extracted from the EHR.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_demographics.csv omop demographics omop_cdm
+
+
+Next, a distribution plot is generated using EHR-QC exploration graphs utility on the extracted data.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/omop_demographics.csv temp/omop_demographics_explore.html
+
+Later, non-standard values are handled using custom code from the extracted data. In this case two distinct categories i.e. ``UNKNOWN`` and ``UNABLE TO OBTAIN`` are combined together in to a single category for the purpose of demonstration.
+
+Finally, the distribution data plot is drawn again on the corrected data and compared with the earlier plot.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/omop_demographics.csv temp/omop_demographics_explore.html
+
+**Output:**
+
+Here, Figure 2c shows the violin plot with multi-modal distribution indicating the possible presence of non-uniform scale for values while Figure 2D shows the same plot with uniform data after correction.
+
+Figure 3A: Exploration plot with non-standard descrete values
 
 .. image:: images/plots/omop_ethnicity.png
 
-Example: Exploration plot with descrete values
+Figure 3B: Exploration plot with corrected descrete values
 
 .. image:: images/plots/omop_ethnicity_1.png
 
@@ -172,14 +200,46 @@ The outlier plots generated from EHR-QC are intended to visualise relationship b
 1. Visualise the presence of outliers
 2. Estimate the effectiveness of outlier removal technique
 
-Example: Outlier plot with outliers
+Use Case
+@@@@@@@@@@
+
+In this use case, the ``vitals`` values are extracted from the EHR.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
+
+
+Next, an outlier plot is generated using EHR-QC outlier graphs utility on the extracted data.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+
+Later, outliers are removed using EHR-QC correction utlity from the extracted data.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Correct correct temp/omop_vitals.csv -sp=temp/omop_vitals_corrected.csv
+
+Finally, the outlier plot is drawn again on the corrected data and compared with the earlier plot.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+
+**Output:**
+
+Here, Figure 4A shows the outliers plot ``sysbp`` and ``heartrate`` attributes with the presence of outliers identified by the presence of high ensemble scores indicated by the color of the data points on the graph. In the next figure (Figure 4B), the same plot is drawn with the outliers removed by using conventional univariate outlier removal technique. Finally in Figure 4C, the outlier graph is drawn on the data obtained after removing outliers using EHR-QC utility functions.
+
+Figure 4A: Outlier plot with outliers in the data
 
 .. image:: images/plots/outlier_plot_1.png
 
-Example: Outlier plot by removing outliers identified using traditional techniques
+Figure 4B: Outlier plot by removing outliers identified using traditional techniques
 
 .. image:: images/plots/outlier_plot_2.png
 
-Example: Outlier plot by removing outliers identified using EHR-QC
+Figure 4C: Outlier plot by removing outliers identified using EHR-QC
 
 .. image:: images/plots/outlier_plot_3.png
