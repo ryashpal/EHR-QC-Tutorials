@@ -86,7 +86,7 @@ Later, extreme values are removed using EHR-QC correction utlity from the extrac
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Correct correct temp/omop_vitals.csv -sp=temp/omop_vitals_corrected.csv
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'temp/omop_vitals.csv' 'temp' 'omop_vitals' -cm -co
 
 Finally, the distribution data plot is drawn again on the corrected data and compared with the earlier plot.
 
@@ -224,7 +224,7 @@ Furthermore, outliers are removed using EHR-QC correction utlity from the extrac
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Correct correct temp/omop_vitals.csv -sp=temp/omop_vitals_corrected.csv
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'temp/omop_vitals.csv' 'temp' 'omop_vitals' -cm -co
 
 Finally, the outlier plot is drawn again on the corrected data and compared with the earlier plots.
 
