@@ -37,6 +37,5 @@ Contents
    config
    migrate
    process
-   mapping
    anomalies
    use_cases
