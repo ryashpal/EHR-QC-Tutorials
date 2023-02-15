@@ -115,7 +115,7 @@ For example, the mapping information for entity `Patients` will be as shown belo
         },
     }
 
-A mapping is required, if an entity has non expected column name. All the different entities and their expected column names are given below.
+A mapping is required, if an entity has non expected column name. We expect the column names to be following MIMIC IV standard since we have developed the migration script by taking it as the reference. All the different entities and their expected column names are given below.
 
 **Entity:** ``admissions``
 
