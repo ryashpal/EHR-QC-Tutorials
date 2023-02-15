@@ -119,7 +119,7 @@ To run the entire pipeline in an end-to-end fashion.
 
 
 Concept Mapping
-===============
+---------------
 
 The EHR-QC provides option to perform custim mapping in two different ways;
 
