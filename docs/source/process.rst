@@ -469,14 +469,14 @@ Output
 
 .. code-block:: console
 
-    usage: Anomalies.py [-h] [-dm] [-do] [-cm] [-co] source_path save_path save_prefix
+    usage: Anomalies.py [-h] [-dm] [-do] [-de] [-di] [-cm] [-co] source_path save_path save_prefix
 
     Detect and Correct Anomalies
 
     positional arguments:
     source_path           Source data path
     save_path             Path to save the data
-    save_prefix           Path to save the data
+    save_prefix           Prefix to the saved file
 
     optional arguments:
     -h, --help            show this help message and exit
@@ -484,6 +484,9 @@ Output
                             Detect Missing Values in the dataframe
     -do, --detect_outliers
                             Detect Outliers in the dataframe
+    -de, --detect_errors  Detect Errors in the dataframe
+    -di, --detect_inconsistencies
+                            Detect Inconsistencies in the dataframe
     -cm, --correct_missing
                             Correct Missing Values in the dataframe
     -co, --correct_outliers
@@ -492,7 +495,7 @@ Output
 Detect Anomalies
 ~~~~~~~~~~~~~~~~
 
-To detect missing data and outliers in the data from the ``source_path`` and save it as a html file at the ``save_path`` with the file prefix ``save_prefix``. To visualise missing data, optional argument ``-dm`` needs to be provided. For detecting outliers, optional argument ``-do`` needs to be provided.
+To detect missing data, outliers, errors, and inconsistencies in the data from the ``source_path`` and save it as a html file at the ``save_path`` with the file prefix ``save_prefix``. To visualise missing data, optional argument ``-dm`` needs to be provided. For detecting outliers, optional argument ``-do`` needs to be provided.
 
 Example:
 
