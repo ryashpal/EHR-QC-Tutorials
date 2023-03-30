@@ -607,7 +607,7 @@ Output
 
 
 Standardise Data
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 To standardise the data from the ``source_path`` and save it as a csv file at the ``save_path`` . The optional argument ``columns`` can be provided to specify the columns to be standardised. The optional argument ``scaler_save_path`` can be provided to save the scaler in a file.
 
