@@ -516,6 +516,19 @@ Example:
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -cm -co
 
+Data using the raw data;
+
+`Raw data <https://ryashpal.github.io/EHRQC/vitals_raw.html>`_
+
+After imputing missing values;
+
+`Imputed data <https://ryashpal.github.io/EHRQC/vitals_imputed.html>`_
+
+After removing outliers;
+
+`No outlier data <https://ryashpal.github.io/EHRQC/vitals_no_outliers.html>`_
+
+
 Rescale
 ---------
 
@@ -567,6 +580,14 @@ Example:
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
 
+Before rescaling;
+
+`Original scale data <https://ryashpal.github.io/EHRQC/vitals_no_outliers.html>`_
+
+After rescaling;
+
+`Rescaled data <https://ryashpal.github.io/EHRQC/vitals_rescaled.html>`_
+
 
 Standardise
 -----------
@@ -616,6 +637,14 @@ Example:
 .. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
+
+Before standardising;
+
+`Original scale data <https://ryashpal.github.io/EHRQC/vitals_no_outliers.html>`_
+
+After standardising;
+
+`Rescaled data <https://ryashpal.github.io/EHRQC/vitals_standardised.html>`_
 
 
 Pre-processing Pipeline
