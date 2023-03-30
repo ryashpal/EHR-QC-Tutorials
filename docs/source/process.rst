@@ -453,7 +453,7 @@ Anomalies
 Help menu
 ~~~~~~~~~
 
-To display the help menu of the OMOP-CDM migration utility.
+To display the help menu;
 
 .. code-block:: console
 
@@ -492,6 +492,7 @@ Output
     -co, --correct_outliers
                             Correct Outliers in the dataframe
 
+
 Detect Anomalies
 ~~~~~~~~~~~~~~~~
 
@@ -514,6 +515,107 @@ Example:
 .. code-block:: console
 
     (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -cm -co
+
+Rescale
+---------
+
+Help menu
+~~~~~~~~~
+
+To display the help menu;
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale -h
+
+or
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale --help
+
+Output
+
+.. code-block:: console
+
+    usage: Rescale.py [-h] [-c COLUMNS] [-ssp SCALER_SAVE_PATH] [-mi MIN] [-ma MAX] source_path save_path
+
+    EHRQC-Rescale
+
+    positional arguments:
+    source_path           Source data path (csv file)
+    save_path             Path of a file to store the rescaled output
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    -c COLUMNS, --columns COLUMNS
+                            Names of the columns to be scaled, enclosed in double quotes and seperated by comma
+    -ssp SCALER_SAVE_PATH, --scaler_save_path SCALER_SAVE_PATH
+                            Path of the scaler to save
+    -mi MIN, --min MIN    Minimum value for the scaler (Default = 0)
+    -ma MAX, --max MAX    Maximum value for the scaler (Default = 1)
+
+
+Rescale Data
+~~~~~~~~~~~~
+
+To rescale the data from the ``source_path`` and save it as a csv file at the ``save_path`` . The optional argument ``columns`` can be provided to specify the columns to be rescaled. The optional argument ``scaler_save_path`` can be provided to save the scaler in a file. Mininum and Maximum values to the scalers by default is 0 and respectively, but they can be changed by passing ``--min``, and ``--max`` arguments.
+
+Example:
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
+
+
+Standardise
+-----------
+
+Help menu
+~~~~~~~~~
+
+To display the help menu;
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise -h
+
+or
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise --help
+
+Output
+
+.. code-block:: console
+
+    usage: Standardise.py [-h] [-c COLUMNS] [-ssp SCALER_SAVE_PATH] source_path save_path
+
+    EHRQC-Standardise
+
+    positional arguments:
+    source_path           Source data path (csv file)
+    save_path             Path of a file to store the standardised output
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    -c COLUMNS, --columns COLUMNS
+                            Names of the columns to be scaled, enclosed in double quotes and seperated by comma
+    -ssp SCALER_SAVE_PATH, --scaler_save_path SCALER_SAVE_PATH
+                            Path of the scaler to save
+
+
+Standardise Data
+~~~~~~~~~~~~
+
+To standardise the data from the ``source_path`` and save it as a csv file at the ``save_path`` . The optional argument ``columns`` can be provided to specify the columns to be standardised. The optional argument ``scaler_save_path`` can be provided to save the scaler in a file.
+
+Example:
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
 
 
 Pre-processing Pipeline
