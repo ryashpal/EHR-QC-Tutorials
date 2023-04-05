@@ -30,6 +30,7 @@ or
 Output
 
 .. code-block:: console
+
     usage: Extract.py [-h] save_path source_db data_type schema_name
 
     EHRQC
