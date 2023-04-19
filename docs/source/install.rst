@@ -84,3 +84,55 @@ Verify the installation by running the following command. The expected output sh
 
    (.venv) user@hostname:~/workspace/EHRQC$ python -m EHRQC -v
    EHRQC 1.0
+
+
+Docker
+------
+
+The EHR-QC is also available in Docker. Follow the instructions below to use EHR-QC as a Docker container.
+
+Before starting, ensure the Docker engine is intalled.
+`Follow the installation instructions: <https://ryashpal.github.io/EHRQC/demographics.html>`_
+
+
+Create the container
+~~~~~~~~~~~~~~~~~~~~
+
+Create the docker container. It is recommended to run the container in detached mode as it enables the container to be connected from multiple terminals.
+
+.. code-block:: console
+
+   (.venv) user@hostname:~/workspace/EHRQC$ docker-compose up -d
+
+Output
+
+.. code-block:: console
+
+   [+] Running 1/1
+    ! app Warning                                                                                                                                                    [+] Building 194.3s (16/16) FINISHED                                                                                                                               => [internal] load build definition from Dockerfile                                                                                                               => => transferring dockerfile: 32B                                                                                                                                 => [internal] load .dockerignore                                                                                                                                   => => transferring context: 34B                                                                                                                                   => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                 => [ 1/11] FROM docker.io/library/python:3.9-slim@sha256:a321a8513911c55888b9c1cc981a5ba646271447a82ece1b62e4a6a8ff1d431b                                         => [internal] load build context                                                                                                                                   => => transferring context: 348.07kB                                                                                                                               => CACHED [ 2/11] RUN useradd --create-home --shell /bin/bash app_user                                                                                             => CACHED [ 3/11] WORKDIR /home/app_user                                                                                                                           => CACHED [ 4/11] RUN apt-get update && apt-get install                                                                                                           => CACHED [ 5/11] COPY requirements.txt ./                                                                                                                         => CACHED [ 6/11] RUN pip install --no-cache-dir -r requirements.txt                                                                                               => CACHED [ 7/11] RUN mkdir /home/app_user/data                                                                                                                   => CACHED [ 8/11] RUN chown -R app_user.app_user /home/app_user/data                                                                                               => [ 9/11] COPY . .                                                                                                                                               => [10/11] RUN python -m venv .venv                                                                                                                               => [11/11] RUN .venv/bin/pip install --no-cache-dir -r requirements.txt                                                                                           => exporting to image                                                                                                                                             => => exporting layers                                                                                                                                             => => writing image sha256:790deade8232b27a423c61b06e1e43949b17810dac828777ca8aeaa4f5884bc4                                                                       => => naming to docker.io/library/ehr-qc                                                                                                                          [+] Running 1/1
+    ✔ Container ehrqc-app-1  Started
+
+
+Start the container
+~~~~~~~~~~~~~~~~~~~~
+
+Connect to the container to use the EHR-QC functions.
+
+.. code-block:: console
+
+   (.venv) user@hostname:~/workspace/EHRQC$ docker exec -it <Container ID> bash
+
+
+The following prompt should appear, where ``hostname`` is the hostname of the system.
+
+.. code-block:: console
+
+   app_user@hostname:~$
+
+From here, the EHR-QC commands can be run as usual.
+
+.. note::
+   All the data that is saved in ``/home/app_user/data`` directory will be synced to ``~/workspace/EHRQC/data`` directory on the host machine.
+
+.. note::
+   The network conntections from the container is configured to be in ``host`` mode. This makes the container have the same network setup as the host system without a IP address of its own.
