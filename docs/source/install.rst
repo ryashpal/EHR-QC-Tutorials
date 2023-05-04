@@ -31,7 +31,7 @@ In the destination folder, clone the current version of EHR-QC repository from t
 
 .. code-block:: console
 
-   user@hostname:~/workspace$ git clone git@github.com:ryashpal/EHRQC.git
+   user@hostname:~/workspace$ git clone https://github.com/ryashpal/EHRQC.git
 
 
 Open EHR-QC
