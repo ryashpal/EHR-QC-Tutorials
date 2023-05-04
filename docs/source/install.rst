@@ -94,6 +94,7 @@ The EHR-QC is also available in Docker. Follow the instructions below to use EHR
 Before starting, ensure the Docker engine is intalled.
 `Follow the installation instructions: <https://docs.docker.com/engine/install/>`_
 
+Note: Please clone the repository as explained above and change to root EHR-QC directory before creating the docker container;
 
 Create the container
 ~~~~~~~~~~~~~~~~~~~~
