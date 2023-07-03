@@ -151,7 +151,16 @@ The column mapping has to be in json format as shown below;
 
     '{"expected_column_name": "custom_column_name"}'
 
-For instance, if the "Age" attribute in demographics csv file is under the column name "Number of Years" instead of default "age" column name, then the following mapping can be applied;
+For instance, if the "Age" attribute in demographics csv file is under the column name "Number of Years" instead of default "age" column name as shown below.
+
++----------------------+---------------------------+
+| Expected Column Name | Column Details            |
++======================+===========================+
+| age                  | Number of Years           |
++----------------------+---------------------------+
+
+
+The following mapping can be applied;
 
 .. code-block:: json
 
