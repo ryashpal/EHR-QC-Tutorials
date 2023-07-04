@@ -151,14 +151,21 @@ The column mapping has to be in json format as shown below;
 
     '{"expected_column_name": "custom_column_name"}'
 
-For instance, if the "Age" attribute in demographics csv file is under the column name "Number of Years" instead of default "age" column name as shown below.
+For instance, if the "Age" attribute in demographics csv file is under the column name "Number of Years" instead of the expected "age" column name as shown below.
 
-+----------------------+---------------------------+
-| Expected Column Name | Column Details            |
-+======================+===========================+
-| age                  | Number of Years           |
-+----------------------+---------------------------+
-
++------------+-----------------+
+| Patient ID | Number of Years |
++------------+-----------------+
+| 00001      | 57              |
++------------+-----------------+
+| 00002      | 45              |
++------------+-----------------+
+| 00003      | 78              |
++------------+-----------------+
+| 00004      | 35              |
++------------+-----------------+
+| 00005      | 83              |
++------------+-----------------+
 
 The following mapping can be applied;
 
@@ -168,9 +175,27 @@ The following mapping can be applied;
 
 Similarly, more than one columns can be mapped in this manner;
 
+For instance, if the demographics csv file contains "Age", "Sex", and "Date of Birth" column names inplace of "age", 'gender', and 'dob' names that are expected.
+
++------------+-----------------+-------+---------------+
+| Patient ID | Number of Years | Sex   | Date of Birth |
++------------+-----------------+-------+---------------+
+| 00001      | 57              | Male  | 04-02-1966    |
++------------+-----------------+-------+---------------+
+| 00002      | 45              | Female| 04-02-1975    |
++------------+-----------------+-------+---------------+
+| 00003      | 78              | Female| 04-02-1945    |
++------------+-----------------+-------+---------------+
+| 00004      | 35              | Male  | 04-02-1988    |
++------------+-----------------+-------+---------------+
+| 00005      | 83              | Male  | 04-02-1940    |
++------------+-----------------+-------+---------------+
+
+The following mapping can be applied;
+
 .. code-block:: json
 
-    '{"age": "Number of Years", "gender": "Sex"}'
+    '{"age": "Number of Years", "gender": "Sex", "dob": "Date of Birth"}'
 
 
 Explore Demographics Plots
