@@ -153,3 +153,20 @@ From here, the EHR-QC commands can be run as usual.
 
 .. note::
    The network conntections from the container is configured to be in ``host`` mode. This makes the container have the same network setup as the host system without a IP address of its own.
+
+Scripts
+~~~~~~~
+
+Instead of running the commands manually, the containers can be handled by running the following scirpts.
+
+To start the container:
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/start.sh
+
+To update the container by taking latest code from Git:
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/update.sh
