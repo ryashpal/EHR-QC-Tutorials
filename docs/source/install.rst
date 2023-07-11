@@ -159,7 +159,13 @@ Scripts
 
 Instead of running the commands manually, the containers can be handled by running the following scirpts.
 
-To start the container:
+To start the container by building the image:
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/build.sh
+
+To start the container if the image is already built:
 
 .. code-block:: console
 
@@ -170,3 +176,29 @@ To update the container by taking latest code from Git:
 .. code-block:: console
 
    app_user@hostname:~$sh snippets/shell/update.sh
+
+Custom volume mapping
+~~~~~~~~~~~~~~~~~~~~~
+
+If the mapped directory which will default to ``./data`` need to be changed to some other volume;
+
+Open the ``docker-compose.yml`` at the EHR-QC base path, and make the changes shown below;
+
+.. code-block:: console
+
+   version: "3.8"
+   services:
+     app:
+       build: .
+       image: ehr-qc
+       network_mode: "host"
+       volumes:
+         - ``custom/volume/path``:/home/app_user/data
+       stdin_open: true
+       tty: true
+
+Then start the container by building the image:
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/build.sh
