@@ -53,6 +53,49 @@ Open the EHR-QC directory that is downloaded from GitHub after cloning.
 
    user@hostname:~/workspace$ cd EHRQC
 
+Verify
+------
+
+Verify the installation by running the following command. The expected output should contain ``EHRQC <version number>``.
+
+.. code-block:: console
+
+   (.venv) user@hostname:~/workspace/EHRQC$ python -m EHRQC -v
+   EHRQC 1.0
+
+Install Docker
+--------------
+
+Before starting, we need to ensure the Docker engine is intalled.
+`Follow the installation instructions: <https://docs.docker.com/engine/install/>`_
+
+
+Build the contaner
+------------------
+
+The containers are to be built first when using for the first time.
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/build.sh
+
+Start the contaner
+------------------
+
+This script can be used to start the container if the image is already built.
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/start.sh
+
+Update the contaner
+------------------
+
+To update the container by taking latest code from Git.
+
+.. code-block:: console
+
+   app_user@hostname:~$sh snippets/shell/update.sh
 
 3. Cohort selection
 ===================
