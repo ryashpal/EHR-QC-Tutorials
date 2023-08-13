@@ -38,3 +38,4 @@ Contents
    migrate
    process
    use_cases
+   case_study
