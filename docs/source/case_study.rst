@@ -72,8 +72,8 @@ To understand the extraction capabilities offered by the EHR-QC, kindly consult 
 
 Next, the exploration and anomaly reports are generated from the extracted data using EHR-QC pre-processing module. It will also highlight the presence of anomalous data, and provide specific pointers to correct them. Furthermore, it has the capability to automatically impute the missing values and remove the outliers. In this section we illustrate a few use cases demonstrating the functionality of the module; 
 
-Units Mixup
------------
+Units Mix-up
+------------
 
 The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: inches and feet.
 
@@ -82,6 +82,15 @@ The analysis of demographic data reveled a multimodal distribution within the "H
 To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity. Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
 
 .. image:: images/height_distribution_after.png
+
+Empty attributes
+----------------
+
+Missing Value Imputation
+------------------------
+
+Removal of Extreme Values (Outliers)
+------------------------------------
 
 7. Data Preparation
 ===================
