@@ -26,82 +26,41 @@ In this case study, we utilizeed the Dockerized EHR-QC. For comprehensive instru
 3. Cohort selection
 ===================
 
-All the patients and admissions with Sepsis are identified from the MIMIC IV dataset. For that, ICD codes 9 codes 995.91, 995.92 and 785.52, and ICD 10 codes A419, R6520 and R6521 corresponding to Sepsis, Severe Sepsis, and Septic Shock are used to select patients. The entire EHR data corresponding to these patients and admissions are extracted to flat files.
+From the MIMIC IV dataset, we've identified all patients and admissions related to Sepsis. This selection involves utilizing ICD-9 codes 995.91, 995.92, and 785.52, as well as ICD-10 codes A419, R6520, and R6521, which pertain to Sepsis, Severe Sepsis, and Septic Shock. Subsequently, we've extracted the complete electronic health record (EHR) data associated with these patients and admissions, converting them into csv files.
 
-This resulted in 12277 patients corresponding to 14871 admissions and their EHR data.
+This process yielded a total of 12,276 patients corresponding to 14,870 admissions, along with their respective EHR data.
 
 4. Data standardisation
 =======================
 
-The Sepsis cohort selected in the previous step is standardised to OMOP-CDM specification;
+In the subsequent phase, the EHR data associated with the Sepsis cohort, as contained in the CSV files, is standardized by being structured according to the OMOP-CDM schema. This task is accomplished through the utilization of the EHR-QC utility, which carries out a series of sequential steps, culminating standard EHR representation. The procedure involves the following stages:
 
-Configuration
--------------
+#. Incorporating the Standard Vocabulary (Athena)
+#. Importing EHR data from the CSV files
+#. Staging the data within staging tables
+#. Integrating custom concept mappings for concepts that deviate from the standard
+#. Executing the migration process
+#. Transitioning to the OMOP-CDM schema
+#. For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
-The below configuration is done to direct EHR-QC to fetch data from database where MIMIC dataset is hosted. In addition to the source details, the configuration file also specifies the location to store intermediate tables and the final OMOP-CDM tables;
+This culminated in the successful migration of the entire cohort (100 %), encompassing all the 12,276 patients and 14,870 admissions, alongside their respective EHR data in a fully automated manner.
 
-.. code-block:: console
-   # database connection details
-   db_details = {
-       "sql_host_name": 'localhost',
-       "sql_port_number": 5434,
-       "sql_user_name": 'postgres',
-       "sql_password": '***************',
-       "sql_db_name": 'mimic4',
-   }
+Utilizing well-established, compatible tools and techniques becomes notably more straightforward when working with data that has been transformed into a standardized format.
 
-   # new schema to host the migrated tables
-
-   lookup_schema_name = 'vocabulary_test_20230809'
-
-   source_schema_name = 'omop_migration_source_20230809'
-
-   etl_schema_name = 'omop_migration_etl_20230809'
-
-   cdm_schema_name = 'omop_test_20230809'
-
-Lookup
-------
-
-The Athena vocabulary and custom mapping are imported to create lookup.
-
-.. code-block:: console
-.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -l
-
-Import
-------
-
-EHR data is imported from the csv files
-
-.. code-block:: console
-.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -f
-
-Stage
-------
-
-Imported EHR data is staged on the ETL schema
-
-.. code-block:: console
-.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -s
-
-Mapping
-------
-
-Imported custom mapping file containing mapping information of the concepts in the EHR to standard vocabulary.
-
-.. code-block:: console
-.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -c
-
-Mapping
-------
-
-Imported custom mapping file containing mapping information of the concepts in the EHR to standard vocabulary.
-
-.. code-block:: console
-.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -c
-
-5. Data preperation
+5. Data preparation
 ===================
+
+In this phase, firstly, the demographics, vitals and lab measurements are extracted.
+
+Describe the numbers (of attributes and their counts)
+
+Next, the exploration and anomaly reports are generated from the raw data.
+
+Explain some of the notable observations from the data.
+
+Next, correction/standardisation performed.
+
+Discuss the final counts available for performing Machine Learning applications.
 
 6. Conclusion
 =============
