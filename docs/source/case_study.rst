@@ -75,11 +75,13 @@ Next, the exploration and anomaly reports are generated from the extracted data 
 Units Mixup
 -----------
 
-In the demographic data exploration report, it was observed that the distribution of the ``Height`` attribute is multimodal. It can be clearly seen in the report that the plot generated has two overlapping distributions. By looking at the value ranges of these distribution, we can infer that there might be a mixup of two different units of measurements i.e. inches and feet.
+The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: inches and feet.
 
-.. image:: images/height_distribution.png
+.. image:: images/height_distribution_before.png
 
+To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity. Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
 
+.. image:: images/height_distribution_after.png
 
 7. Data Preparation
 ===================
