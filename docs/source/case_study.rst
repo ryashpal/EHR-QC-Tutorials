@@ -50,13 +50,15 @@ Utilizing well-established, compatible tools and techniques becomes notably more
 5. Data preparation
 ===================
 
-In this phase, the demographics, vitals and lab measurements of the Sepsis cohort are extracted from the standard OMOP-CDM schema.
+During this stage, we retrieve the demographics, vital signs, and lab measurements of the Sepsis cohort from the standardized OMOP-CDM schema.
 
-We managed to obtain;
+Successful extraction yield the following data:
 
-#. Demographics data for 12,276 patients consisting of 7 attributes: Age, Weight, Height, Gender, Ethnicity, Date of Birth, and Date of Death (If not alive)
-#. Vitals data for 8,436 patients consisting of 10 attributes: Heartrate, Systolic BP, Diastolic BP, Mean BP, Resprate, Tempc, Spo2, GCS Eye, GCS verbal, and GCS Motor
-#. Lab measurements for 12,170 patients consisting of 29 attributes: Lactate, Carbondioxide Blood, Albumin, Glucose Urine, Band Form Neutrophils, Base Excess In Blood, Potassium Blood, PH Blood, Chloride Serum, Carbondioxide Serum, Bilirubin, Leukocytes Blood Auto, Creatinine, INR, Sodium Serum, Sodium Blood, Hemoglobin, PH Bodyfluid, Platelet Count, Urea Nitrogen, Glucose Serum, Chloride Blood, Oxygen, Bicarbonate, Potassium Serum, Anion Gap, Leukocytes Blood Manual, Hematocrit, and aPTT.
+#. Demographics data for 12,276 patients, encompassing 7 attributes: Age, Weight, Height, Gender, Ethnicity, Date of Birth, and Date of Death (if applicable)
+#. Vital signs data for 8,436 patients, comprising 10 attributes: Heart rate, Systolic Blood Pressure, Diastolic Blood Pressure, Mean Blood Pressure, Respiratory rate, Body Temperature, Oxygen Saturation (SpO2), Glasgow Coma Scale (GCS) Eye score, GCS Verbal score, and GCS Motor score
+#. Lab measurements for 12,169 patients, involving 29 attributes: Lactate, Blood Carbon Dioxide, Albumin, Urine Glucose, Band Form Neutrophils, Blood Base Excess, Blood Potassium, Blood pH, Serum Chloride, Serum Carbon Dioxide, Bilirubin, Blood Auto Leukocytes, Creatinine, INR (International Normalized Ratio), Serum Sodium, Blood Sodium, Hemoglobin, Body Fluid pH, Platelet Count, Urea Nitrogen, Serum Glucose, Blood Chloride, Oxygen, Bicarbonate, Serum Potassium, Anion Gap, Manual Blood Leukocytes, Hematocrit, and aPTT (Activated Partial Thromboplastin Time)
+
+It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of 12,276 patients, while lab measurements are available for 12,169 patients, and vital signs data is present for approximately 8,436 patients.
 
 Next, the exploration and anomaly reports are generated from the raw data.
 
