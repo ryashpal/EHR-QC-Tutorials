@@ -11,7 +11,10 @@ Outline
 3. Cohort selection
 4. Data standardisation
 5. Data preperation
-6. Conclusion
+6. Data Exploration
+7. Data Correction
+8. Data Preparation
+9. Conclusion
 
 1. Introduction
 ===============
@@ -41,16 +44,17 @@ In the subsequent phase, the EHR data associated with the Sepsis cohort, as cont
 #. Integrating custom concept mappings for concepts that deviate from the standard
 #. Executing the migration process
 #. Transitioning to the OMOP-CDM schema
-#. For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
+
+For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
 This culminated in the successful migration of the entire cohort (100 %), encompassing all the 12,276 patients and 14,870 admissions, alongside their respective EHR data in a fully automated manner.
 
 Utilizing well-established, compatible tools and techniques becomes notably more straightforward when working with data that has been transformed into a standardized format.
 
-5. Data preparation
-===================
+5. Data Extraction
+==================
 
-During this stage, we retrieve the demographics, vital signs, and lab measurements of the Sepsis cohort from the standardized OMOP-CDM schema.
+During this stage, we retrieve the demographics, vital signs, and lab measurements of the Sepsis cohort from the standardized OMOP-CDM schema using EHR-QC pre-processing module.
 
 Successful extraction yield the following data:
 
@@ -58,9 +62,16 @@ Successful extraction yield the following data:
 #. Vital signs data for 8,436 patients, comprising 10 attributes: Heart rate, Systolic Blood Pressure, Diastolic Blood Pressure, Mean Blood Pressure, Respiratory rate, Body Temperature, Oxygen Saturation (SpO2), Glasgow Coma Scale (GCS) Eye score, GCS Verbal score, and GCS Motor score
 #. Lab measurements for 12,169 patients, involving 29 attributes: Lactate, Blood Carbon Dioxide, Albumin, Urine Glucose, Band Form Neutrophils, Blood Base Excess, Blood Potassium, Blood pH, Serum Chloride, Serum Carbon Dioxide, Bilirubin, Blood Auto Leukocytes, Creatinine, INR (International Normalized Ratio), Serum Sodium, Blood Sodium, Hemoglobin, Body Fluid pH, Platelet Count, Urea Nitrogen, Serum Glucose, Blood Chloride, Oxygen, Bicarbonate, Serum Potassium, Anion Gap, Manual Blood Leukocytes, Hematocrit, and aPTT (Activated Partial Thromboplastin Time)
 
-It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of 12,276 patients, while lab measurements are available for 12,169 patients, and vital signs data is present for approximately 8,436 patients.
+It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of 12,276 patients, while lab measurements are available for 12,169 patients, and vital signs data is present for approximately 8,436 patients only.
 
-Next, the exploration and anomaly reports are generated from the raw data.
+To understand the extraction capabilities offered by the EHR-QC, kindly consult the documentation provided at: https://ehr-qc-tutorials.readthedocs.io/en/latest/process.html#extract
+
+6. Data Pre-processing
+======================
+
+Next, the exploration and anomaly reports are generated from the extracted data using EHR-QC pre-processing module. Presenting some of the highlights from the data;
+
+
 
 Explain some of the notable observations from the data.
 
@@ -68,5 +79,11 @@ Next, correction/standardisation performed.
 
 Discuss the final counts available for performing Machine Learning applications.
 
-6. Conclusion
+7. Data Correction
+==================
+
+8. Data Preparation
+===================
+
+9. Conclusion
 =============
