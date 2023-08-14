@@ -50,9 +50,13 @@ Utilizing well-established, compatible tools and techniques becomes notably more
 5. Data preparation
 ===================
 
-In this phase, firstly, the demographics, vitals and lab measurements are extracted.
+In this phase, the demographics, vitals and lab measurements of the Sepsis cohort are extracted from the standard OMOP-CDM schema.
 
-Describe the numbers (of attributes and their counts)
+We managed to obtain;
+
+#. Demographics data for 12,276 patients consisting of 7 attributes: Age, Weight, Height, Gender, Ethnicity, Date of Birth, and Date of Death (If not alive)
+#. Vitals data for 8,436 patients consisting of 10 attributes: Heartrate, Systolic BP, Diastolic BP, Mean BP, Resprate, Tempc, Spo2, GCS Eye, GCS verbal, and GCS Motor
+#. Lab measurements for 12,170 patients consisting of 29 attributes: Lactate, Carbondioxide Blood, Albumin, Glucose Urine, Band Form Neutrophils, Base Excess In Blood, Potassium Blood, PH Blood, Chloride Serum, Carbondioxide Serum, Bilirubin, Leukocytes Blood Auto, Creatinine, INR, Sodium Serum, Sodium Blood, Hemoglobin, PH Bodyfluid, Platelet Count, Urea Nitrogen, Glucose Serum, Chloride Blood, Oxygen, Bicarbonate, Potassium Serum, Anion Gap, Leukocytes Blood Manual, Hematocrit, and aPTT.
 
 Next, the exploration and anomaly reports are generated from the raw data.
 
