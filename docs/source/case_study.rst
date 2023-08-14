@@ -1,20 +1,21 @@
+##########
 Case Study
-**********
+##########
 
 Extraction and preparation of Sepsis data for Machine Learning applications.
 
+*******
 Outline
-=======
+*******
 
-1. Introduction
-2. Set-up
-3. Cohort selection
-4. Data standardisation
-5. Data preperation
-6. Data Exploration
-7. Data Correction
-8. Data Preparation
-9. Conclusion
+#. Introduction
+#. Set-up
+#. Cohort Selection
+#. Data Standardisation
+#. Data Preperation
+#. Data Pre-processing
+#. Data Preparation
+#. Conclusion
 
 1. Introduction
 ===============
@@ -58,9 +59,9 @@ During this stage, we retrieve the demographics, vital signs, and lab measuremen
 
 Successful extraction yield the following data:
 
-#. Demographics data for 12,276 patients, encompassing 7 attributes: Age, Weight, Height, Gender, Ethnicity, Date of Birth, and Date of Death (if applicable)
-#. Vital signs data for 8,436 patients, comprising 10 attributes: Heart rate, Systolic Blood Pressure, Diastolic Blood Pressure, Mean Blood Pressure, Respiratory rate, Body Temperature, Oxygen Saturation (SpO2), Glasgow Coma Scale (GCS) Eye score, GCS Verbal score, and GCS Motor score
-#. Lab measurements for 12,169 patients, involving 29 attributes: Lactate, Blood Carbon Dioxide, Albumin, Urine Glucose, Band Form Neutrophils, Blood Base Excess, Blood Potassium, Blood pH, Serum Chloride, Serum Carbon Dioxide, Bilirubin, Blood Auto Leukocytes, Creatinine, INR (International Normalized Ratio), Serum Sodium, Blood Sodium, Hemoglobin, Body Fluid pH, Platelet Count, Urea Nitrogen, Serum Glucose, Blood Chloride, Oxygen, Bicarbonate, Serum Potassium, Anion Gap, Manual Blood Leukocytes, Hematocrit, and aPTT (Activated Partial Thromboplastin Time)
+#. Demographics data for 12,276 patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
+#. Vital signs data for 8,436 patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
+#. Lab measurements for 12,169 patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
 
 It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of 12,276 patients, while lab measurements are available for 12,169 patients, and vital signs data is present for approximately 8,436 patients only.
 
@@ -69,21 +70,23 @@ To understand the extraction capabilities offered by the EHR-QC, kindly consult 
 6. Data Pre-processing
 ======================
 
-Next, the exploration and anomaly reports are generated from the extracted data using EHR-QC pre-processing module. Presenting some of the highlights from the data;
+Next, the exploration and anomaly reports are generated from the extracted data using EHR-QC pre-processing module. It will also highlight the presence of anomalous data, and provide specific pointers to correct them. Furthermore, it has the capability to automatically impute the missing values and remove the outliers. In this section we illustrate a few use cases demonstrating the functionality of the module; 
+
+Units Mixup
+-----------
+
+In the demographic data exploration report, it was observed that the distribution of the ``Height`` attribute is multimodal. It can be clearly seen in the report that the plot generated has two overlapping distributions. By looking at the value ranges of these distribution, we can infer that there might be a mixup of two different units of measurements i.e. inches and feet.
+
+.. image:: images/height_distribution.png
 
 
 
-Explain some of the notable observations from the data.
-
-Next, correction/standardisation performed.
-
-Discuss the final counts available for performing Machine Learning applications.
-
-7. Data Correction
-==================
-
-8. Data Preparation
+7. Data Preparation
 ===================
 
-9. Conclusion
+Data standardisation and normalisation
+
+8. Conclusion
 =============
+
+Discuss the final counts available for performing Machine Learning applications.
