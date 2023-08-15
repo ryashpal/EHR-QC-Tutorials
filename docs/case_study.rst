@@ -30,9 +30,9 @@ In this case study, we utilizeed the Dockerized EHR-QC. For comprehensive instru
 3. Cohort selection
 ===================
 
-From the MIMIC IV dataset, we've identified all patients and admissions related to Sepsis. This selection involves utilizing ICD-9 codes 995.91, 995.92, and 785.52, as well as ICD-10 codes A419, R6520, and R6521, which pertain to Sepsis, Severe Sepsis, and Septic Shock. Subsequently, we've extracted the complete electronic health record (EHR) data associated with these patients and admissions, converting them into csv files.
+From the MIMIC IV dataset, we've identified all patients and admissions related to Sepsis. This selection involves utilizing ICD-9 codes ``995.91``, ``995.92``, and ``785.52``, as well as ICD-10 codes ``A419``, ``R6520``, and ``R6521`` which pertain to Sepsis, Severe Sepsis, and Septic Shock. Subsequently, we've extracted the complete electronic health record (EHR) data associated with these patients and admissions, converting them into csv files.
 
-This process yielded a total of 12,276 patients corresponding to 14,870 admissions, along with their respective EHR data.
+This process yielded a total of ``12,276`` patients corresponding to ``14,870`` admissions, along with their respective EHR data.
 
 4. Data standardisation
 =======================
@@ -48,7 +48,7 @@ In the subsequent phase, the EHR data associated with the Sepsis cohort, as cont
 
 For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
-This culminated in the successful migration of the entire cohort (100 %), encompassing all the 12,276 patients and 14,870 admissions, alongside their respective EHR data in a fully automated manner.
+This culminated in the successful migration of the entire cohort (100 %), encompassing all the ``12,276`` patients and ``14,870`` admissions, alongside their respective EHR data in a fully automated manner.
 
 Utilizing well-established, compatible tools and techniques becomes notably more straightforward when working with data that has been transformed into a standardized format.
 
@@ -59,11 +59,11 @@ During this stage, we retrieve the demographics, vital signs, and lab measuremen
 
 Successful extraction yield the following data:
 
-#. Demographics data for 12,276 patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
-#. Vital signs data for 8,436 patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
-#. Lab measurements for 12,169 patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
+#. Demographics data for ``12,276`` patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
+#. Vital signs data for ``8,436`` patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
+#. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
 
-It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of 12,276 patients, while lab measurements are available for 12,169 patients, and vital signs data is present for approximately 8,436 patients only.
+It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of ``12,276`` patients, while lab measurements are available for ``12,169`` patients, and vital signs data is present for approximately ``8,436`` patients only.
 
 To understand the extraction capabilities offered by the EHR-QC, kindly consult the documentation provided at: https://ehr-qc-tutorials.readthedocs.io/en/latest/process.html#extract
 
@@ -75,7 +75,7 @@ Next, the exploration and anomaly reports are generated from the extracted data 
 Units Mix-up
 ------------
 
-The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: inches and feet.
+The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: ``inches`` and ``feet``.
 
 .. image:: source/images/height_distribution_before.png
 
@@ -85,6 +85,106 @@ To preempt any downstream errors stemming from this mixed measurement scenario, 
 
 Empty attributes
 ----------------
+
+The EHR-QC data exploration reports for lab measurements reveal certain attributes that lack any recorded values, while others exhibit low overall coverage. These attributes contribute insufficient information to enhance the predictive capability of the encompassing machine learning models. Additionally, they impede the efficacy of missing value imputation algorithms.
+
+.. list-table:: Coverage of all attributes in lab measurements
+   :widths: 25 10
+   :header-rows: 1
+
+   * - Attribute
+     - Count
+   * - 	lactate
+     - 	0
+   * - 	carbondioxide_blood
+     - 	0
+   * - 	albumin
+     - 	8643
+   * - 	glucose_urine
+     - 	1377
+   * - 	band_form_neutrophils
+     - 	5464
+   * - 	base_excess_in_blood
+     - 	0
+   * - 	potassium_blood
+     - 	0
+   * - 	ph_blood
+     - 	0
+   * - 	chloride_serum
+     - 	12142
+   * - 	carbondioxide_serum
+     - 	0
+   * - 	bilirubin
+     - 	10225
+   * - 	leukocytes_blood_auto
+     - 	0
+   * - 	creatinine
+     - 	12146
+   * - 	inr
+     - 	11001
+   * - 	sodium_serum
+     - 	12145
+   * - 	sodium_blood
+     - 	0
+   * - 	hemoglobin
+     - 	12152
+   * - 	ph_bodyfluid
+     - 	0
+   * - 	platelet_count
+     - 	12140
+   * - 	urea_nitrogen
+     - 	12133
+   * - 	glucose_serum
+     - 	12123
+   * - 	chloride_blood
+     - 	0
+   * - 	oxygen
+     - 	0
+   * - 	bicarbonate
+     - 	12143
+   * - 	potassium_serum
+     - 	12144
+   * - 	anion_gap
+     - 	12132
+   * - 	leukocytes_blood_manual
+     - 	12141
+   * - 	hematocrit
+     - 	12144
+   * - 	aptt
+     - 	10880
+
+Consequently, in the context of this analysis, an arbitrary choice has been made to retain an attribute for subsequent analysis only if its overall coverage surpasses the threshold of 95%. Employing this criterion, slightly less than half of the total attributes, specifically 12 out of 29, have met the threshold and are retained for utilization in downstream tasks.
+
+.. list-table:: Coverage of retained attributes in lab measurements
+   :widths: 25 10
+   :header-rows: 1
+
+   * - Attribute
+     - Count
+   * - 	chloride_serum
+     - 	12142
+   * - 	creatinine
+     - 	12146
+   * - 	sodium_serum
+     - 	12145
+   * - 	hemoglobin
+     - 	12152
+   * - 	platelet_count
+     - 	12140
+   * - 	urea_nitrogen
+     - 	12133
+   * - 	glucose_serum
+     - 	12123
+   * - 	bicarbonate
+     - 	12143
+   * - 	potassium_serum
+     - 	12144
+   * - 	anion_gap
+     - 	12132
+   * - 	leukocytes_blood_manual
+     - 	12141
+   * - 	hematocrit
+     - 	12144
 
 Missing Value Imputation
 ------------------------
