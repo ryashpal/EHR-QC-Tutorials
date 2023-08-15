@@ -70,7 +70,11 @@ To understand the extraction capabilities offered by the EHR-QC, kindly consult 
 6. Data Pre-processing
 ======================
 
-Next, the exploration and anomaly reports are generated from the extracted data using EHR-QC pre-processing module. It will also highlight the presence of anomalous data, and provide specific pointers to correct them. Furthermore, it has the capability to automatically impute the missing values and remove the outliers. In this section we illustrate a few use cases demonstrating the functionality of the module; 
+Next, the exploration and anomaly reports are generated from the extracted data using EHR-QC pre-processing module. It will also highlight the presence of anomalous data, and provide specific pointers to correct them. Furthermore, it has the capability to automatically impute the missing values and remove the outliers.
+
+More details on the EHR-QCs pre-processing utility can be found here: https://ehr-qc-tutorials.readthedocs.io/en/latest/process.html#pre-processing
+
+In this section we illustrate a few use cases demonstrating the functionality of the module; 
 
 Units Mix-up
 ------------
@@ -333,9 +337,24 @@ Figure 6: Distribution of heart rate after removing the outliers
 7. Data Preparation
 ===================
 
-Data standardisation and normalisation
+As a final step, we have used the data after correcting the anomalies (Refer Figure 7) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix.
+
+.. image:: source/images/heartrate.png
+Figure 7: Distribution of heart rate without anomalies
+
+Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8).
+
+.. image:: source/images/heartrate_standardised.png
+Figure 8: Distribution of heart rate after standardisation
+
+Normalisation refers to rescaling the data such that all the values lie between 0 and 1 (Refer Figure 8).
+
+.. image:: source/images/heartrate_rescaled.png
+Figure 9: Distribution of heart rate after normalisation
 
 8. Conclusion
 =============
 
 Discuss the final counts available for performing Machine Learning applications.
+
+Previously, we have identified and corrected anomalies using various functions provided by EHR-QC.
