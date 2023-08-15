@@ -16,6 +16,7 @@ This utility is primarily focussed to provide a domain specific toolset for perf
 
    This project is under active development.
 
+Check out the :doc:`use_cases` section for further information, including
 
 .. topic:: Acknowledgements
 
