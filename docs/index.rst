@@ -33,7 +33,7 @@ Contents
 
 .. toctree::
 
-   install
+   source/install
    config
    migrate
    process
