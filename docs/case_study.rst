@@ -355,6 +355,4 @@ Figure 9: Distribution of heart rate after normalisation
 8. Conclusion
 =============
 
-Discuss the final counts available for performing Machine Learning applications.
-
-Previously, we have identified and corrected anomalies using various functions provided by EHR-QC.
+Within the context of this case study, we have curated a patient cohort sourced from a publicly accessible EHR repository. Employing a range of functionalities offered by EHR-QC, we have processed and structured this data, rendering it suitable for conducting machine learning analysis. This endeavor showcase the simplicity, flexibility, versatility, diverse capabilities, utility, and practicality of the EHR-QC library.
