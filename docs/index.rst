@@ -20,13 +20,13 @@ Check out the :doc:`use_cases` section for further information, including
 
 .. topic:: Acknowledgements
 
-   .. image:: images/monash.png
+   .. image:: source/images/monash.png
       :width: 20 %
 
-   .. image:: images/alfred.png
+   .. image:: source/images/alfred.png
       :width: 20 %
 
-   .. image:: images/superbugai.png
+   .. image:: source/images/superbugai.png
       :width: 20 %
 
 Contents
@@ -34,5 +34,9 @@ Contents
 
 .. toctree::
 
-   use_cases
    install
+   config
+   migrate
+   process
+   use_cases
+   case_study
