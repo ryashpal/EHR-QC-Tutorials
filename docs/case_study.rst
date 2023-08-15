@@ -77,10 +77,12 @@ Units Mix-up
 
 The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: ``inches`` and ``feet``.
 
+Figure 1: Histogram showing the distribution of ``Height`` attribute before unit standardisation
 .. image:: source/images/height_distribution_before.png
 
 To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity. Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
 
+Figure 2: Histogram showing the distribution of ``Height`` attribute after unit standardisation
 .. image:: source/images/height_distribution_after.png
 
 Empty attributes
@@ -88,7 +90,7 @@ Empty attributes
 
 The EHR-QC data exploration reports for lab measurements reveal certain attributes that lack any recorded values, while others exhibit low overall coverage. These attributes contribute insufficient information to enhance the predictive capability of the encompassing machine learning models. Additionally, they impede the efficacy of missing value imputation algorithms.
 
-.. list-table:: Coverage of all attributes in lab measurements
+.. list-table:: Table 1: Coverage of all attributes in lab measurements
    :widths: 25 10
    :header-rows: 1
 
@@ -155,7 +157,7 @@ The EHR-QC data exploration reports for lab measurements reveal certain attribut
 
 Consequently, in the context of this analysis, an arbitrary choice has been made to retain an attribute for subsequent analysis only if its overall coverage surpasses the threshold of 95%. Employing this criterion, slightly less than half of the total attributes, specifically 12 out of 29, have met the threshold and are retained for utilization in downstream tasks.
 
-.. list-table:: Coverage of retained attributes in lab measurements
+.. list-table:: Table 2: Coverage of retained attributes in lab measurements
    :widths: 25 10
    :header-rows: 1
 
