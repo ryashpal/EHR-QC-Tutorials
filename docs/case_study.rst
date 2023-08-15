@@ -40,11 +40,40 @@ This process yielded a total of ``12,276`` patients corresponding to ``14,870`` 
 In the subsequent phase, the EHR data associated with the Sepsis cohort, as contained in the CSV files, is standardized by being structured according to the OMOP-CDM schema. This task is accomplished through the utilization of the EHR-QC utility, which carries out a series of sequential steps, culminating standard EHR representation. The procedure involves the following stages:
 
 #. Incorporating the Standard Vocabulary (Athena)
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -l
+
 #. Importing EHR data from the CSV files
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -f
+
 #. Staging the data within staging tables
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -s
+
 #. Integrating custom concept mappings for concepts that deviate from the standard
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -c
+
 #. Executing the migration process
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -e
+
 #. Transitioning to the OMOP-CDM schema
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -u
 
 For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
@@ -57,10 +86,24 @@ Utilizing well-established, compatible tools and techniques becomes notably more
 
 During this stage, we retrieve the demographics, vital signs, and lab measurements of the Sepsis cohort from the standardized OMOP-CDM schema using EHR-QC pre-processing module.
 
-Successful extraction yield the following data:
+Successful extraction using the following commands yielded;
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809
 
 #. Demographics data for ``12,276`` patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809
+
 #. Vital signs data for ``8,436`` patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809
+
 #. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
 
 It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of ``12,276`` patients, while lab measurements are available for ``12,169`` patients, and vital signs data is present for approximately ``8,436`` patients only.
@@ -74,7 +117,50 @@ Next, the exploration and anomaly reports are generated from the extracted data 
 
 More details on the EHR-QCs pre-processing utility can be found here: https://ehr-qc-tutorials.readthedocs.io/en/latest/process.html#pre-processing
 
-In this section we illustrate a few use cases demonstrating the functionality of the module; 
+The specific commands used to generate the exploration and anomaly reports are provided below;
+
+Exploration Reports
+-------------------
+
+Demographics
+^^^^^^^^^^^^
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html
+
+Vitals
+^^^^^^
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html
+
+Lab Measurements
+^^^^^^^^^^^^^^^^
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html
+
+Anomaly Reports
+---------------
+
+Vitals
+^^^^^^
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di
+
+Lab Measurements
+^^^^^^^^^^^^^^^^
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di
+
+For the rest of this section we illustrate a few use cases demonstrating the utility of this module;
 
 Units Mix-up
 ------------
@@ -235,7 +321,11 @@ The anomaly reports generated by EHR-QC have revealed the existence of missing v
      - 	62
      - 	0.74
 
-While certain algorithms can accommodate missing data, others require complete datasets. In cases where algorithmic handling of missing values is not viable, the EHR-QC offers a missing data imputation utility function. This function allows for the specification of the desired imputation algorithm or the automatic simulation of missingness based on the same proportion as the input data, utilizing various algorithms and selecting the optimal one. Using this utility, we performed imputation to address missing values within the vitals and lab measurements. Consequently, the missing table was updated as depicted in the Table 4 below:
+While certain algorithms can accommodate missing data, others require complete datasets. In cases where algorithmic handling of missing values is not viable, the EHR-QC offers a missing data imputation utility function. This function allows for the specification of the desired imputation algorithm or the automatic simulation of missingness based on the same proportion as the input data, utilizing various algorithms and selecting the optimal one. Using this utility, we performed imputation to address missing values within the vitals and lab measurements using the code below. Consequently, the missing table was updated as depicted in Table 4:
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm
 
 .. list-table:: Table 4: Table showing the counts and percentage of missing value for vitals after imputation
    :widths: 25 30 30
@@ -326,7 +416,11 @@ Another class of anomalies, which has come to our attention through the anomaly 
      - 	809
      - 	9.66
 
-These observations can disproportionately impact the predictive capabilities of Machine Learning models and thus necessitate removal. Typically, this is achieved by establishing rigid thresholds using specific statistical measures. For instance, values that surpass 2.5 times the standard deviation (SD) or 1.5 times the interquartile range (IQR) are flagged as outliers. However, we acknowledge that these predefined thresholds lack nuance and often fail to consider the domain-specific intricacies of the data. To address this limitation, EHR-QC employs a technique known as Item Response Theory (IRT) to autonomously identify extreme values. Leveraging this approach, we have implemented this feature to detect and subsequently eliminate outliers from ensuing processes. The effectiveness of outlier removal is clearly demonstrated in the provided figures (Figure 5 and Figure 6), showcasing the successful elimination of all potentially disruptive outliers from the dataset, ensuring they do not interfere with downstream modeling endeavors.
+These observations can disproportionately impact the predictive capabilities of Machine Learning models and thus necessitate removal. Typically, this is achieved by establishing rigid thresholds using specific statistical measures. For instance, values that surpass 2.5 times the standard deviation (SD) or 1.5 times the interquartile range (IQR) are flagged as outliers. However, we acknowledge that these predefined thresholds lack nuance and often fail to consider the domain-specific intricacies of the data. To address this limitation, EHR-QC employs a technique known as Item Response Theory (IRT) to autonomously identify extreme values. Leveraging this approach, we have implemented this feature to detect and subsequently eliminate outliers from ensuing processes using the code provided below. The effectiveness of outlier removal is clearly demonstrated in the provided figures (Figure 5 and Figure 6), showcasing the successful elimination of all potentially disruptive outliers from the dataset, ensuring they do not interfere with downstream modeling endeavors.
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co
 
 .. image:: source/images/outliers_before.png
 Figure 5: Distribution of heart rate before removing the outliers 
@@ -337,17 +431,25 @@ Figure 6: Distribution of heart rate after removing the outliers
 7. Data Preparation
 ===================
 
-As a final step, we have used the data after correcting the anomalies (Refer Figure 7) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix.
+As a final step, we have used the data after correcting the anomalies (Refer Figure 7) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix. The code used to perform these operations is also provided below for reference.
 
 .. image:: source/images/heartrate.PNG
 Figure 7: Distribution of heart rate without anomalies
 
 Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8).
 
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv
+
 .. image:: source/images/heartrate_standardised.PNG
 Figure 8: Distribution of heart rate after standardisation
 
 Normalisation refers to rescaling the data such that all the values lie between 0 and 1 (Refer Figure 8).
+
+.. code-block:: console
+
+    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv
 
 .. image:: source/images/heartrate_rescaled.PNG
 Figure 9: Distribution of heart rate after normalisation
