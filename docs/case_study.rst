@@ -276,6 +276,51 @@ Figure 4: Missing data plot after imputation
 Removal of Extreme Values (Outliers)
 ------------------------------------
 
+Another class of anomalies, which has come to our attention through the anomaly reports (see Table 5), pertains to the presence of outliers. These outliers represent extreme values that deviate significantly from the norm, rendering them inappropriate due to their eccentric nature.
+
+.. list-table:: Table 5: Table showing the counts and percentage of outliers for vitals before imputation
+   :widths: 25 30 30
+   :header-rows: 1
+
+   * - 	heartrate
+     - 	33
+     - 	0.39
+   * - 	sysbp
+     - 	344
+     - 	4.1
+   * - 	diabp
+     - 	179
+     - 	2.13
+   * - 	meanbp
+     - 	281
+     - 	3.34
+   * - 	resprate
+     - 	113
+     - 	1.34
+   * - 	tempc
+     - 	476
+     - 	5.71
+   * - 	spo2
+     - 	233
+     - 	2.77
+   * - 	gcseye
+     - 	0
+     - 	0
+   * - 	gcsverbal
+     - 	0
+     - 	0
+   * - 	gcsmotor
+     - 	809
+     - 	9.66
+
+These observations can disproportionately impact the predictive capabilities of Machine Learning models and thus necessitate removal. Typically, this is achieved by establishing rigid thresholds using specific statistical measures. For instance, values that surpass 2.5 times the standard deviation (SD) or 1.5 times the interquartile range (IQR) are flagged as outliers. However, we acknowledge that these predefined thresholds lack nuance and often fail to consider the domain-specific intricacies of the data. To address this limitation, EHR-QC employs a technique known as Item Response Theory (IRT) to autonomously identify extreme values. Leveraging this approach, we have implemented this feature to detect and subsequently eliminate outliers from ensuing processes. The effectiveness of outlier removal is clearly demonstrated in the provided figures (Figure 5 and Figure 6), showcasing the successful elimination of all potentially disruptive outliers from the dataset, ensuring they do not interfere with downstream modeling endeavors.
+
+.. image:: source/images/outliers_before.png
+Figure 5: Distribution of heart rate before removing the outliers 
+
+.. image:: source/images/outliers_after.png
+Figure 6: Distribution of heart rate after removing the outliers
+
 7. Data Preparation
 ===================
 
