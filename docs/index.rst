@@ -35,3 +35,4 @@ Contents
 .. toctree::
 
    use_cases
+   install
