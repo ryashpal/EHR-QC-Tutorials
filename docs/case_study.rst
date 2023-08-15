@@ -77,13 +77,13 @@ Units Mix-up
 
 The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: ``inches`` and ``feet``.
 
-Figure 1: Histogram showing the distribution of ``Height`` attribute before unit standardisation
 .. image:: source/images/height_distribution_before.png
+Figure 1: Histogram showing the distribution of ``Height`` attribute before unit standardisation
 
 To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity. Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
 
-Figure 2: Histogram showing the distribution of ``Height`` attribute after unit standardisation
 .. image:: source/images/height_distribution_after.png
+Figure 2: Histogram showing the distribution of ``Height`` attribute after unit standardisation
 
 Empty attributes
 ----------------
