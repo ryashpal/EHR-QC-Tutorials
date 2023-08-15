@@ -33,9 +33,4 @@ Contents
 
 .. toctree::
 
-   source/install
-   config
-   migrate
-   process
    use_cases
-   case_study
