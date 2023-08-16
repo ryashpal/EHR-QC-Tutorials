@@ -7,7 +7,7 @@ Extract
 
 **Note 1: The extract module is required if the EHR data exists in a relational database**
 
-**Note 2: If the EHR data is in the flat file (.csv), please proceed to next sections**
+**Note 2: If the EHR data is in the flat file (.csv), please skip this section and proceed to next sections**
 
 
 Help menu
@@ -17,14 +17,14 @@ To display the help menu of the Extract functionality.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract -h
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract -h
 
 
 or
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract --help
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract --help
 
 
 Output
@@ -52,7 +52,7 @@ To extract the demographics data from omop schema and store it in the `save_path
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_demograpics.csv omop demographics omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_demograpics.csv omop demographics omop_cdm
 
 
 Extract OMOP Vitals
@@ -62,7 +62,7 @@ To extract the vitals data from omop schema and store it in the `save_path`.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
 
 
 Extract OMOP Lab measurements
@@ -72,7 +72,7 @@ To extract the lab measurements data from omop schema and store it in the `save_
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_lab_measurements.csv omop lab_measurements omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_lab_measurements.csv omop lab_measurements omop_cdm
 
 
 Extract MIMIC Demographics
@@ -82,7 +82,7 @@ To extract the demographics data from mimic schema and store it in the `save_pat
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/mimic_demographics.csv mimic demographics mimiciv
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/mimic_demographics.csv mimic demographics mimiciv
 
 
 Extract MIMIC Vitals
@@ -92,7 +92,7 @@ To extract the vitals data from mimic schema and store it in the `save_path`.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/mimic_vitals.csv mimic vitals mimiciv
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/mimic_vitals.csv mimic vitals mimiciv
 
 
 Extract MIMIC Lab measurements
@@ -102,7 +102,7 @@ To extract the lab measurements data from mimic schema and store it in the `save
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/mimic_lab_measurements.csv mimic lab_measurements mimiciv
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/mimic_lab_measurements.csv mimic lab_measurements mimiciv
 
 
 Plot
@@ -116,14 +116,14 @@ To display the help menu of the Plot functionality.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot -h
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot -h
 
 
 or
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot --help
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot --help
 
 
 Output
@@ -205,7 +205,7 @@ To generate QC plots from the demograhic data obtained from the `source_path` an
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/mimic_demographics.csv temp/mimic_demographics_explore.html -c {<"optional mapping information">}
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore temp/mimic_demographics.csv temp/mimic_demographics_explore.html -c {<"optional mapping information">}
 
 This function expects the file to contain the information under the following columns;
 
@@ -233,7 +233,7 @@ To generate QC plots from the vitals data obtained from the `source_path` and sa
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/mimic_vitals.csv temp/mimic_vitals_explore.html -c {<"optional mapping information">}
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/mimic_vitals.csv temp/mimic_vitals_explore.html -c {<"optional mapping information">}
 
 This function expects the file to contain the information under the following columns;
 
@@ -271,7 +271,7 @@ To generate QC plots from the lab measurements data obtained from the `source_pa
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore temp/mimic_lab_measurements.csv temp/mimic_lab_measurements_explore.html -c {<"optional mapping information">}
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_explore temp/mimic_lab_measurements.csv temp/mimic_lab_measurements_explore.html -c {<"optional mapping information">}
 
 
 This function expects the file to contain the information under the following columns;
@@ -330,7 +330,7 @@ To generate QC plots from the vitals data obtained from the `source_path` and sa
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
 
 This function expects the file to contain the information under the following columns;
 
@@ -368,7 +368,7 @@ To generate QC plots from the lab measurements data obtained from the `source_pa
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot lab_measurements_outliers temp/mimic_lab_measurements_imputed.csv temp/mimic_lab_measurements_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_outliers temp/mimic_lab_measurements_imputed.csv temp/mimic_lab_measurements_outliers.html
 
 This function expects the file to contain the information under the following columns;
 
@@ -430,7 +430,7 @@ To display the help menu;
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute -h
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Impute -h
 
 Output
 
@@ -459,7 +459,7 @@ To create a random missingness in the data given by the file at ``source_path`` 
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute 'compare' temp/mimic_vitals.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Impute 'compare' temp/mimic_vitals.csv
 
 
 Imputation
@@ -469,7 +469,7 @@ To impute missing values in the data obtained from the `source_path` using the s
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute impute '/path/to/data.csv' -sp='/path/to/data_imputed.csv' -a=<algorithm name>
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Impute impute '/path/to/data.csv' -sp='/path/to/data_imputed.csv' -a=<algorithm name>
 
 This function support the following algorithms
 
@@ -492,13 +492,13 @@ To display the help menu;
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies -h
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies -h
 
 or
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies --help
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies --help
 
 Output
 
@@ -537,7 +537,7 @@ Example:
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -dm -do
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -dm -do
 
 
 Correct Anomalies
@@ -549,7 +549,7 @@ Example:
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -cm -co
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies 'test_data.csv' 'testing' 'test_001' -cm -co
 
 Data using the raw data;
 
@@ -574,13 +574,13 @@ To display the help menu;
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale -h
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale -h
 
 or
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale --help
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale --help
 
 Output
 
@@ -613,7 +613,7 @@ Example:
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Rescale temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
 
 Before rescaling;
 
@@ -634,13 +634,13 @@ To display the help menu;
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise -h
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise -h
 
 or
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise --help
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise --help
 
 Output
 
@@ -671,7 +671,7 @@ Example:
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Standardise temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise temp/omop_vitals_no_anomalies.csv temp/omop_vitals_rescaled.csv
 
 Before standardising;
 
@@ -693,13 +693,13 @@ To display the help menu;
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline -h
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline -h
 
 or
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline --help
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline --help
 
 Output
 
@@ -728,7 +728,7 @@ To create a csv file containing the raw data with the name `omop_demographics_ra
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop demographics omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop demographics omop_cdm
 
 
 Extract OMOP Vitals
@@ -738,7 +738,7 @@ To create a csv file containing the raw data with the name `omop_vitals_raw_data
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm
 
 
 Extract OMOP Lab measurements
@@ -748,7 +748,7 @@ To create a csv file containing the raw data with the name `omop_lab_measurement
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm
 
 
 Extract MIMIC Demographics
@@ -758,7 +758,7 @@ To create a csv file containing the raw data with the name `mimic_demographics_r
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic demographics mimiciv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic demographics mimiciv
 
 
 Extract MIMIC Vitals
@@ -768,7 +768,7 @@ To create a csv file containing the raw data with the name `mimic_vitals_raw_dat
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv
 
 
 Extract MIMIC Lab measurements
@@ -779,7 +779,7 @@ To create a csv file containing the raw data with the name `mimic_lab_measuremen
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv
 
 
 MIMIC Demographics Explore Plots
@@ -789,7 +789,7 @@ To create a csv file containing the raw data with the name `mimic_demographics_r
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic demographics mimiciv -d
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic demographics mimiciv -d
 
 
 OMOP Demographics Explore Plots
@@ -799,7 +799,7 @@ To create a csv file containing the raw data with the name `omop_demographics_ra
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop demographics omop_cdm -d
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop demographics omop_cdm -d
 
 
 MIMIC Vitals Explore Plots
@@ -809,7 +809,7 @@ To create a csv file containing the raw data with the name `mimic_vitals_raw_dat
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv -d
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv -d
 
 
 OMOP Vitals Explore Plots
@@ -819,7 +819,7 @@ To create a csv file containing the raw data with the name `omop_vitals_raw_data
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm -d
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm -d
 
 
 MIMIC Lab measurements Explore Plots
@@ -829,7 +829,7 @@ To create a csv file containing the raw data with the name `mimic_lab_measuremen
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv -d
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv -d
 
 
 OMOP Lab measurements Explore Plots
@@ -839,7 +839,7 @@ To create a csv file containing the raw data with the name `omop_lab_measurement
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm -d
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm -d
 
 
 Impute MIMIC Vitals
@@ -849,7 +849,7 @@ To create a csv file containing the raw data with the name `mimic_vitals_raw_dat
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv -d -i
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic vitals mimiciv -d -i
 
 
 Impute OMOP Vitals
@@ -859,7 +859,7 @@ To create a csv file containing the raw data with the name `omop_vitals_raw_data
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm -d -i
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop vitals omop_cdm -d -i
 
 
 Impute MIMIC Lab measurements
@@ -869,7 +869,7 @@ To create a csv file containing the raw data with the name `mimic_lab_measuremen
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv -d -i
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp mimic lab_measurements mimiciv -d -i
 
 
 Impute OMOP Lab measurements
@@ -879,4 +879,4 @@ To create a csv file containing the raw data with the name `omop_lab_measurement
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm -d -i
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Pipeline temp omop lab_measurements omop_cdm -d -i
