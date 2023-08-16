@@ -176,7 +176,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /save/path/demographics.csv omop demographics omop_test_20230809
 
 If using Jupyter notebook:
 
@@ -187,7 +187,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809'''
+        '''.venv/bin/python -m ehrqc.extract.Extract /save/path/demographics.csv omop demographics omop_test_20230809'''
         )
 
 #. Demographics data for ``12,276`` patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
@@ -196,7 +196,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /save/path/vitals.csv omop vitals omop_test_20230809
 
 If using Jupyter notebook:
 
@@ -207,7 +207,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809'''
+        '''.venv/bin/python -m ehrqc.extract.Extract /save/path/vitals.csv omop vitals omop_test_20230809'''
         )
 
 #. Vital signs data for ``8,436`` patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
@@ -216,7 +216,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /save/path/lab_measurements.csv omop lab_measurements omop_test_20230809
 
 If using Jupyter notebook:
 
@@ -227,7 +227,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809'''
+        '''.venv/bin/python -m ehrqc.extract.Extract /save/path/lab_measurements.csv omop lab_measurements omop_test_20230809'''
         )
 
 #. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
@@ -255,7 +255,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore /save/path/demographics.csv /save/path/demographics_explore.html
 
 If using Jupyter notebook:
 
@@ -266,7 +266,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html'''
+        '''.venv/bin/python -m ehrqc.qc.Plot demographics_explore /save/path/demographics.csv /save/path/demographics_explore.html'''
         )
 
 Vitals
@@ -276,7 +276,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore /save/path/vitals.csv /save/path/vitals_explore.html
 
 If using Jupyter notebook:
 
@@ -287,7 +287,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html'''
+        '''.venv/bin/python -m ehrqc.qc.Plot vitals_explore /save/path/vitals.csv /save/path/vitals_explore.html'''
         )
 
 Lab Measurements
@@ -297,7 +297,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_explore /save/path/lab_measurements_corrected.csv /save/path/lab_measurements_explore.html
 
 If using Jupyter notebook:
 
@@ -308,7 +308,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html'''
+        '''.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore /save/path/lab_measurements_corrected.csv /save/path/lab_measurements_explore.html'''
         )
 
 Anomaly Reports
@@ -321,7 +321,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /save/path/vitals_corrected.csv /save/path/ after_vitals  -dm -do -de -di
 
 If using Jupyter notebook:
 
@@ -332,7 +332,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di'''
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /save/path/vitals_corrected.csv /save/path/ after_vitals  -dm -do -de -di'''
         )
 
 Lab Measurements
@@ -342,7 +342,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /save/path/lab_measurements_corrected.csv /save/path/ after_lab_measurements -dm -do -de -di
 
 If using Jupyter notebook:
 
@@ -353,7 +353,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di'''
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /save/path/lab_measurements_corrected.csv /save/path/ after_lab_measurements -dm -do -de -di'''
         )
 
 For the rest of this section we illustrate a few use cases demonstrating the utility of this module;
@@ -523,7 +523,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /save/path/vitals.csv /save/path/ vitals -cm
 
 If using Jupyter notebook:
 
@@ -534,7 +534,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm'''
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /save/path/vitals.csv /save/path/ vitals -cm'''
         )
 
 .. list-table:: Table 4: Table showing the counts and percentage of missing value for vitals after imputation
@@ -632,7 +632,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /save/path/vitals.csv /save/path/ vitals -co
 
 If using Jupyter notebook:
 
@@ -643,7 +643,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co'''
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /save/path/vitals.csv /save/path/ vitals -co'''
         )
 
 .. image:: source/images/outliers_before.png
@@ -666,7 +666,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise /save/path/vitals_corrected.csv /save/path/vitals_standardised.csv
 
 If using Jupyter notebook:
 
@@ -677,7 +677,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv'''
+        '''.venv/bin/python -m ehrqc.qc.Standardise /save/path/vitals_corrected.csv /save/path/vitals_standardised.csv'''
         )
 
 .. image:: source/images/heartrate_standardised.PNG
@@ -689,7 +689,7 @@ If running via command line:
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale /save/path/vitals_corrected.csv /save/path/vitals_rescaled.csv
 
 If using Jupyter notebook:
 
@@ -700,7 +700,7 @@ If using Jupyter notebook:
     os.system(
         '''cd /path/to/EHRQC;'''
         +
-        '''.venv/bin/python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv'''
+        '''.venv/bin/python -m ehrqc.qc.Rescale /save/path/vitals_corrected.csv /save/path/vitals_rescaled.csv'''
         )
 
 .. image:: source/images/heartrate_rescaled.PNG
