@@ -52,9 +52,9 @@ If using Jupyter notebook:
 .. code-block:: python
 
     import os
-    
+
     os.system(
-        '''cd /superbugai-data/yash/chapter_1/workspace/EHRQC;'''
+        '''cd /path/to/EHRQC;'''
         +
         '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -l'''
         )
