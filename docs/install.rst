@@ -146,7 +146,7 @@ The following prompt should appear, where ``hostname`` is the hostname of the sy
 
    app_user@hostname:~$
 
-Activate the python virtual environment which will change the prompt as shown below.
+Activate the python virtual environment which will change the prompt with (.venv) appearing in front of it as shown below;
 
 .. code-block:: console
 
@@ -170,19 +170,37 @@ To start the container by building the image:
 
 .. code-block:: console
 
-   app_user@hostname:~$sh snippets/shell/build.sh
+   (.venv) user@hostname:~/workspace/EHRQC$sh snippets/shell/build.sh
+
+This command will build the Docker image, create a container from the image, present the command prompt of the running container to the user (as shown below) by activating the python virtual environment.
+
+.. code-block:: console
+
+   (.venv) app_user@hostname:~$
 
 To start the container if the image is already built:
 
 .. code-block:: console
 
-   app_user@hostname:~$sh snippets/shell/start.sh
+   (.venv) user@hostname:~/workspace/EHRQC$sh snippets/shell/start.sh
+
+This command will start the pre-built Docker container, present the command prompt of the running container to the user (as shown below) by activating the python virtual environment.
+
+.. code-block:: console
+
+   (.venv) app_user@hostname:~$
 
 To update the container by taking latest code from Git:
 
 .. code-block:: console
 
-   app_user@hostname:~$sh snippets/shell/update.sh
+   (.venv) user@hostname:~/workspace/EHRQC$sh snippets/shell/update.sh
+
+This command will update the EHR-QC source code by taking it from the Git repository, build the Docker image for the updated code, create a container from the image, present the command prompt of the running container to the user (as shown below) by activating the python virtual environment.
+
+.. code-block:: console
+
+   (.venv) app_user@hostname:~$
 
 Custom volume mapping
 ~~~~~~~~~~~~~~~~~~~~~
@@ -208,4 +226,4 @@ Then start the container by building the image:
 
 .. code-block:: console
 
-   app_user@hostname:~$sh snippets/shell/build.sh
+   (.venv) user@hostname:~/workspace/EHRQC$sh snippets/shell/build.sh
