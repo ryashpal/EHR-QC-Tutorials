@@ -366,7 +366,16 @@ The analysis of demographic data reveled a multimodal distribution within the "H
 .. image:: source/images/height_distribution_before.png
 Figure 1: Histogram showing the distribution of ``Height`` attribute before unit standardisation
 
-To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity. Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
+To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity by executing the following commands:
+
+.. code-block:: python
+
+    import pandas as pd
+    df = pd.read_csv('/save/path/demographics.csv')
+    df.loc[df.height < 100, 'height'] = df[df.height < 100].height * 2.54
+    df.to_csv('/save/path/demographics_corrected.csv', index=False)
+
+Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
 
 .. image:: source/images/height_distribution_after.png
 Figure 2: Histogram showing the distribution of ``Height`` attribute after unit standardisation
@@ -374,7 +383,7 @@ Figure 2: Histogram showing the distribution of ``Height`` attribute after unit 
 Empty attributes
 ----------------
 
-The EHR-QC data exploration reports for lab measurements reveal certain attributes that lack any recorded values, while others exhibit low overall coverage. These attributes contribute insufficient information to enhance the predictive capability of the encompassing machine learning models. Additionally, they impede the efficacy of missing value imputation algorithms.
+The EHR-QC data exploration reports for lab measurements reveal certain attributes that lack any recorded values (Refer Table 1), while others exhibit low overall coverage. These attributes contribute insufficient information to enhance the predictive capability of the encompassing machine learning models. Additionally, they impede the efficacy of missing value imputation algorithms.
 
 .. list-table:: Table 1: Coverage of all attributes in lab measurements
    :widths: 25 10
@@ -441,7 +450,32 @@ The EHR-QC data exploration reports for lab measurements reveal certain attribut
    * - 	aptt
      - 	10880
 
-Consequently, in the context of this analysis, an arbitrary choice has been made to retain an attribute for subsequent analysis only if its overall coverage surpasses the threshold of 95%. Employing this criterion, slightly less than half of the total attributes, specifically 12 out of 29, have met the threshold and are retained for utilization in downstream tasks.
+Consequently, in the context of this analysis, an arbitrary choice has been made to retain an attribute for subsequent analysis only if its overall coverage surpasses the threshold of 95%. Employing this criterion, slightly less than half of the total attributes, specifically 12 out of 29 (Shown in Table 2), have met the threshold and are retained for utilization in downstream tasks using the below commands.
+
+.. code-block:: python
+
+    import pandas as pd
+    df = pd.read_csv('lab_measurements.csv')
+    
+    df.drop('lactate', axis=1, inplace=True)
+    df.drop('carbondioxide_blood', axis=1, inplace=True)
+    df.drop('albumin', axis=1, inplace=True)
+    df.drop('glucose_urine', axis=1, inplace=True)
+    df.drop('band_form_neutrophils', axis=1, inplace=True)
+    df.drop('base_excess_in_blood', axis=1, inplace=True)
+    df.drop('potassium_blood', axis=1, inplace=True)
+    df.drop('ph_blood', axis=1, inplace=True)
+    df.drop('carbondioxide_serum', axis=1, inplace=True)
+    df.drop('bilirubin', axis=1, inplace=True)
+    df.drop('leukocytes_blood_auto', axis=1, inplace=True)
+    df.drop('inr', axis=1, inplace=True)
+    df.drop('sodium_blood', axis=1, inplace=True)
+    df.drop('ph_bodyfluid', axis=1, inplace=True)
+    df.drop('chloride_blood', axis=1, inplace=True)
+    df.drop('oxygen', axis=1, inplace=True)
+    df.drop('aptt', axis=1, inplace=True)
+    
+    df.to_csv('lab_measurements_dense.csv', index=False)
 
 .. list-table:: Table 2: Coverage of retained attributes in lab measurements
    :widths: 25 10
