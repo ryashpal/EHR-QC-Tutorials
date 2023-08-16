@@ -164,6 +164,9 @@ From here, the EHR-QC commands can be run as usual.
 Scripts
 ~~~~~~~
 
+Build
+^^^^^
+
 Instead of running the commands manually, the containers can be handled by running the following scirpts.
 
 To start the container by building the image:
@@ -178,6 +181,9 @@ This command will build the Docker image, create a container from the image, pre
 
    (.venv) app_user@hostname:~$
 
+Start
+^^^^^
+
 To start the container if the image is already built:
 
 .. code-block:: console
@@ -189,6 +195,9 @@ This command will start the pre-built Docker container, present the command prom
 .. code-block:: console
 
    (.venv) app_user@hostname:~$
+
+Update
+^^^^^^
 
 To update the container by taking latest code from Git:
 
