@@ -41,9 +41,23 @@ In the subsequent phase, the EHR data associated with the Sepsis cohort, as cont
 
 #. Incorporating the Standard Vocabulary (Athena)
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -l
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+    
+    os.system(
+        '''cd /superbugai-data/yash/chapter_1/workspace/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -l'''
+        )
 
 #. Importing EHR data from the CSV files
 
