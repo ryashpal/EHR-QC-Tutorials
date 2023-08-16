@@ -146,6 +146,13 @@ The following prompt should appear, where ``hostname`` is the hostname of the sy
 
    app_user@hostname:~$
 
+Activate the python virtual environment which will change the prompt as shown below.
+
+.. code-block:: console
+
+   app_user@hostname:~$ source .venv/bin/activate
+   (.venv) app_user@hostname:~$
+
 From here, the EHR-QC commands can be run as usual.
 
 .. note::
