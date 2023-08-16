@@ -61,33 +61,103 @@ If using Jupyter notebook:
 
 #. Importing EHR data from the CSV files
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -f
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -f'''
+        )
+
 #. Staging the data within staging tables
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -s
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -s'''
+        )
+
 #. Integrating custom concept mappings for concepts that deviate from the standard
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -c
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -c'''
+        )
+
 #. Executing the migration process
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -e
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -e'''
+        )
+
 #. Transitioning to the OMOP-CDM schema
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -u
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -u'''
+        )
 
 For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
@@ -102,21 +172,63 @@ During this stage, we retrieve the demographics, vital signs, and lab measuremen
 
 Successful extraction using the following commands yielded;
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809'''
+        )
+
 #. Demographics data for ``12,276`` patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809'''
+        )
+
 #. Vital signs data for ``8,436`` patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809'''
+        )
 
 #. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
 
@@ -139,23 +251,65 @@ Exploration Reports
 Demographics
 ^^^^^^^^^^^^
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html'''
+        )
+
 Vitals
 ^^^^^^
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html'''
+        )
+
 Lab Measurements
 ^^^^^^^^^^^^^^^^
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html'''
+        )
 
 Anomaly Reports
 ---------------
@@ -163,16 +317,44 @@ Anomaly Reports
 Vitals
 ^^^^^^
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di
 
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di'''
+        )
+
 Lab Measurements
 ^^^^^^^^^^^^^^^^
+
+If running via command line:
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di'''
+        )
 
 For the rest of this section we illustrate a few use cases demonstrating the utility of this module;
 
@@ -337,9 +519,23 @@ The anomaly reports generated by EHR-QC have revealed the existence of missing v
 
 While certain algorithms can accommodate missing data, others require complete datasets. In cases where algorithmic handling of missing values is not viable, the EHR-QC offers a missing data imputation utility function. This function allows for the specification of the desired imputation algorithm or the automatic simulation of missingness based on the same proportion as the input data, utilizing various algorithms and selecting the optimal one. Using this utility, we performed imputation to address missing values within the vitals and lab measurements using the code below. Consequently, the missing table was updated as depicted in Table 4:
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm'''
+        )
 
 .. list-table:: Table 4: Table showing the counts and percentage of missing value for vitals after imputation
    :widths: 25 30 30
@@ -432,9 +628,23 @@ Another class of anomalies, which has come to our attention through the anomaly 
 
 These observations can disproportionately impact the predictive capabilities of Machine Learning models and thus necessitate removal. Typically, this is achieved by establishing rigid thresholds using specific statistical measures. For instance, values that surpass 2.5 times the standard deviation (SD) or 1.5 times the interquartile range (IQR) are flagged as outliers. However, we acknowledge that these predefined thresholds lack nuance and often fail to consider the domain-specific intricacies of the data. To address this limitation, EHR-QC employs a technique known as Item Response Theory (IRT) to autonomously identify extreme values. Leveraging this approach, we have implemented this feature to detect and subsequently eliminate outliers from ensuing processes using the code provided below. The effectiveness of outlier removal is clearly demonstrated in the provided figures (Figure 5 and Figure 6), showcasing the successful elimination of all potentially disruptive outliers from the dataset, ensuring they do not interfere with downstream modeling endeavors.
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co'''
+        )
 
 .. image:: source/images/outliers_before.png
 Figure 5: Distribution of heart rate before removing the outliers 
@@ -452,18 +662,46 @@ Figure 7: Distribution of heart rate without anomalies
 
 Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8).
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv'''
+        )
 
 .. image:: source/images/heartrate_standardised.PNG
 Figure 8: Distribution of heart rate after standardisation
 
 Normalisation refers to rescaling the data such that all the values lie between 0 and 1 (Refer Figure 8).
 
+If running via command line:
+
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv
+
+If using Jupyter notebook:
+
+.. code-block:: python
+
+    import os
+
+    os.system(
+        '''cd /path/to/EHRQC;'''
+        +
+        '''.venv/bin/python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv'''
+        )
 
 .. image:: source/images/heartrate_rescaled.PNG
 Figure 9: Distribution of heart rate after normalisation
