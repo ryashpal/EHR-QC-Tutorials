@@ -43,37 +43,37 @@ In the subsequent phase, the EHR data associated with the Sepsis cohort, as cont
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -l
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -l
 
 #. Importing EHR data from the CSV files
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -f
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -f
 
 #. Staging the data within staging tables
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -s
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -s
 
 #. Integrating custom concept mappings for concepts that deviate from the standard
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -c
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -c
 
 #. Executing the migration process
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -e
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -e
 
 #. Transitioning to the OMOP-CDM schema
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -u
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -u
 
 For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
@@ -90,19 +90,19 @@ Successful extraction using the following commands yielded;
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv omop demographics omop_test_20230809
 
 #. Demographics data for ``12,276`` patients, encompassing 7 attributes: ``Age``, ``Weight``, ``Height``, ``Gender``, ``Ethnicity``, ``Date of Birth``, and ``Date of Death`` (if applicable)
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv omop vitals omop_test_20230809
 
 #. Vital signs data for ``8,436`` patients, comprising 10 attributes: ``Heart rate``, ``Systolic Blood Pressure``, ``Diastolic Blood Pressure``, ``Mean Blood Pressure``, ``Respiratory rate``, ``Body Temperature``, ``Oxygen Saturation (SpO2)``, ``Glasgow Coma Scale (GCS) Eye score``, ``GCS Verbal score``, and ``GCS Motor score``
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements.csv omop lab_measurements omop_test_20230809
 
 #. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
 
@@ -127,21 +127,21 @@ Demographics
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/demographics_explore.html
 
 Vitals
 ^^^^^^
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_explore.html
 
 Lab Measurements
 ^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_explore /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_explore.html
 
 Anomaly Reports
 ---------------
@@ -151,14 +151,14 @@ Vitals
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_vitals  -dm -do -de -di
 
 Lab Measurements
 ^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/lab_measurements_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ after_lab_measurements -dm -do -de -di
 
 For the rest of this section we illustrate a few use cases demonstrating the utility of this module;
 
@@ -325,7 +325,7 @@ While certain algorithms can accommodate missing data, others require complete d
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -cm
 
 .. list-table:: Table 4: Table showing the counts and percentage of missing value for vitals after imputation
    :widths: 25 30 30
@@ -420,7 +420,7 @@ These observations can disproportionately impact the predictive capabilities of 
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/ vitals -co
 
 .. image:: source/images/outliers_before.png
 Figure 5: Distribution of heart rate before removing the outliers 
@@ -440,7 +440,7 @@ Standardisation refers to reshaping the data such that it follows a unit normal 
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Standardise /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_standardised.csv
 
 .. image:: source/images/heartrate_standardised.PNG
 Figure 8: Distribution of heart rate after standardisation
@@ -449,7 +449,7 @@ Normalisation refers to rescaling the data such that all the values lie between 
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Rescale /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_corrected.csv /superbugai-data/mimiciv/sepsis_icd/case_study/pre-processing/vitals_rescaled.csv
 
 .. image:: source/images/heartrate_rescaled.PNG
 Figure 9: Distribution of heart rate after normalisation
