@@ -9,13 +9,13 @@ To display the help menu of the OMOP-CDM migration utility.
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -h
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -h
 
 or
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run --help
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run --help
 
 Output
 
@@ -45,7 +45,7 @@ To import standard vocabulary files from the path specified in the configuration
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -l
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -l
 
 
 Import EHR
@@ -55,7 +55,7 @@ To import EHR data from csv files from the path specified in the configuration f
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -f
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -f
 
 
 Stage data
@@ -65,7 +65,7 @@ To stage the data from source schema into the etl schema specified by `etl_schem
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -s
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -s
 
 
 Generate custom mappings
@@ -75,7 +75,7 @@ To automatically generate mappings for the specified vocabularies in the configu
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -m
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -m
 
 
 Import custom mapping
@@ -85,7 +85,7 @@ To import manually generated custom mappings from the csv file specified under `
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -c
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -c
 
 
 Perform migration
@@ -95,7 +95,7 @@ To perform the Extract-Transform-Load (ETL) operations necessary to format the s
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -e
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -e
 
 
 Unload data
@@ -105,7 +105,7 @@ To unload the final tables from the lookup and etl shema to the destination sche
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -u
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -u
 
 
 Migrate Pipeline
@@ -115,7 +115,7 @@ To run the entire pipeline in an end-to-end fashion.
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.Run -l -f -s -m -c -e -u
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.Run -l -f -s -m -c -e -u
 
 
 Concept Mapping
@@ -168,13 +168,13 @@ To display the help menu of the OMOP-CDM migration utility.
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.ConceptMapper -h
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.ConceptMapper -h
 
 or
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.ConceptMapper --help
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.ConceptMapper --help
 
 Output
 
@@ -211,4 +211,4 @@ To create mappings for the concepts present in the ``concepts_path`` under the c
 
 .. code-block:: console
 
-    (.venv) app_user@superbugai:~$python -m ehrqc.standardise.migrate_omop.ConceptMapper '<Domain Name>' '<Vocabulary Name>' '<Concept Class Name>' '/path/to/concepts.csv' '<Concept Column Name>' '/path/to/output.csv' --model_pack_path='/path/to/model_pack.zip
+    (.venv) app_user@hostname:~$python -m ehrqc.standardise.migrate_omop.ConceptMapper '<Domain Name>' '<Vocabulary Name>' '<Concept Class Name>' '/path/to/concepts.csv' '<Concept Column Name>' '/path/to/output.csv' --model_pack_path='/path/to/model_pack.zip
