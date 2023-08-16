@@ -17,25 +17,25 @@ In this use case, firstly, the ``vitals`` values are extracted from the EHR.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
 
 Next, a missing data plot is generated using EHR-QC exploration graphs utility on the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
 
 Later, missing data imputation is performed using EHR-QC imputation utlity on the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Impute impute temp/omop_vitals.csv -sp=temp/omop_vitals_imputed.csv -a=mean
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Impute impute temp/omop_vitals.csv -sp=temp/omop_vitals_imputed.csv -a=mean
 
 Finally, the missing data plot is drawn again on the imputed data and compared with the earlier plot.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals_imputed.csv temp/omop_vitals_imputed_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals_imputed.csv temp/omop_vitals_imputed_explore.html
 
 **Output:**
 
@@ -73,26 +73,26 @@ In the first use case, the ``vitals`` values are extracted from the EHR.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
 
 
 Next, a distribution plot is generated using EHR-QC exploration graphs utility on the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
 
 Later, extreme values are removed using EHR-QC correction utlity from the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'temp/omop_vitals.csv' 'temp' 'omop_vitals' -cm -co
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies 'temp/omop_vitals.csv' 'temp' 'omop_vitals' -cm -co
 
 Finally, the distribution data plot is drawn again on the corrected data and compared with the earlier plot.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
 
 **Output:**
 
@@ -113,14 +113,14 @@ In the second use case, the ``vitals`` values are extracted from the EHR.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
 
 
 Next, a distribution plot is generated using EHR-QC exploration graphs utility on the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
 
 Later, non-standard values are removed using custom code from the extracted data.
 
@@ -128,7 +128,7 @@ Finally, the distribution data plot is drawn again on the corrected data and com
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_explore temp/omop_vitals.csv temp/omop_vitals_explore.html
 
 **Output:**
 
@@ -159,14 +159,14 @@ In this use case, the ``demographics`` values are extracted from the EHR.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_demographics.csv omop demographics omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_demographics.csv omop demographics omop_cdm
 
 
 Next, a distribution plot is generated using EHR-QC exploration graphs utility on the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/omop_demographics.csv temp/omop_demographics_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore temp/omop_demographics.csv temp/omop_demographics_explore.html
 
 Later, non-standard values are handled using custom code from the extracted data. In this case two distinct categories i.e. ``UNKNOWN`` and ``UNABLE TO OBTAIN`` are combined together in to a single category for the purpose of demonstration.
 
@@ -174,7 +174,7 @@ Finally, the distribution data plot is drawn again on the corrected data and com
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot demographics_explore temp/omop_demographics.csv temp/omop_demographics_explore.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot demographics_explore temp/omop_demographics.csv temp/omop_demographics_explore.html
 
 **Output:**
 
@@ -203,14 +203,14 @@ In this use case, the ``vitals`` values are extracted from the EHR.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/omop_vitals.csv omop vitals omop_cdm
 
 
 Next, an outlier plot is generated using EHR-QC outlier graphs utility on the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
 
 Further, outliers are removed using conventional rule based method from the extracted data.
 
@@ -218,19 +218,19 @@ The outlier plot is drawn on the corrected data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
 
 Furthermore, outliers are removed using EHR-QC correction utlity from the extracted data.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Anomalies 'temp/omop_vitals.csv' 'temp' 'omop_vitals' -cm -co
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies 'temp/omop_vitals.csv' 'temp' 'omop_vitals' -cm -co
 
 Finally, the outlier plot is drawn again on the corrected data and compared with the earlier plots.
 
 .. code-block:: console
 
-    (.venv) user@hostname:~/workspace/EHRQC$.venv/bin/python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
 
 **Output:**
 
@@ -238,12 +238,12 @@ Here, Figure 4A shows the outliers plot ``sysbp`` and ``heartrate`` attributes w
 
 Figure 4A: Outlier plot with outliers in the data
 
-.. image:: images/plots/outlier_plot_1.png
+.. image:: source/images/plots/outlier_plot_1.png
 
 Figure 4B: Outlier plot by removing outliers identified using traditional techniques
 
-.. image:: images/plots/outlier_plot_2.png
+.. image:: source/images/plots/outlier_plot_2.png
 
 Figure 4C: Outlier plot by removing outliers identified using EHR-QC
 
-.. image:: images/plots/outlier_plot_3.png
+.. image:: source/images/plots/outlier_plot_3.png
