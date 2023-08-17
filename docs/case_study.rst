@@ -689,10 +689,22 @@ Figure 6: Distribution of heart rate after removing the outliers
 7. Data Preparation
 ===================
 
-As a final step, we have used the data after correcting the anomalies (Refer Figure 7) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix. The code used to perform these operations is also provided below for reference.
+As a final step, we have used the data after correcting the anomalies (Refer Figure 7 and Table 6) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix. The code used to perform these operations is also provided below for reference.
 
 .. image:: source/images/original_distribution.png
 Figure 7: Distribution of heart rate without anomalies
+
+.. list-table:: Table 6: Table showing the summary statistics for 3 sample attributes before scaling
+   :widths: 25 30 30
+   :header-rows: 1
+
+   * - Statistic
+     - anion_gap
+     - platelet_count
+     - heartrate
+   * - 	0
+     - 	0
+     - 	0
 
 Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8).
 
