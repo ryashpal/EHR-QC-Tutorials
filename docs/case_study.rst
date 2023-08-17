@@ -308,16 +308,16 @@ The specific commands used to generate the exploration and anomaly reports are p
 Exploration Reports
 -------------------
 
-Data exploration reports generate overall summary of all the attributes present in the data, visualisations showing the data missingness, and distribution of the individual attributes that are useful to get an overview of the EHR.
+Data exploration reports generate overall summary of all the attributes present in the data (Figure 1), visualisations showing the data missingness (Figure 2), and distribution of the individual attributes (Figure 3) that are useful to get an overview of the EHR.
 
 .. image:: source/images/summary.PNG
-Figure 1: Summary table from the EHR-QC exploration report
+Figure 1: A sample summary table from the EHR-QC exploration report
 
 .. image:: source/images/missing_plot_1.png
-Figure 2: Figure visualising missing values as generated from the EHR-QC exploration report
+Figure 2: A sample figure visualising missing values as generated from the EHR-QC exploration report
 
 .. image:: source/images/heartrate.PNG
-Figure 3: Violin plot showing probability density distribution and the summary statistics obtained from the EHR-QC exploration report giving a detailed description of the attribute
+Figure 3: A sample violin plot showing probability density distribution and the summary statistics obtained from the EHR-QC exploration report giving a detailed description of the attribute
 
 Demographics
 ^^^^^^^^^^^^
@@ -385,7 +385,19 @@ If using Jupyter notebook:
 Anomaly Reports
 ---------------
 
-Anomaly reports contain information that is useful to identify the missing values, outliers,  errors, and inconsistancies.
+In addition to the all attributes summary and missing values plot that provide data overview, anomaly reports contain detail outcomes on missing analysis (Figure 4), outlier analysis (Figure 5), error analysis (Figure 6), and inconsistancies analysis (Figure 7).
+
+.. image:: source/images/missing_data_analysis.PNG
+Figure 4: A sample missing data analysis table from the EHR-QC anomaly report
+
+.. image:: source/images/outlier_analysis.PNG
+Figure 5: A sample outlier analysis table from the EHR-QC anomaly report
+
+.. image:: source/images/error_analysis.PNG
+Figure 6: A sample error analysis table from the EHR-QC anomaly report
+
+.. image:: source/images/inconsistancies_analysis.PNG
+Figure 7: A sample inconsistancies analysis table from the EHR-QC anomaly report
 
 Vitals
 ^^^^^^
