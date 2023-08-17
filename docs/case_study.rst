@@ -88,15 +88,15 @@ The paths of the files containing controlled vocabulary concepts are obtained fr
 .. code-block:: python
 
     vocabulary = {
-        'concept': '/superbugai-data/vocabulary_download_v5/CONCEPT.csv',
-        'vocabulary': '/superbugai-data/vocabulary_download_v5/VOCABULARY.csv',
-        'domain': '/superbugai-data/vocabulary_download_v5/DOMAIN.csv',
-        'concept_class': '/superbugai-data/vocabulary_download_v5/CONCEPT_CLASS.csv',
-        'concept_relationship': '/superbugai-data/vocabulary_download_v5/CONCEPT_RELATIONSHIP.csv',
-        'relationship': '/superbugai-data/vocabulary_download_v5/RELATIONSHIP.csv',
-        'concept_synonym': '/superbugai-data/vocabulary_download_v5/CONCEPT_SYNONYM.csv',
-        'concept_ancestor': '/superbugai-data/vocabulary_download_v5/CONCEPT_ANCESTOR.csv',
-        'tmp_custom_mapping': '/superbugai-data/vocabulary_download_v5/tmp_custom_mapping.csv',
+        'concept': '/path/to/CONCEPT.csv',
+        'vocabulary': '/path/to/VOCABULARY.csv',
+        'domain': '/path/to/DOMAIN.csv',
+        'concept_class': '/path/to/CONCEPT_CLASS.csv',
+        'concept_relationship': '/path/to/CONCEPT_RELATIONSHIP.csv',
+        'relationship': '/path/to/RELATIONSHIP.csv',
+        'concept_synonym': '/path/to/CONCEPT_SYNONYM.csv',
+        'concept_ancestor': '/path/to/CONCEPT_ANCESTOR.csv',
+        'tmp_custom_mapping': '/path/to/tmp_custom_mapping.csv',
     }
 
 #. Importing EHR data from the CSV files
@@ -127,14 +127,14 @@ The paths and the column mapping (if other than the expected names) needs to con
     # CSV file column mapping
     
     patients = {
-        'file_name': '/superbugai-data/mimiciv/sepsis_icd/patients.csv',
+        'file_name': '/path/to/patients.csv',
         'column_mapping': {
-            'subject_id': 'subject_id',
-            'gender': 'gender',
-            'anchor_age': 'anchor_age',
-            'anchor_year': 'anchor_year',
-            'anchor_year_group': 'anchor_year_group',
-            'dod': 'dod'
+            'subject_id': 'non_standard_subject_id',
+            'gender': 'non_standard_gender',
+            'anchor_age': 'non_standard_anchor_age',
+            'anchor_year': 'non_standard_anchor_year',
+            'anchor_year_group': 'non_standard_anchor_year_group',
+            'dod': 'non_standard_dod'
         },
     }
 
@@ -936,6 +936,10 @@ Figure 9: Distribution of heart rate after normalisation
      - 	0.007513
      - 	0.013405
      - 	0.024278
+
+.. note::
+
+    Please note that the standardisation and normalisation is performed only on the numerical attributes and not on the categorical attributes.
 
 8. Conclusion
 =============
