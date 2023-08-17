@@ -694,19 +694,52 @@ As a final step, we have used the data after correcting the anomalies (Refer Fig
 .. image:: source/images/original_distribution.png
 Figure 7: Distribution of heart rate without anomalies
 
-.. list-table:: Table 6: Table showing the summary statistics for 3 sample attributes before scaling
-   :widths: 25 30 30
+.. list-table:: Table 6: Table showing the summary statistics for 3 sample attributes before rescaling
+   :widths: 25 20 20 20
    :header-rows: 1
 
    * - Statistic
      - anion_gap
      - platelet_count
      - heartrate
-   * - 	0
-     - 	0
-     - 	0
+   * - 	min
+     - 	6.333333
+     - 	8.500000
+     - 	43.354839
+   * - 	q1
+     - 	12.400000
+     - 	140.446429
+     - 	78.863636
+   * - 	mean
+     - 	14.690474
+     - 	226.773821
+     - 	91.543414
+   * - 	median
+     - 	14.000000
+     - 	207.666667
+     - 	90.700000
+   * - 	mode
+     - 	13.000000
+     - 	168.000000
+     - 	95.000000
+   * - 	q3
+     - 	16.053933
+     - 	291.541667
+     - 	103.304348
+   * - 	max
+     - 	49.285714
+     - 	1110.312500
+     - 	154.500000
+   * - 	std
+     - 	3.723017
+     - 	127.567722
+     - 	17.318017
+   * - 	var
+     - 	13.860854
+     - 	16273.523719
+     - 	299.913722
 
-Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8).
+Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8 and Table 7).
 
 If running via command line:
 
@@ -729,7 +762,52 @@ If using Jupyter notebook:
 .. image:: source/images/standardised_distribution.png
 Figure 8: Distribution of heart rate after standardisation
 
-Normalisation refers to rescaling the data such that all the values lie between 0 and 1 (Refer Figure 8).
+.. list-table:: Table 7: Table showing the summary statistics for 3 sample attributes after standardisation
+   :widths: 25 20 20 20
+   :header-rows: 1
+
+   * - Statistic
+     - anion_gap
+     - platelet_count
+     - heartrate
+   * - 	min
+     - 	-2.244846e+00
+     - 	-1.711137e+00
+     - 	-2.782793e+00
+   * - 	q1
+     - 	-6.152539e-01
+     - 	-6.767554e-01
+     - 	-7.322315e-01
+   * - 	mean
+     - 	-5.661282e-16
+     - 	-4.299213e-17
+     - 	-2.811541e-16
+   * - 	median
+     - 	-1.854712e-01
+     - 	-1.497887e-01
+     - 	-4.870545e-02
+   * - 	mode
+     - 	-4.540854e-01
+     - 	-4.607518e-01
+     - 	1.996108e-01
+   * - 	q3
+     - 	3.662444e-01
+     - 	5.077414e-01
+     - 	6.791701e-01
+   * - 	max
+     - 	9.292771e+00
+     - 	6.926417e+00
+     - 	3.635615e+00
+   * - 	std
+     - 	1.000055e+00
+     - 	1.000055e+00
+     - 	1.000080e+00
+   * - 	var
+     - 	1.000110e+00
+     - 	1.000110e+00
+     - 	1.000161e+00
+
+Normalisation refers to rescaling the data such that all the values lie within a certain boundary usually between 0 and 1 (Refer Figure 8 and Table 8).
 
 If running via command line:
 
@@ -751,6 +829,51 @@ If using Jupyter notebook:
 
 .. image:: source/images/rescaled_distribution.png
 Figure 9: Distribution of heart rate after normalisation
+
+.. list-table:: Table 8: Table showing the summary statistics for 3 sample attributes after normalisation
+   :widths: 25 20 20 20
+   :header-rows: 1
+
+   * - Statistic
+     - anion_gap
+     - platelet_count
+     - heartrate
+   * - 	min
+     - 	0.000000
+     - 	0.000000
+     - 	0.000000
+   * - 	q1
+     - 	0.141242
+     - 	0.119754
+     - 	0.319481
+   * - 	mean
+     - 	0.194568
+     - 	0.198104
+     - 	0.433564
+   * - 	median
+     - 	0.178492
+     - 	0.180763
+     - 	0.425976
+   * - 	mode
+     - 	0.155211
+     - 	0.144761
+     - 	0.464664
+   * - 	q3
+     - 	0.226311
+     - 	0.256887
+     - 	0.539380
+   * - 	max
+     - 	1.000000
+     - 	1.000000
+     - 	1.000000
+   * - 	std
+     - 	0.086678
+     - 	0.115780
+     - 	0.155814
+   * - 	var
+     - 	0.007513
+     - 	0.013405
+     - 	0.024278
 
 8. Conclusion
 =============
