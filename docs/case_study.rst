@@ -308,6 +308,17 @@ The specific commands used to generate the exploration and anomaly reports are p
 Exploration Reports
 -------------------
 
+Data exploration reports generate overall summary of all the attributes present in the data, visualisations showing the data missingness, and distribution of the individual attributes that are useful to get an overview of the EHR.
+
+.. image:: source/images/summary.PNG
+Figure 1: Summary table from the EHR-QC exploration report
+
+.. image:: source/images/missing_plot_1.png
+Figure 2: Figure visualising missing values as generated from the EHR-QC exploration report
+
+.. image:: source/images/heartrate.PNG
+Figure 3: Violin plot showing probability density distribution and the summary statistics obtained from the EHR-QC exploration report giving a detailed description of the attribute
+
 Demographics
 ^^^^^^^^^^^^
 
@@ -373,6 +384,8 @@ If using Jupyter notebook:
 
 Anomaly Reports
 ---------------
+
+Anomaly reports contain information that is useful to identify the missing values, outliers,  errors, and inconsistancies.
 
 Vitals
 ^^^^^^
