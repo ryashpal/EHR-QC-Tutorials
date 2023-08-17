@@ -308,16 +308,13 @@ The specific commands used to generate the exploration and anomaly reports are p
 Exploration Reports
 -------------------
 
-Data exploration reports generate overall summary of all the attributes present in the data (Figure 1), visualisations showing the data missingness (Figure 2), and distribution of the individual attributes (Figure 3) that are useful to get an overview of the EHR.
+Data exploration reports generate overall summary of all the attributes present in the data (Figure 1), visualisations showing the data missingness (Figure 9 and Figure 10), and distribution of the individual attributes (Figure 2) that are useful to get an overview of the EHR.
 
 .. image:: source/images/summary.PNG
 Figure 1: A sample summary table from the EHR-QC exploration report
 
-.. image:: source/images/missing_plot_1.png
-Figure 2: A sample figure visualising missing values as generated from the EHR-QC exploration report
-
 .. image:: source/images/heartrate.PNG
-Figure 3: A sample violin plot showing probability density distribution and the summary statistics obtained from the EHR-QC exploration report giving a detailed description of the attribute
+Figure 2: A sample violin plot showing probability density distribution and the summary statistics obtained from the EHR-QC exploration report giving a detailed description of the attribute
 
 Demographics
 ^^^^^^^^^^^^
@@ -385,19 +382,19 @@ If using Jupyter notebook:
 Anomaly Reports
 ---------------
 
-In addition to the all attributes summary and missing values plot that provide data overview, anomaly reports contain detail outcomes on missing analysis (Figure 4), outlier analysis (Figure 5), error analysis (Figure 6), and inconsistancies analysis (Figure 7).
+In addition to the all attributes summary and missing values plot that provide data overview, anomaly reports contain detail outcomes on missing analysis (Figure 3), outlier analysis (Figure 4), error analysis (Figure 5), and inconsistancies analysis (Figure 6).
 
 .. image:: source/images/missing_data_analysis.PNG
-Figure 4: A sample missing data analysis table from the EHR-QC anomaly report
+Figure 3: A sample missing data analysis table from the EHR-QC anomaly report
 
 .. image:: source/images/outlier_analysis.PNG
-Figure 5: A sample outlier analysis table from the EHR-QC anomaly report
+Figure 4: A sample outlier analysis table from the EHR-QC anomaly report
 
 .. image:: source/images/error_analysis.PNG
-Figure 6: A sample error analysis table from the EHR-QC anomaly report
+Figure 5: A sample error analysis table from the EHR-QC anomaly report
 
 .. image:: source/images/inconsistancies_analysis.PNG
-Figure 7: A sample inconsistancies analysis table from the EHR-QC anomaly report
+Figure 6: A sample inconsistancies analysis table from the EHR-QC anomaly report
 
 Vitals
 ^^^^^^
@@ -446,10 +443,10 @@ For the rest of this section we illustrate a few use cases demonstrating the uti
 Units Mix-up
 ------------
 
-The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: ``inches`` and ``feet``.
+The analysis of demographic data reveled a multimodal distribution within the "Height" attribute. The generated plot (Figure 7) in the demographic data exploration report clearly illustrates the overlap of two distributions. A closer examination of the value ranges within these distributions hints at the potential mix-up of two distinct units of measurement: ``inches`` and ``feet``.
 
 .. image:: source/images/height_distribution_before.png
-Figure 1: Histogram showing the distribution of ``Height`` attribute before unit standardisation
+Figure 7: Histogram showing the distribution of ``Height`` attribute before unit standardisation
 
 To preempt any downstream errors stemming from this mixed measurement scenario, we have rectified the situation to establish uniformity by executing the following commands:
 
@@ -460,10 +457,10 @@ To preempt any downstream errors stemming from this mixed measurement scenario, 
     df.loc[df.height < 100, 'height'] = df[df.height < 100].height * 2.54
     df.to_csv('/save/path/demographics_corrected.csv', index=False)
 
-Following these adjustments, a renewed exploration report was generated, showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
+Following these adjustments, a renewed exploration report was generated (Figure 8), showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
 
 .. image:: source/images/height_distribution_after.png
-Figure 2: Histogram showing the distribution of ``Height`` attribute after unit standardisation
+Figure 8: Histogram showing the distribution of ``Height`` attribute after unit standardisation
 
 Empty attributes
 ----------------
@@ -696,13 +693,13 @@ The above command synthetically creates a random missingness of the proportion s
      - 	0
      - 	0
 
-The missing data plots in the EHR-QC reports visualise the missingness in the data. Please refer to the provided figures (Figure 3 and Figure 4) showcasing the missing data plots before and after imputation.
+The missing data plots in the EHR-QC reports visualise the missingness in the data. Please refer to the provided figures (Figure 9 and Figure 10) showcasing the missing data plots before and after imputation.
 
 .. image:: source/images/missing_value_plot_before.png
-Figure 3: Missing data plot before imputation
+Figure 9: Missing data plot before imputation
 
 .. image:: source/images/missing_value_plot_after.png
-Figure 4: Missing data plot after imputation
+Figure 10: Missing data plot after imputation
 
 Removal of Extreme Values (Outliers)
 ------------------------------------
@@ -747,7 +744,7 @@ Another class of anomalies, which has come to our attention through the anomaly 
      - 	809
      - 	9.66
 
-These observations can disproportionately impact the predictive capabilities of Machine Learning models and thus necessitate removal. Typically, this is achieved by establishing rigid thresholds using specific statistical measures. For instance, values that surpass 2.5 times the standard deviation (SD) or 1.5 times the interquartile range (IQR) are flagged as outliers. However, we acknowledge that these predefined thresholds lack nuance and often fail to consider the domain-specific intricacies of the data. To address this limitation, EHR-QC employs a technique known as Item Response Theory (IRT) to autonomously identify extreme values. Leveraging this approach, we have implemented this feature to detect and subsequently eliminate outliers from ensuing processes using the code provided below. The effectiveness of outlier removal is clearly demonstrated in the provided figures (Figure 5 and Figure 6), showcasing the successful elimination of all potentially disruptive outliers from the dataset, ensuring they do not interfere with downstream modeling endeavors.
+These observations can disproportionately impact the predictive capabilities of Machine Learning models and thus necessitate removal. Typically, this is achieved by establishing rigid thresholds using specific statistical measures. For instance, values that surpass 2.5 times the standard deviation (SD) or 1.5 times the interquartile range (IQR) are flagged as outliers. However, we acknowledge that these predefined thresholds lack nuance and often fail to consider the domain-specific intricacies of the data. To address this limitation, EHR-QC employs a technique known as Item Response Theory (IRT) to autonomously identify extreme values. Leveraging this approach, we have implemented this feature to detect and subsequently eliminate outliers from ensuing processes using the code provided below. The effectiveness of outlier removal is clearly demonstrated in the provided figures (Figure 11 and Figure 12), showcasing the successful elimination of all potentially disruptive outliers from the dataset, ensuring they do not interfere with downstream modeling endeavors.
 
 If running via command line:
 
@@ -768,18 +765,18 @@ If using Jupyter notebook:
         )
 
 .. image:: source/images/outliers_before.png
-Figure 5: Distribution of heart rate before removing the outliers 
+Figure 11: Distribution of heart rate before removing the outliers 
 
 .. image:: source/images/outliers_after.png
-Figure 6: Distribution of heart rate after removing the outliers
+Figure 12: Distribution of heart rate after removing the outliers
 
 7. Data Preparation
 ===================
 
-As a final step, we have used the data after correcting the anomalies (Refer Figure 7 and Table 6) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix. The code used to perform these operations is also provided below for reference.
+As a final step, we have used the data after correcting the anomalies (Refer Figure 13 and Table 6) to perform standardisation and normalisation using utlity functions of EHR-QC to create final data matrix. The code used to perform these operations is also provided below for reference.
 
 .. image:: source/images/original_distribution.png
-Figure 7: Distribution of heart rate without anomalies
+Figure 13: Distribution of heart rate without anomalies
 
 .. list-table:: Table 6: Table showing the summary statistics for 3 sample attributes before rescaling
    :widths: 25 20 20 20
@@ -826,7 +823,7 @@ Figure 7: Distribution of heart rate without anomalies
      - 	16273.523719
      - 	299.913722
 
-Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 8 and Table 7).
+Standardisation refers to reshaping the data such that it follows a unit normal distribution with mean 0 and standard deviation 1 (Refer Figure 14 and Table 7).
 
 If running via command line:
 
@@ -847,7 +844,7 @@ If using Jupyter notebook:
         )
 
 .. image:: source/images/standardised_distribution.png
-Figure 8: Distribution of heart rate after standardisation
+Figure 14: Distribution of heart rate after standardisation
 
 .. list-table:: Table 7: Table showing the summary statistics for 3 sample attributes after standardisation
    :widths: 25 20 20 20
@@ -894,7 +891,7 @@ Figure 8: Distribution of heart rate after standardisation
      - 	1.000110e+00
      - 	1.000161e+00
 
-Normalisation refers to rescaling the data such that all the values lie within a certain boundary usually between 0 and 1 (Refer Figure 8 and Table 8).
+Normalisation refers to rescaling the data such that all the values lie within a certain boundary usually between 0 and 1 (Refer Figure 15 and Table 8).
 
 If running via command line:
 
@@ -915,7 +912,7 @@ If using Jupyter notebook:
         )
 
 .. image:: source/images/rescaled_distribution.png
-Figure 9: Distribution of heart rate after normalisation
+Figure 15: Distribution of heart rate after normalisation
 
 .. list-table:: Table 8: Table showing the summary statistics for 3 sample attributes after normalisation
    :widths: 25 20 20 20
