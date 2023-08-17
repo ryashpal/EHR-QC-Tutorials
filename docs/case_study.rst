@@ -559,7 +559,7 @@ If running via command line:
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Anomalies /save/path/vitals.csv /save/path/ vitals -cm
 
-If using Jupyter notebook:
+If using Jupyter notebook:technique 
 
 .. code-block:: python
 
@@ -570,6 +570,8 @@ If using Jupyter notebook:
         +
         '''.venv/bin/python -m ehrqc.qc.Anomalies /save/path/vitals.csv /save/path/ vitals -cm'''
         )
+
+The above command synthetically creates a random missingness of the proportion same as that in the original data, i.e. ``0.0046`` and ``0.0021`` in the case of vitals and lab measurements respectively. On this data, it will employ different techniques including ``Mean Imputation``, ``Median Imputation``, ``KNN Imputation``, ``MissForest Imputation``, ``Expectation Maximisation Imputation``, and ``Multiple Imputation`` to impute the missing values and obtains R squared score for each one of them. Finally, it will choose the technique with the best score to impute the missing values in the supplied dataset. In this case study, ``MissForest`` was choosen as it was the best performing for both vitals and lab measurements with R squared value of ``0.9984`` and ``0.9991`` respectively.
 
 .. list-table:: Table 4: Table showing the counts and percentage of missing value for vitals after imputation
    :widths: 25 30 30
