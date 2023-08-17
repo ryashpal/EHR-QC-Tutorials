@@ -37,7 +37,31 @@ This process yielded a total of ``12,276`` patients corresponding to ``14,870`` 
 4. Data standardisation
 =======================
 
-In the subsequent phase, the EHR data associated with the Sepsis cohort, as contained in the CSV files, is standardized by being structured according to the OMOP-CDM schema. This task is accomplished through the utilization of the EHR-QC utility, which carries out a series of sequential steps, culminating standard EHR representation. The procedure involves the following stages:
+In the subsequent phase, the EHR data associated with the Sepsis cohort, as contained in the CSV files, is standardized by being structured according to the OMOP-CDM schema. This task is accomplished through the utilization of the EHR-QC utility, which carries out a series of sequential steps, culminating standard EHR representation. The information required by the code to source the data from the relational database (RDBMS), store the intermediate data, and dump the standardised EHR are provided in the configuration file as shown below before executing the utility functions. For more details on configuration options, refer the documentation: https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html
+
+.. code-block:: python
+
+    # database connection details
+    db_details = {
+        "sql_host_name": <Host Name>,
+        "sql_port_number": <Port Number>,
+        "sql_user_name": <User Name>,
+        "sql_password": ******,
+        "sql_db_name": <DB Name>,
+    }
+
+    # new schema to host the migrated tables
+
+    lookup_schema_name = 'vocabulary_test_20230809'
+
+    source_schema_name = 'omop_migration_source_20230809'
+
+    etl_schema_name = 'omop_migration_etl_20230809'
+
+    cdm_schema_name = 'omop_test_20230809'
+
+
+Running the standardisation involves the following stages:
 
 #. Incorporating the Standard Vocabulary (Athena)
 
@@ -59,6 +83,22 @@ If using Jupyter notebook:
         '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -l'''
         )
 
+The paths of the files containing controlled vocabulary concepts are obtained from configuration file as shown below. For more details on configuration options, refer the documentation: https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html
+
+.. code-block:: python
+
+    vocabulary = {
+        'concept': '/superbugai-data/vocabulary_download_v5/CONCEPT.csv',
+        'vocabulary': '/superbugai-data/vocabulary_download_v5/VOCABULARY.csv',
+        'domain': '/superbugai-data/vocabulary_download_v5/DOMAIN.csv',
+        'concept_class': '/superbugai-data/vocabulary_download_v5/CONCEPT_CLASS.csv',
+        'concept_relationship': '/superbugai-data/vocabulary_download_v5/CONCEPT_RELATIONSHIP.csv',
+        'relationship': '/superbugai-data/vocabulary_download_v5/RELATIONSHIP.csv',
+        'concept_synonym': '/superbugai-data/vocabulary_download_v5/CONCEPT_SYNONYM.csv',
+        'concept_ancestor': '/superbugai-data/vocabulary_download_v5/CONCEPT_ANCESTOR.csv',
+        'tmp_custom_mapping': '/superbugai-data/vocabulary_download_v5/tmp_custom_mapping.csv',
+    }
+
 #. Importing EHR data from the CSV files
 
 If running via command line:
@@ -78,6 +118,26 @@ If using Jupyter notebook:
         +
         '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -f'''
         )
+
+The paths and the column mapping (if other than the expected names) needs to configured in the configuration file as shown below before running this command. For more details on configuration options, refer the documentation: https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html 
+
+
+.. code-block:: python
+
+    # CSV file column mapping
+    
+    patients = {
+        'file_name': '/superbugai-data/mimiciv/sepsis_icd/patients.csv',
+        'column_mapping': {
+            'subject_id': 'subject_id',
+            'gender': 'gender',
+            'anchor_age': 'anchor_age',
+            'anchor_year': 'anchor_year',
+            'anchor_year_group': 'anchor_year_group',
+            'dod': 'dod'
+        },
+    }
+
 
 #. Staging the data within staging tables
 
