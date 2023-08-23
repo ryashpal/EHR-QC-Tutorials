@@ -20,24 +20,24 @@ Outline
 1. Introduction
 ===============
 
-In this case study, our main objective is to showcase the effectiveness of EHR-QC. We achieve this by employing the toolkit to handle EHR data comprehensively, preparing it for utilization in Machine Learning applications. To illustrate, we select a group of patients who have been diagnosed with Sepsis from the public MIMIC IV EHR database. Subsequently, we employ the EHR-QC standardization module to standardise the EHR records for these patients, converting them into the OMOP-CDM schema. Following this, we employ the EHR-QC data pre-processing module. This involves extracting information from the standardized schema, generating exploratory reports, and identifying as well as rectifying any anomalies present in the data.
+In this case study, our main objective is to showcase the effectiveness of EHR-QC by employing the toolkit to handle EHR data comprehensively and preparing it for utilisation in subsequent usage in Machine Learning. To illustrate, we select a group of patients who have been diagnosed with Sepsis from the public MIMIC IV EHR database. Subsequently, we employ the EHR-QC standardisation module to convert the raw EHR data to the OMOP-CDM schema. Following this, we employ the EHR-QC data pre-processing module. This involves extracting information from the standardised schema, generating exploratory reports, and identifying as well as rectifying any anomalies present in the data.
 
 2. Set-up
 =========
 
-In this case study, we utilizeed the Dockerized EHR-QC. For comprehensive instructions on configuring the Docker environment, please consult the documentation provided at the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/install.html#docker
+In this case study, we utiliseed the Dockerised EHR-QC. For comprehensive instructions on configuring the Docker environment, please consult the documentation provided at the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/install.html#docker
 
 3. Cohort selection
 ===================
 
-From the MIMIC IV dataset, we've identified all patients and admissions related to Sepsis. This selection involves utilizing ICD-9 codes ``995.91``, ``995.92``, and ``785.52``, as well as ICD-10 codes ``A419``, ``R6520``, and ``R6521`` which pertain to Sepsis, Severe Sepsis, and Septic Shock. Subsequently, we've extracted the complete electronic health record (EHR) data associated with these patients and admissions, converting them into csv files.
+From the MIMIC IV dataset, we've identified all patients and admissions related to Sepsis. This selection involves utilising ICD-9 codes ``995.91``, ``995.92``, and ``785.52``, as well as ICD-10 codes ``A419``, ``R6520``, and ``R6521`` which pertain to Sepsis, Severe Sepsis, and Septic Shock. Subsequently, we've extracted the complete EHR data associated with these patients and admissions, converting them into csv files.
 
-This process yielded a total of ``12,276`` patients corresponding to ``14,870`` admissions, along with their respective EHR data.
+This process yielded a cohort containing ``12,276`` patients corresponding to ``14,870`` admissions, along with their respective EHR data.
 
 4. Data standardisation
 =======================
 
-In the subsequent phase, the EHR data associated with the Sepsis cohort, as contained in the CSV files, is standardized by being structured according to the OMOP-CDM schema. This task is accomplished through the utilization of the EHR-QC utility, which carries out a series of sequential steps, culminating standard EHR representation. The information required by the code to source the data from the relational database (RDBMS), store the intermediate data, and dump the standardised EHR are provided in the configuration file as shown below before executing the utility functions. For more details on configuration options, refer the documentation: https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html
+In the subsequent phase, the EHR data associated with the Sepsis cohort, as contained in the CSV files, is standardised to the OMOP-CDM schema. This task is accomplished through the utilisation of the EHR-QC utility, which carries out a series of sequential steps, culminating standard EHR representation in a relational database. The information required by the code to source the data, store the intermediate data, and dump the standardised EHR are provided in the configuration file as shown below before executing the utility functions. For more details on configuration options, refer the documentation: https://ehr-qc-tutorials.readthedocs.io/en/latest/config.html
 
 .. code-block:: python
 
@@ -63,7 +63,11 @@ In the subsequent phase, the EHR data associated with the Sepsis cohort, as cont
 
 Running the standardisation involves the following stages:
 
-#. Incorporating the Standard Vocabulary (Athena)
+1. Incorporating the Standard Vocabulary
+
+.. note::
+
+    We have used Athena (https://athena.ohdsi.org/) as a source of standard vocabulary
 
 If running via command line:
 
@@ -99,7 +103,7 @@ The paths of the files containing controlled vocabulary concepts are obtained fr
         'tmp_custom_mapping': '/path/to/tmp_custom_mapping.csv',
     }
 
-#. Importing EHR data from the CSV files
+2. Importing EHR data from the CSV files
 
 If running via command line:
 
@@ -139,7 +143,7 @@ The paths and the column mapping (if other than the expected names) needs to con
     }
 
 
-#. Staging the data within staging tables
+3. Staging the data within staging tables
 
 If running via command line:
 
@@ -159,7 +163,7 @@ If using Jupyter notebook:
         '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -s'''
         )
 
-#. Integrating custom concept mappings for concepts that deviate from the standard
+4. Integrating custom concept mappings for concepts that deviate from the standard
 
 If running via command line:
 
@@ -179,7 +183,7 @@ If using Jupyter notebook:
         '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -c'''
         )
 
-#. Executing the migration process
+5. Executing the migration process
 
 If running via command line:
 
@@ -199,7 +203,7 @@ If using Jupyter notebook:
         '''.venv/bin/python -m ehrqc.standardise.migrate_omop.Run -e'''
         )
 
-#. Transitioning to the OMOP-CDM schema
+6. Transitioning to the OMOP-CDM schema
 
 If running via command line:
 
@@ -221,14 +225,14 @@ If using Jupyter notebook:
 
 For more comprehensive insights into each of these stages, please consult the following link: https://ehr-qc-tutorials.readthedocs.io/en/latest/migrate.html#omop-cdm-migration.
 
-This culminated in the successful migration of the entire cohort (100 %), encompassing all the ``12,276`` patients and ``14,870`` admissions, alongside their respective EHR data in a fully automated manner.
+This resulted in the successful migration of the entire cohort (100 %), encompassing all the ``12,276`` patients and ``14,870`` admissions, alongside their respective EHR data in a fully automated manner.
 
-Utilizing well-established, compatible tools and techniques becomes notably more straightforward when working with data that has been transformed into a standardized format.
+Utilising well-established, compatible tools and techniques becomes notably more straightforward when working with data that has been transformed into a standardised format.
 
 5. Data Extraction
 ==================
 
-During this stage, we retrieve the demographics, vital signs, and lab measurements of the Sepsis cohort from the standardized OMOP-CDM schema using EHR-QC pre-processing module.
+During this stage, we retrieve the demographics, vital signs, and lab measurements of the Sepsis cohort from the standardised OMOP-CDM schema using EHR-QC pre-processing module.
 
 Successful extraction using the following commands yielded;
 
@@ -290,7 +294,7 @@ If using Jupyter notebook:
         '''.venv/bin/python -m ehrqc.extract.Extract /save/path/lab_measurements.csv omop lab_measurements omop_test_20230809'''
         )
 
-#. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalized Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
+#. Lab measurements for ``12,169`` patients, involving 29 attributes: ``Lactate``, ``Blood Carbon Dioxide``, ``Albumin``, ``Urine Glucose``, ``Band Form Neutrophils``, ``Blood Base Excess``, ``Blood Potassium``, ``Blood pH``, ``Serum Chloride``, ``Serum Carbon Dioxide``, ``Bilirubin``, ``Blood Auto Leukocytes``, ``Creatinine``, ``INR (International Normalised Ratio)``, ``Serum Sodium``, ``Blood Sodium``, ``Hemoglobin``, ``Body Fluid pH``, ``Platelet Count``, ``Urea Nitrogen``, ``Serum Glucose``, ``Blood Chloride``, ``Oxygen``, ``Bicarbonate``, ``Serum Potassium``, ``Anion Gap``, ``Manual Blood Leukocytes``, ``Hematocrit``, and ``aPTT (Activated Partial Thromboplastin Time)``
 
 It's worth noting that some patients lack recorded values for the listed vital signs or lab measurements attributes. Consequently, these patients are excluded from the extracted files, resulting in a reduction in the total number of rows after this stage. Specifically, our efforts yield complete demographic data for the entire Sepsis cohort of ``12,276`` patients, while lab measurements are available for ``12,169`` patients, and vital signs data is present for approximately ``8,436`` patients only.
 
@@ -457,7 +461,7 @@ To preempt any downstream errors stemming from this mixed measurement scenario, 
     df.loc[df.height < 100, 'height'] = df[df.height < 100].height * 2.54
     df.to_csv('/save/path/demographics_corrected.csv', index=False)
 
-Following these adjustments, a renewed exploration report was generated (Figure 8), showcasing the successful normalization of the "Height" attribute to a consistent unit of measurement.
+Following these adjustments, a renewed exploration report was generated (Figure 8), showcasing the successful normalisation of the "Height" attribute to a consistent unit of measurement.
 
 .. image:: source/images/height_distribution_after.png
 Figure 8: Histogram showing the distribution of ``Height`` attribute after unit standardisation
@@ -532,7 +536,7 @@ The EHR-QC data exploration reports for lab measurements reveal certain attribut
    * - 	aptt
      - 	10880
 
-Consequently, in the context of this analysis, an arbitrary choice has been made to retain an attribute for subsequent analysis only if its overall coverage surpasses the threshold of 95%. Employing this criterion, slightly less than half of the total attributes, specifically 12 out of 29 (Shown in Table 2), have met the threshold and are retained for utilization in downstream tasks using the below commands.
+Consequently, in the context of this analysis, an arbitrary choice has been made to retain an attribute for subsequent analysis only if its overall coverage surpasses the threshold of 95%. Employing this criterion, slightly less than half of the total attributes, specifically 12 out of 29 (Shown in Table 2), have met the threshold and are retained for utilisation in downstream tasks using the below commands.
 
 .. code-block:: python
 
@@ -633,7 +637,7 @@ The anomaly reports generated by EHR-QC have revealed the existence of missing v
      - 	62
      - 	0.74
 
-While certain algorithms can accommodate missing data, others require complete datasets. In cases where algorithmic handling of missing values is not viable, the EHR-QC offers a missing data imputation utility function. This function allows for the specification of the desired imputation algorithm or the automatic simulation of missingness based on the same proportion as the input data, utilizing various algorithms and selecting the optimal one. Using this utility, we performed imputation to address missing values within the vitals and lab measurements using the code below. Consequently, the missing table was updated as depicted in Table 4:
+While certain algorithms can accommodate missing data, others require complete datasets. In cases where algorithmic handling of missing values is not viable, the EHR-QC offers a missing data imputation utility function. This function allows for the specification of the desired imputation algorithm or the automatic simulation of missingness based on the same proportion as the input data, utilising various algorithms and selecting the optimal one. Using this utility, we performed imputation to address missing values within the vitals and lab measurements using the code below. Consequently, the missing table was updated as depicted in Table 4:
 
 If running via command line:
 
@@ -966,8 +970,8 @@ Figure 15: Distribution of heart rate after normalisation
 8. Conclusion
 =============
 
-We conducted a survey of currently available software for data standardization and found that most of these efforts are tailored to specific EHR source, a few generic utilities have been developed such as the graphical-interface-based "White Rabbit", and "Rabbit In A Hat" and purely code-based “Extract, transform, load (ETL) framework”. While the user-interface-centric tools sacrifice simultaneous collaborative development compatibility, the SQL code generated by these tools is also inefficient. These limitations result in challenges related to scalability, replication, increased risk of errors, and a need for more manual effort in reviewing mappings. Moreover, in the instances where "Rabbit In A Hat" failes to handle mapping, tools like standard vocabulary mapping tools like Usagi is used. This step is predominantly manual or semi-automated while none of them offer a completely automated solution to the best of our knowledge.
+We conducted a survey of currently available software for data standardisation and found that most of these efforts are tailored to specific EHR source, a few generic utilities have been developed such as the graphical-interface-based "White Rabbit", and "Rabbit In A Hat" and purely code-based “Extract, transform, load (ETL) framework”. While the user-interface-centric tools sacrifice simultaneous collaborative development compatibility, the SQL code generated by these tools is also inefficient. These limitations result in challenges related to scalability, replication, increased risk of errors, and a need for more manual effort in reviewing mappings. Moreover, in the instances where "Rabbit In A Hat" failes to handle mapping, tools like standard vocabulary mapping tools like Usagi is used. This step is predominantly manual or semi-automated while none of them offer a completely automated solution to the best of our knowledge.
 
 Furthermore, the tools for data quality assurance, such as Achilles, DataQualityDashboard (DQD), ARES, MIRACUM, DQA, and mosaicQA for EHR, are primarily passive in nature, lacking solutions to rectify identified anomalies. They also fail to address the full range of issues that can arise within a typical EHR. For example, the data quality dashboard can only identify anomalies based on preset rules, and all these tools are tied to specific source formats. Importantly, none of these tools offer solutions to correct the detected anomalies.
 
-This case study aims to demonstrate that EHR-QC can effectively address the aforementioned shortcomings. To illustrate this point, we have curated a patient cohort from a publicly accessible EHR repository. By utilizing various features provided by EHR-QC, we have processed and structured this data, making it suitable for machine learning analysis. This endeavor highlights the simplicity, flexibility, versatility, diverse capabilities, utility, and practicality of EHR-QC.
+This case study aims to demonstrate that EHR-QC can effectively address the aforementioned shortcomings. To illustrate this point, we have curated a patient cohort from a publicly accessible EHR repository. By utilising various features provided by EHR-QC, we have processed and structured this data, making it suitable for machine learning analysis. This endeavor highlights the simplicity, flexibility, versatility, diverse capabilities, utility, and practicality of EHR-QC.
