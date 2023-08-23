@@ -682,6 +682,9 @@ After standardising;
 `Rescaled data <https://ryashpal.github.io/EHRQC/vitals_standardised.html>`_
 
 
+Large file handling
+-------------------
+
 Pre-processing Pipeline
 -----------------------
 
