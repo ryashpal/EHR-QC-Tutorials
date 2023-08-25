@@ -685,6 +685,8 @@ After standardising;
 Large file handling
 -------------------
 
+Most often, at the very initial stages of EHR data analysis, we encounter files with very large size.
+
 Pre-processing Pipeline
 -----------------------
 
