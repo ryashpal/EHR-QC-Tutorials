@@ -685,7 +685,66 @@ After standardising;
 Large file handling
 -------------------
 
-Most often, at the very initial stages of EHR data analysis, we encounter files with very large size.
+Frequently, during the initial stages of analyzing Electronic Health Record (EHR) data, we come across files of considerable size. A primary factor contributing to the file's largeness is the data's sparseness, where many cells lack values. Typically, this sparseness manifests in certain attributes (columns) within the EHR. For instance, attributes like temperature and heart rate might exhibit substantial coverage in the EHR, while attributes like SPO2 could have only a few recorded values. In such instances, it might be necessary to exclude the sparse attributes from further analysis if they don't contribute meaningful information for modeling purposes.
+
+This tool provides the capability to manage large files by breaking them down into smaller segments. The initial function generates a report on missing data, indicating the percentage of missing values for all attributes within a specified file. The subsequent function eliminates attributes exceeding the specified missing data threshold and then saves the remaining data to an external file.
+
+
+Help menu
+~~~~~~~~~
+
+To display the help menu;
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage -h
+
+or
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage --help
+
+Output
+
+.. code-block:: console
+
+    usage: Coverage.py [-h] [-d] [-p PERCENTAGE] [-sp SAVE_PATH] source_file chunksize
+    
+    Perform Coverage Analysis
+    
+    positional arguments:
+      source_file           Source data file path
+      chunksize             Number of chunks the input file should be fragmented into
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -d, --drop            Drop the columns
+      -p PERCENTAGE, --percentage PERCENTAGE
+                            Specify the cutoff percentage to drop the columns (required only for drop=True)
+      -sp SAVE_PATH, --save_path SAVE_PATH
+                            Path of the file to store the outputs (required only for drop=True)
+
+
+Display Missingness Report
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To display missing value percentages of all the attributes (columns) within a large csv file, by breaking down it in to number of pieces as indicated by `chunksize`.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage <Source File> <Chunk Size>
+
+
+Remove Sparse Attributes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To display missing value percentages of all the attributes (columns) within a large csv file, by breaking down it in to number of pieces as indicated by `chunksize`. Additionally, this function also removes the sparse attributes that are having a high missingness (above the specified threshold `-p`) and saves the resulting file in `save_path`.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage <Source File> <Chunk Size> -d -p <Threshold in Percentage> -sp <Save Path>
+
 
 Pre-processing Pipeline
 -----------------------
