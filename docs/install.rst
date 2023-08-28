@@ -44,18 +44,29 @@ Open the EHR-QC directory that is downloaded from GitHub after cloning.
    user@hostname:~/workspace$ cd EHRQC
 
 
-Create virtual environment
+You have the option to set up EHR-QC either within a Python virtual environment or a Docker container. Please select one of these methods and follow the corresponding instructions for the initial setup. All the subsequent instructions in this document apply uniformly to both setups.
+
+Python virtual environment
 --------------------------
+
+The Python virtual environment encaptulates all the libraries required for the EHR-QC. All the necessary libraries listed in a requirements.txt file that can be found at the root of the repository. Below are the instructions to create and install dependancies in the Python virtual environment.
+
+.. note::
+   EHR-QC requires Python version 3.9 or higher. For installing Python, please refer the below link: https://www.python.org/downloads/
+
+
+Create virtual environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Inside the EHR-QC directory, create a new Python virtual enviroment to conveniently manage all the dependencies required for the utility.
 
 .. code-block:: console
 
-   user@hostname:~/workspace/EHRQC$ python -m venv .venv
+   user@hostname:~/workspace/EHRQC$ python3 -m venv .venv
 
 
 Activate virtual environment
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After creating the Python virtual enviroment, activate the virtual enviroment to start using it for subsequent commands. The prompt will change with ``(.venv)`` appearing in front of it as shown below;
 
@@ -66,7 +77,7 @@ After creating the Python virtual enviroment, activate the virtual enviroment to
 
 
 Install dependencies
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Install all the required dependencies listed in the requirements.txt file in the newly created Python virtual environment.
 
@@ -76,7 +87,7 @@ Install all the required dependencies listed in the requirements.txt file in the
 
 
 Verify
-------
+~~~~~~
 
 Verify the installation by running the following command. The expected output should contain ``EHRQC <version number>``.
 
@@ -160,6 +171,17 @@ From here, the EHR-QC commands can be run as usual.
 
 .. note::
    The network conntections from the container is configured to be in ``host`` mode. This makes the container have the same network setup as the host system without a IP address of its own.
+
+Verify
+~~~~~~
+
+Verify the installation by running the following command. The expected output should contain ``EHRQC <version number>``.
+
+.. code-block:: console
+
+   (.venv) user@hostname:~/workspace/EHRQC$ python -m EHRQC -v
+   EHRQC 1.0
+
 
 Scripts
 ~~~~~~~
