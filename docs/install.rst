@@ -44,7 +44,13 @@ Open the EHR-QC directory that is downloaded from GitHub after cloning.
    user@hostname:~/workspace$ cd EHRQC
 
 
-You have the option to set up EHR-QC either within a Python virtual environment or a Docker container. Please select one of these methods and follow the corresponding instructions for the initial setup. All the subsequent instructions in this document apply uniformly to both setups.
+You have the option to set up EHR-QC either within a Python virtual environment or a Docker container. Please select one of these methods and follow the corresponding instructions for the initial setup. 
+
+* For setting up EHR-QC using Python virtual environment, please use this `Link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install.html#python-virtual-environment>`_
+* For setting up EHR-QC using Docker container, please use this `Link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install.html#docker>`_
+
+.. note::
+   All the subsequent instructions in this document apply uniformly to both setups.
 
 Python virtual environment
 --------------------------
