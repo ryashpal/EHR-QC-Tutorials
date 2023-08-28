@@ -709,19 +709,20 @@ Output
 
 .. code-block:: console
 
-    usage: Coverage.py [-h] [-d] [-p PERCENTAGE] [-sp SAVE_PATH] source_file chunksize
+    usage: Coverage.py [-h] [-d] [-p PERCENTAGE] [-sp SAVE_PATH] source_file chunksize id_columns [id_columns ...]
     
     Perform Coverage Analysis
     
     positional arguments:
       source_file           Source data file path
-      chunksize             Number of chunks the input file should be fragmented into
+      chunksize             Number of chunks the input file should be fragmented into. By default: [chunksize=100]
+      id_columns            List of ID columns. They are used to group the other columns to calculate missing percentage.
     
     optional arguments:
       -h, --help            show this help message and exit
       -d, --drop            Drop the columns
       -p PERCENTAGE, --percentage PERCENTAGE
-                            Specify the cutoff percentage to drop the columns (required only for drop=True)
+                            Specify the cutoff percentage to drop the columns (required only for drop=True). By default: [-p=50]
       -sp SAVE_PATH, --save_path SAVE_PATH
                             Path of the file to store the outputs (required only for drop=True)
 
