@@ -734,7 +734,13 @@ To display missing value percentages of all the attributes (columns) within a la
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage <Source File> <Chunk Size>
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage <Source File> <Chunk Size> <ID Columns>
+
+For Example, if a large csv file is stored at /path/to/large_file.csv containing two id columns id1 and id2, we can use the below command to display the missingness report.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage /path/to/large_file.csv 100 id1 id2
 
 
 Remove Sparse Attributes
@@ -745,6 +751,12 @@ To display missing value percentages of all the attributes (columns) within a la
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage <Source File> <Chunk Size> -d -p <Threshold in Percentage> -sp <Save Path>
+
+For Example, if a large csv file is stored at /path/to/large_file.csv containing two id columns id1 and id2, we can use the below command to display the missingness report and remove the columns with coverage below 50 % at the specified save path /path/to/save/.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Coverage /path/to/large_file.csv 100 id1 id2 -d -p 50 -sp /path/to/save/
 
 
 Pre-processing Pipeline
