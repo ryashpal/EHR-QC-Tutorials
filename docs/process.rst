@@ -360,6 +360,12 @@ Output
       -c [COMBINATIONS ...], --combinations [COMBINATIONS ...]
                             Column combinations to plot (can have multiple column pairs).
 
+
+.. note::
+
+    Please ensure the csv file does not contain any missing data before using these functions.
+
+
 .. note::
 
     There are two ways to call upon this function:
@@ -371,78 +377,22 @@ Output
     For more comprehensive information about each of these techniques, please consult the details below:
 
 
-Plot without specifying the combinations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Plot specifying the combinations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To generate QC plots from the vitals data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
-
-.. code-block:: console
-
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers 
-
-This function expects the file to contain the information under the following columns;
-
-
-
-`Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_
-
-
-Lab measurements Outlier Plots
-~~~~~~~~~~~~~~~~~~~~
-
-To generate QC plots from the lab measurements data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
+To generate outlier plots from the data obtained from the `source_path` and save it in the `save_path` with a file named `outlier_report.html`. The source file should not contain more than 5 columns.
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot lab_measurements_outliers temp/mimic_lab_measurements_imputed.csv temp/mimic_lab_measurements_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers /path/to/source_file.csv /path/to/save/
 
-This function expects the file to contain the information under the following columns;
+After the function runs successfully, it will generate an HTML file named `outlier_report.html`. This file will contain outlier plots, illustrating the relation between attributes, considering pairs of attributes at a time. These plots will be color-coded based on their outlier scores.
 
-+----------------------+--------------------------------------------+
-| Expected Column Name | Column Details                             |
-+======================+============================================+
-| glucose              | Glucose                                    |
-+----------------------+--------------------------------------------+
-| hemoglobin           | Hemoglobin                                 |
-+----------------------+--------------------------------------------+
-| anion_gap            | Anion Gap                                  |
-+----------------------+--------------------------------------------+
-| bicarbonate          | Bicarbonate                                |
-+----------------------+--------------------------------------------+
-| calcium_total        | Calcium Total                              |
-+----------------------+--------------------------------------------+
-| chloride             | Chloride                                   |
-+----------------------+--------------------------------------------+
-| creatinine           | Creatinine                                 |
-+----------------------+--------------------------------------------+
-| magnesium            | Magnesium                                  |
-+----------------------+--------------------------------------------+
-| phosphate            | Phosphate                                  |
-+----------------------+--------------------------------------------+
-| potassium            | Potassium                                  |
-+----------------------+--------------------------------------------+
-| sodium               | Sodium                                     |
-+----------------------+--------------------------------------------+
-| urea_nitrogen        | Urea Nitrogen                              |
-+----------------------+--------------------------------------------+
-| hematocrit           | Hematocrit                                 |
-+----------------------+--------------------------------------------+
-| mch                  | Mean Cell Hemoglobin                       |
-+----------------------+--------------------------------------------+
-| mchc                 | Mean Corpuscular Hemoglobin Concentration  |
-+----------------------+--------------------------------------------+
-| mcv                  | Mean Corpuscular Volume                    |
-+----------------------+--------------------------------------------+
-| platelet_count       | Platelet Count                             |
-+----------------------+--------------------------------------------+
-| rdw                  | Red cell Distribution Width                |
-+----------------------+--------------------------------------------+
-| red_blood_cells      | Red Blood Cells                            |
-+----------------------+--------------------------------------------+
-| white_blood_cells    | White Blood Cells                          |
-+----------------------+--------------------------------------------+
 
-`Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements_outliers.html>`_
+`Example Vitals Outlier Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_
+
+
+`Example Lab measurements Outlier Plots <https://ryashpal.github.io/EHRQC/lab_measurements_outliers.html>`_
 
 
 Impute
