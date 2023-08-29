@@ -105,14 +105,14 @@ To extract the lab measurements data from mimic schema and store it in the `save
     (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/mimic_lab_measurements.csv mimic lab_measurements mimiciv
 
 
-Plot
-----
+Exploration Plots
+-----------------
 
 
 Help menu
 ~~~~~~~~~
 
-To display the help menu of the Plot functionality.
+To display the help menu of the Exploration Plot functionality.
 
 .. code-block:: console
 
@@ -322,40 +322,64 @@ This function expects the file to contain the information under the following co
 `Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements.html>`_
 
 
-Vitals Outlier Plots
-~~~~~~~~~~~~~~~~~~~~
+Outlier Plots
+-------------
+
+
+Help menu
+~~~~~~~~~
+
+To display the help menu of the Outlier Plot functionality.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers -h
+
+
+or
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers --help
+
+
+Output
+
+.. code-block:: console
+
+    usage: Outliers.py [-h] [-c [COMBINATIONS ...]] source_file save_path
+    
+    EHRQC
+    
+    positional arguments:
+      source_file           Source data file path
+      save_path             Path of the directory to store the output
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -c [COMBINATIONS ...], --combinations [COMBINATIONS ...]
+                            Column combinations to plot (can have multiple column pairs).
+
+.. note::
+
+    There are two ways to call upon this function:
+    1. The first approach involves providing the column combinations as command line arguments. Keep in mind that due to computational limitations, a maximum of 10 column pairs can be designated for plotting outliers using this method.
+    2. Alternatively, in the second method, you need not specify the column combinations explicitly. In this scenario, the function derives column combinations for all possible pairs. It's important to note that, due to computational restrictions, the file can contain a maximum of 5 columns. This limitation results in 10 column combination pairs available for outlier plotting using this method.
+    For more comprehensive information about each of these techniques, please consult the details below:
+
+
+Plot without specifying the combinations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To generate QC plots from the vitals data obtained from the `source_path` and save it in the `save_path`. If the source csv file is not in a standard format, then a `column_mapping` needs to be provided.
 
 .. code-block:: console
 
-    (.venv) app_user@hostname:~$python -m ehrqc.qc.Plot vitals_outliers temp/mimic_vitals_imputed.csv temp/mimic_vitals_outliers.html
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers 
 
 This function expects the file to contain the information under the following columns;
 
-+----------------------+--------------------------------------+
-| Expected Column Name | Column Details                       |
-+======================+======================================+
-| heartrate            | Heart Rate                           |
-+----------------------+--------------------------------------+
-| sysbp                | Systolic Blood Pressure              |
-+----------------------+--------------------------------------+
-| diabp                | Diastolic Blood Pressure             |
-+----------------------+--------------------------------------+
-| meanbp               | Mean Blood Pressure                  |
-+----------------------+--------------------------------------+
-| resprate             | Respiratory Rate                     |
-+----------------------+--------------------------------------+
-| tempc                | Temperature                          |
-+----------------------+--------------------------------------+
-| spo2                 | Oxygen Saturation                    |
-+----------------------+--------------------------------------+
-| gcseye               | Glasgow Coma Scale - Eye Response    |
-+----------------------+--------------------------------------+
-| gcsverbal            | Glasgow Coma Scale - Verbal Response |
-+----------------------+--------------------------------------+
-| gcsmotor             | Glasgow Coma Scale - Motor Response  |
-+----------------------+--------------------------------------+
+
 
 `Example Vitals Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_
 
