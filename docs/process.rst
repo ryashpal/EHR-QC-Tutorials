@@ -363,8 +363,11 @@ Output
 .. note::
 
     There are two ways to call upon this function:
+
     1. The first approach involves providing the column combinations as command line arguments. Keep in mind that due to computational limitations, a maximum of 10 column pairs can be designated for plotting outliers using this method.
+
     2. Alternatively, in the second method, you need not specify the column combinations explicitly. In this scenario, the function derives column combinations for all possible pairs. It's important to note that, due to computational restrictions, the file can contain a maximum of 5 columns. This limitation results in 10 column combination pairs available for outlier plotting using this method.
+
     For more comprehensive information about each of these techniques, please consult the details below:
 
 
