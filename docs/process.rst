@@ -380,13 +380,25 @@ Output
 Plot specifying the combinations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+To generate outlier plots from the data obtained from the `source_path` and save it in the `save_path` with a file named `outlier_report.html`, you can utilize the optional -c argument to specify column pairs. You have the flexibility to include multiple pairs by reusing this argument multiple times up to a maximum of 10 different column pairs.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers /path/to/source_file.csv /path/to/save/ -c col1 col2 -c col2 col3 -c col3 col1
+
+Plot without specifying the combinations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 To generate outlier plots from the data obtained from the `source_path` and save it in the `save_path` with a file named `outlier_report.html`. The source file should not contain more than 5 columns.
 
 .. code-block:: console
 
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers /path/to/source_file.csv /path/to/save/
 
-After the function runs successfully, it will generate an HTML file named `outlier_report.html`. This file will contain outlier plots, illustrating the relation between attributes, considering pairs of attributes at a time. These plots will be color-coded based on their outlier scores.
+Generated outputs
+~~~~~~~~~~~~~~~~~
+
+After the function runs successfully, it will generate an HTML file named `outlier_report.html` in the `save_path`. This file will contain outlier plots, illustrating the relation between attributes, considering 2 attributes at a time. The points in these plots are color-coded based on their outlier scores.
 
 
 `Example Vitals Outlier Plots <https://ryashpal.github.io/EHRQC/vitals_outliers.html>`_
