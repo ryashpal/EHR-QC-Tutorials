@@ -135,8 +135,7 @@ Output
     EHRQC
 
     positional arguments:
-    plot_type             Type of plot to generate [demographics_explore, vitals_explore, lab_measurements_explore, vitals_outliers,
-                            lab_measurements_outliers]
+    plot_type             Type of plot to generate [demographics_explore, vitals_explore, lab_measurements_explore]
     source_path           Source data path
     save_path             Path of the file to store the output
 
