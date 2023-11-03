@@ -517,6 +517,24 @@ Output
     In the plot functionality, if more than two attributes are present, then the first two principle components are used for plotting.
 
 
+Plot Outliers
+^^^^^^^^^^^^^
+
+To generate outlier plots from the data obtained from the `source_file` and save it in the `save_file`. The optional argument -c can be utilised to specify columns to make use while determining outliers.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.OutlierIsolationForest /path/to/source_file.csv /path/to/save_file.html visualise -c col1 col2 col3
+
+
+Remove Outliers
+^^^^^^^^^^^^^^^
+
+To remove outliers from the data obtained from the `source_file` and save it in the `save_file`. The optional argument -c can be utilised to specify columns to make use while determining outliers.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.OutlierIsolationForest /path/to/source_file.csv /path/to/save_file.html clean -c col1 col2 col3
 
 
 Impute
