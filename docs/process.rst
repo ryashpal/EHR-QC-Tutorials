@@ -372,12 +372,17 @@ This function expects the file to contain the information under the following co
 `Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements.html>`_
 
 
-Outlier Plots
--------------
+Outlier Handling
+----------------
 
+
+Using IRT ensemble
+~~~~~~~~~~~~~~~~~~
+
+This module allows for plotting the outliers detected in an unsupervised manner using IRT ensemble technique.
 
 Help menu
-~~~~~~~~~
+^^^^^^^^^
 
 To display the help menu of the Outlier Plot functionality.
 
@@ -428,7 +433,7 @@ Output
 
 
 Plot specifying the combinations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To generate outlier plots from the data obtained from the `source_path` and save it in the `save_path` with a file named `outlier_report.html`, you can utilize the optional -c argument to specify column pairs. You have the flexibility to include multiple pairs by reusing this argument multiple times up to a maximum of 10 different column pairs.
 
@@ -437,7 +442,7 @@ To generate outlier plots from the data obtained from the `source_path` and save
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers /path/to/source_file.csv /path/to/save/ -c col1 col2 -c col2 col3 -c col3 col1
 
 Plot without specifying the combinations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To generate outlier plots from the data obtained from the `source_path` and save it in the `save_path` with a file named `outlier_report.html`. The source file should not contain more than 5 columns.
 
@@ -446,7 +451,7 @@ To generate outlier plots from the data obtained from the `source_path` and save
     (.venv) app_user@hostname:~$python -m ehrqc.qc.Outliers /path/to/source_file.csv /path/to/save/
 
 Generated outputs
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 After the function runs successfully, it will generate an HTML file named `outlier_report.html` in the `save_path`. This file will contain outlier plots, illustrating the relation between attributes, considering 2 attributes at a time. The points in these plots are color-coded based on their outlier scores.
 
@@ -455,6 +460,63 @@ After the function runs successfully, it will generate an HTML file named `outli
 
 
 `Example Lab measurements Outlier Plots <https://ryashpal.github.io/EHRQC/lab_measurements_outliers.html>`_
+
+
+Using Isolation Forest
+~~~~~~~~~~~~~~~~~~~~~~
+
+This module allows for plotting the outliers detected in an unsupervised manner using Isolation Forest technique and also allows to remove the detected outliers.
+
+Help menu
+^^^^^^^^^
+
+To display the help menu of the Outlier Handling functionality.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.OutlierIsolationForest -h
+
+
+or
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.OutlierIsolationForest --help
+
+
+Output
+
+    .. code-block:: console
+    
+    usage: OutlierIsolationForest.py [-h] [-col [COLUMNS [COLUMNS ...]]] source_file save_file action
+    
+    Outlier graphs using IRT ensemble technique
+    
+    positional arguments:
+      source_file           Source data file path
+      save_file             Path of the file to store the output
+      action                Action to perform [visualise, clean]
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -col [COLUMNS [COLUMNS ...]], --columns [COLUMNS [COLUMNS ...]]
+                            Column names to be used for outlier detection - must have two or more column names (required for both actions i.e. visualise and clean).
+
+.. note::
+
+    Please ensure the csv file does not contain any missing data before using these functions.
+
+
+.. note::
+
+    The column names containing the actual clinical attributes are to be specified to this function as the data files usually contain id columns that should be excluded.
+
+
+.. note::
+
+    In the plot functionality, if more than two attributes are present, then the first two principle components are used for plotting.
+
+
 
 
 Impute
