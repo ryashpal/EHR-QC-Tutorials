@@ -486,7 +486,7 @@ or
 
 Output
 
-    .. code-block:: console
+.. code-block:: console
     
     usage: OutlierIsolationForest.py [-h] [-col [COLUMNS [COLUMNS ...]]] source_file save_file action
     
