@@ -37,30 +37,30 @@ In the destination folder, clone the current version of EHR-QC repository from t
 Open EHR-QC
 -----------
 
-Open the ``EHR-QC-Standardise`` directory that is downloaded from GitHub after cloning.
+Open the ``EHR-QC-Preprocess`` directory that is downloaded from GitHub after cloning.
 
 .. code-block:: console
 
-   user@hostname:~/workspace$ cd EHR-QC-Standardise
+   user@hostname:~/workspace$ cd EHR-QC-Preprocess
 
 
 Python virtual environment
 --------------------------
 
-The Python virtual environment encaptulates all the libraries required for the EHR-QC-Standardise. All the necessary libraries listed in a requirements.txt file that can be found at the root of the repository. Below are the instructions to create and install dependancies in the Python virtual environment.
+The Python virtual environment encaptulates all the libraries required for the EHR-QC-Preprocess. All the necessary libraries listed in a requirements.txt file that can be found at the root of the repository. Below are the instructions to create and install dependancies in the Python virtual environment.
 
 .. note::
-   ``EHR-QC-Standardise`` requires ``Python version 3.9`` or higher. For installing Python, please refer the below link: https://www.python.org/downloads/
+   ``EHR-QC-Preprocess`` requires ``Python version 3.9`` or higher. For installing Python, please refer the below link: https://www.python.org/downloads/
 
 
 Create virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Inside the ``EHR-QC-Standardise`` directory, create a new Python virtual enviroment to conveniently manage all the dependencies required for the utility.
+Inside the ``EHR-QC-Preprocess`` directory, create a new Python virtual enviroment to conveniently manage all the dependencies required for the utility.
 
 .. code-block:: console
 
-   user@hostname:~/workspace/EHR-QC-Standardise$ python3 -m venv .venv
+   user@hostname:~/workspace/EHR-QC-Preprocess$ python3 -m venv .venv
 
 
 Activate virtual environment
@@ -70,8 +70,8 @@ After creating the Python virtual enviroment, activate the virtual enviroment to
 
 .. code-block:: console
 
-   user@hostname:~/workspace/EHR-QC-Standardise$ source .venv/bin/activate
-   (.venv) user@hostname:~/workspace/EHR-QC-Standardise$
+   user@hostname:~/workspace/EHR-QC-Preprocess$ source .venv/bin/activate
+   (.venv) user@hostname:~/workspace/EHR-QC-Preprocess$
 
 
 Install dependencies
@@ -81,7 +81,7 @@ Install all the required dependencies listed in the requirements.txt file in the
 
 .. code-block:: console
 
-   (.venv) user@hostname:~/workspace/EHR-QC-Standardise$ pip install -r requirements.txt
+   (.venv) user@hostname:~/workspace/EHR-QC-Preprocess$ pip install -r requirements.txt
 
 
 Verify
@@ -91,6 +91,6 @@ Verify the installation by running the following command. The expected output sh
 
 .. code-block:: console
 
-   (.venv) user@hostname:~/workspace/EHR-QC-Standardise$ python -m EHR-QC -v
+   (.venv) user@hostname:~/workspace/EHR-QC-Preprocess$ python -m EHR-QC -v
    EHR-QC 1.0
 
