@@ -31,7 +31,7 @@ In the destination folder, clone the current version of EHR-QC repository from t
 
 .. code-block:: console
 
-   user@hostname:~/workspace$ git clone `<Add GitLab repo link here>`
+   user@hostname:~/workspace$ git clone **<Add GitLab repo link here>**
 
 
 Open EHR-QC
