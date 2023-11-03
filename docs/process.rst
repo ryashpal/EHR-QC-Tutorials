@@ -372,6 +372,48 @@ This function expects the file to contain the information under the following co
 `Example Lab measurements Plots <https://ryashpal.github.io/EHRQC/lab_measurements.html>`_
 
 
+Explore Data
+~~~~~~~~~~~~
+
+This is a generic utility to plot data exploration graphs.
+
+.. note::
+
+    This utility functions doesn't expect any particular attributes to be present in the file. Instead, it will plot all the attributes mentioned in the column list parameter making it more flexible.
+
+Help menu
+~~~~~~~~~
+
+To display the help menu of the Exploration Plot functionality.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.ExplorationGraphsPdf -h
+
+or
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.ExplorationGraphsPdf --help
+
+
+Output
+
+.. code-block:: console
+
+    usage: ExplorationGraphsPdf.py [-h] [-c COLUMNS] [-sf [SOURCE_FILE_LIST [SOURCE_FILE_LIST ...]]] [-l [LABELS [LABELS ...]]] save_path
+    
+    Draw exploration graphs as pdf files
+    
+    positional arguments:
+      save_path             Path of the file to store the output
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -c COLUMNS, --columns COLUMNS
+      -sf [SOURCE_FILE_LIST [SOURCE_FILE_LIST ...]], --source_file_list [SOURCE_FILE_LIST [SOURCE_FILE_LIST ...]]
+      -l [LABELS [LABELS ...]], --labels [LABELS [LABELS ...]]
+
 Outlier Handling
 ----------------
 
