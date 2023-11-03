@@ -110,7 +110,9 @@ Extract Data
 
 A generic function to extract any data from a relational database irrespective of the schema.
 
-**Note: This function is available within the EHR-QC-Preprocess module. For installatoin instructions for this module, please visit the following `link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install_ehrqc_preprocess.html>`_**
+.. note::
+
+This function is available within the EHR-QC-Preprocess module. For installatoin instructions for this module, please visit the following `link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install_ehrqc_preprocess.html>`_
 
 Help menu
 ^^^^^^^^^
