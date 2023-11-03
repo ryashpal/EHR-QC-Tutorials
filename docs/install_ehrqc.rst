@@ -1,5 +1,5 @@
-Install EHR-QC
-==============
+EHR-QC
+======
 
 Follow the below steps to install EHR-QC in your computer.
 
