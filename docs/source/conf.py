@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'EHR-QC'
-copyright = '2023, Sonika Tyagi'
+copyright = '2023, Dr. Sonika Tyagi'
 author = 'Yashpal Ramakrishnaiah'
 
 release = '0.1'
