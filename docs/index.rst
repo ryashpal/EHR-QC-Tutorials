@@ -32,7 +32,9 @@ Contents
 
 .. toctree::
 
-   install
+   install_ehrqc
+   install_ehrqc_preprocess
+   install_ehrqc_standardise
    config
    migrate
    process
