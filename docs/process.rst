@@ -105,6 +105,56 @@ To extract the lab measurements data from mimic schema and store it in the `save
     (.venv) app_user@hostname:~$python -m ehrqc.extract.Extract temp/mimic_lab_measurements.csv mimic lab_measurements mimiciv
 
 
+Extract Data
+~~~~~~~~~~~~
+
+A generic function to extract any data from a relational database irrespective of the schema.
+
+**Note: This function is available within the EHR-QC-Preprocess module. For installatoin instructions for this module, please visit the following `link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install_ehrqc_preprocess.html>`_**
+
+Help menu
+^^^^^^^^^
+
+To display the help menu of the Exploration Plot functionality.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.ExtractData -h
+
+
+or
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.ExtractData --help
+
+
+Output
+
+.. code-block:: console
+
+    usage: ExtractData.py [-h] save_path schema_name sql_file_path
+    
+    EHR-QC preprocessing utility
+    
+    positional arguments:
+      save_path      Path of the file to store the outputs
+      schema_name    Source schema name
+      sql_file_path  Path of the file containing SQL query
+    
+    optional arguments:
+      -h, --help     show this help message and exit
+
+Usage
+^^^^^
+
+To extract the data by executing a query specified in the `sql_file_path` a relational database schema `schema_name` and store it in the `save_path`.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.extract.ExtractData /save/path.csv name_of_the_db_schema /path/to/query.sql
+
+
 Exploration Plots
 -----------------
 
