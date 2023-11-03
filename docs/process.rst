@@ -383,6 +383,10 @@ This is a generic utility to plot data exploration graphs.
 
     This utility functions doesn't expect any particular attributes to be present in the file. Instead, it will plot all the attributes mentioned in the column list parameter making it more flexible.
 
+.. note::
+
+    This function is available within the EHR-QC-Preprocess module. For installatoin instructions for this module, please visit the following `link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install_ehrqc_preprocess.html>`_
+
 Help menu
 ^^^^^^^^^
 
@@ -518,6 +522,10 @@ After the function runs successfully, it will generate an HTML file named `outli
 
 Using Isolation Forest
 ~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+    This function is available within the EHR-QC-Preprocess module. For installatoin instructions for this module, please visit the following `link <https://ehr-qc-tutorials.readthedocs.io/en/latest/install_ehrqc_preprocess.html>`_
 
 This module allows for plotting the outliers detected in an unsupervised manner using Isolation Forest technique and also allows to remove the detected outliers.
 
