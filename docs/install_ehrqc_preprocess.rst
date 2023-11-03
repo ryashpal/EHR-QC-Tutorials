@@ -1,5 +1,5 @@
-Install EHR-QC-Preprocess
-=========================
+EHR-QC-Preprocess
+=================
 
 Follow the below steps to install EHR-QC-Preprocess in your computer.
 
