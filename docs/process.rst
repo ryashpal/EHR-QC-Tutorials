@@ -382,7 +382,7 @@ This is a generic utility to plot data exploration graphs.
     This utility functions doesn't expect any particular attributes to be present in the file. Instead, it will plot all the attributes mentioned in the column list parameter making it more flexible.
 
 Help menu
-~~~~~~~~~
+^^^^^^^^^
 
 To display the help menu of the Exploration Plot functionality.
 
@@ -413,6 +413,16 @@ Output
       -c COLUMNS, --columns COLUMNS
       -sf [SOURCE_FILE_LIST [SOURCE_FILE_LIST ...]], --source_file_list [SOURCE_FILE_LIST [SOURCE_FILE_LIST ...]]
       -l [LABELS [LABELS ...]], --labels [LABELS [LABELS ...]]
+
+Generate Exploration Plots
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To generate QC plots using the data obtained from the files specified in `-sf` parameter and save it in the `save_path`. Additionally, it also uses the column names provided in the `-c` parameter and the labels specified as `-l`.
+
+.. code-block:: console
+
+    (.venv) app_user@hostname:~$python -m ehrqc.plot.ExplorationGraphsPdf /path/to/save_file.pdf -c {"Attr 1" : ["Column Name in File 1", "Column Name in File 2"], "Attr 2" : ["Column Name in File 1", "Column Name in File 2"]} -sf /path/to/source_file_1.csv /path/to/source_file_2.csv -l "Label for File 1" "Label for File 2"
+
 
 Outlier Handling
 ----------------
