@@ -12,9 +12,6 @@ This utility is primarily focussed to provide a domain specific toolset for perf
 
 .. image:: source/images/ehr-qc.PNG
 
-.. note::
-
-   This project is under active development.
 
 .. topic:: Acknowledgements
 
