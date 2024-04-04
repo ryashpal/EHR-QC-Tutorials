@@ -34,13 +34,7 @@ Yashpal Ramakrishnaiah, Nenad Macesic, Geoffrey I. Webb, Anton Y. Peleg, Sonika 
 *EHR-QC: A streamlined pipeline for automated electronic health records standardisation and preprocessing to predict clinical outcomes,
 Journal of Biomedical Informatics*,
 
-Volume 147,
-
-2023,
-
-104509,
-
-ISSN 1532-0464,
+Volume 147, 2023, 104509, ISSN 1532-0464,
 
 https://doi.org/10.1016/j.jbi.2023.104509.
 
