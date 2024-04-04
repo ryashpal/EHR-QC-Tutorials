@@ -1,5 +1,5 @@
 EHRQC
-===================================
+=====
 
 EHR-QC is a complete end-to-end pipeline to standardise and preprocess Electronic Health Records (EHR) for downstream integrative machine learning applications. This utility has two distinct modules;
 
@@ -23,6 +23,19 @@ This utility is primarily focussed to provide a domain specific toolset for perf
 
    .. image:: source/images/superbugai.png
       :width: 20 %
+
+Cite
+----
+
+Yashpal Ramakrishnaiah, Nenad Macesic, Geoffrey I. Webb, Anton Y. Peleg, Sonika Tyagi,
+*EHR-QC: A streamlined pipeline for automated electronic health records standardisation and preprocessing to predict clinical outcomes,
+Journal of Biomedical Informatics*,
+Volume 147,
+2023,
+104509,
+ISSN 1532-0464,
+https://doi.org/10.1016/j.jbi.2023.104509.
+(https://www.sciencedirect.com/science/article/pii/S1532046423002307)
 
 Contents
 --------
