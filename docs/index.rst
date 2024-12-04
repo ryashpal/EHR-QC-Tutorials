@@ -24,7 +24,7 @@ This utility is primarily focussed to provide a domain specific toolset for perf
    .. image:: source/images/superbugai.png
       :width: 20 %
 
-Credits
+Cite Us
 -------
 
 If you use this library for your research, please cite our paper:
